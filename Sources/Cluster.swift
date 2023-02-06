@@ -307,7 +307,6 @@ open class ClusterManager {
                 let cluster = ClusterAnnotation()
                 cluster.coordinate = coordinate(annotations: annotations, position: clusterPosition, mapRect: mapRect)
                 cluster.annotations = annotations
-                cluster.style = (annotations.first as? Annotation)?.style
                 allAnnotations += [cluster]
             } else {
                 allAnnotations += annotations

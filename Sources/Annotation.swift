@@ -9,9 +9,6 @@
 import MapKit
 
 open class Annotation: MKPointAnnotation {
-    // @available(swift, obsoleted: 6.0, message: "Please migrate to StyledClusterAnnotationView.")
-    open var style: ClusterAnnotationStyle?
-    
     public convenience init(coordinate: CLLocationCoordinate2D) {
         self.init()
         self.coordinate = coordinate
