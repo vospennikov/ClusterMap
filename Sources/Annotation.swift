@@ -123,22 +123,22 @@ open class StyledClusterAnnotationView: ClusterAnnotationView {
         guard let annotation = annotation as? ClusterAnnotation else { return }
         
         switch style {
-        case let .image(image):
-            backgroundColor = .clear
-            self.image = image
-        case let .color(color, radius):
-            let count = annotation.annotations.count
-            backgroundColor = color
-            var diameter = radius * 2
-            switch count {
-            case _ where count < 8:
-                diameter *= 0.6
-            case _ where count < 16:
-                diameter *= 0.8
-            default: break
-            }
-            frame = CGRect(origin: frame.origin, size: CGSize(width: diameter, height: diameter))
-            countLabel.text = "\(count)"
+            case let .image(image):
+                backgroundColor = .clear
+                self.image = image
+            case let .color(color, radius):
+                let count = annotation.annotations.count
+                backgroundColor = color
+                var diameter = radius * 2
+                switch count {
+                    case _ where count < 8:
+                        diameter *= 0.6
+                    case _ where count < 16:
+                        diameter *= 0.8
+                    default: break
+                }
+                frame = CGRect(origin: frame.origin, size: CGSize(width: diameter, height: diameter))
+                countLabel.text = "\(count)"
         }
     }
     

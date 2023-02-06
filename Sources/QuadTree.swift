@@ -46,11 +46,11 @@ class QuadTreeNode {
             mutating func next() -> QuadTreeNode? {
                 defer { index += 1 }
                 switch index {
-                case 0: return children.northWest
-                case 1: return children.northEast
-                case 2: return children.southWest
-                case 3: return children.southEast
-                default: return nil
+                    case 0: return children.northWest
+                    case 1: return children.northEast
+                    case 2: return children.southWest
+                    case 3: return children.southEast
+                    default: return nil
                 }
             }
         }
@@ -79,19 +79,19 @@ extension QuadTreeNode: AnnotationsContainer {
         guard rect.contains(annotation.coordinate) else { return false }
         
         switch type {
-        case .leaf:
-            annotations.append(annotation)
-            // if the max capacity was reached, become an internal node
-            if annotations.count == QuadTreeNode.maxPointCapacity {
-                subdivide()
-            }
-        case .internal(let children):
-            // pass the point to one of the children
-            for child in children where child.add(annotation) {
-                return true
-            }
-            
-            assertionFailure("rect.contains evaluted to true, but none of the children added the annotation")
+            case .leaf:
+                annotations.append(annotation)
+                // if the max capacity was reached, become an internal node
+                if annotations.count == QuadTreeNode.maxPointCapacity {
+                    subdivide()
+                }
+            case .internal(let children):
+                // pass the point to one of the children
+                for child in children where child.add(annotation) {
+                    return true
+                }
+                
+                assertionFailure("rect.contains evaluted to true, but none of the children added the annotation")
         }
         return true
     }
@@ -103,24 +103,24 @@ extension QuadTreeNode: AnnotationsContainer {
         _ = annotations.map { $0.coordinate }.firstIndex(of: annotation.coordinate).map { annotations.remove(at: $0) }
         
         switch type {
-        case .leaf: break
-        case .internal(let children):
-            // pass the point to one of the children
-            for child in children where child.remove(annotation) {
-                return true
-            }
-            
-            assertionFailure("rect.contains evaluted to true, but none of the children removed the annotation")
+            case .leaf: break
+            case .internal(let children):
+                // pass the point to one of the children
+                for child in children where child.remove(annotation) {
+                    return true
+                }
+                
+                assertionFailure("rect.contains evaluted to true, but none of the children removed the annotation")
         }
         return true
     }
     
     private func subdivide() {
         switch type {
-        case .leaf:
-            type = .internal(children: Children(parentNode: self))
-        case .internal:
-            preconditionFailure("Calling subdivide on an internal node")
+            case .leaf:
+                type = .internal(children: Children(parentNode: self))
+            case .internal:
+                preconditionFailure("Calling subdivide on an internal node")
         }
     }
     
@@ -134,11 +134,11 @@ extension QuadTreeNode: AnnotationsContainer {
         }
         
         switch type {
-        case .leaf: break
-        case .internal(let children):
-            for childNode in children {
-                result.append(contentsOf: childNode.annotations(in: rect))
-            }
+            case .leaf: break
+            case .internal(let children):
+                for childNode in children {
+                    result.append(contentsOf: childNode.annotations(in: rect))
+                }
         }
         
         return result

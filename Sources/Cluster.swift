@@ -14,7 +14,7 @@ public protocol ClusterManagerDelegate: AnyObject {
      The size of each cell on the grid (The larger the size, the better the performance) at a given zoom level.
      
      - Parameters:
-        - zoomLevel: The zoom level of the visible map region.
+     - zoomLevel: The zoom level of the visible map region.
      
      - Returns: The cell size at the given zoom level. If you return nil, the cell size will automatically adjust to the zoom level.
      */
@@ -24,8 +24,8 @@ public protocol ClusterManagerDelegate: AnyObject {
      Whether to cluster the given annotation.
      
      - Parameters:
-        - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
-
+     - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
+     
      - Returns: `true` to clusterize the given annotation.
      */
     func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool
@@ -82,11 +82,11 @@ open class ClusterManager {
     
     /**
      The distance in meters from contested location when the annotations have the same coordinate.
-
+     
      The default is 3.
-    */
+     */
     open var distanceFromContestedLocation: Double = 3
-
+    
     /**
      The position of the cluster annotation.
      */
@@ -153,7 +153,7 @@ open class ClusterManager {
      Adds an annotation object to the cluster manager.
      
      - Parameters:
-        - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
+     - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
      */
     open func add(_ annotation: MKAnnotation) {
         operationQueue.cancelAllOperations()
@@ -166,7 +166,7 @@ open class ClusterManager {
      Adds an array of annotation objects to the cluster manager.
      
      - Parameters:
-        - annotations: An array of annotation objects. Each object in the array must conform to the MKAnnotation protocol.
+     - annotations: An array of annotation objects. Each object in the array must conform to the MKAnnotation protocol.
      */
     open func add(_ annotations: [MKAnnotation]) {
         operationQueue.cancelAllOperations()
@@ -181,7 +181,7 @@ open class ClusterManager {
      Removes an annotation object from the cluster manager.
      
      - Parameters:
-        - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
+     - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
      */
     open func remove(_ annotation: MKAnnotation) {
         operationQueue.cancelAllOperations()
@@ -194,7 +194,7 @@ open class ClusterManager {
      Removes an array of annotation objects from the cluster manager.
      
      - Parameters:
-        - annotations: An array of annotation objects. Each object in the array must conform to the MKAnnotation protocol.
+     - annotations: An array of annotation objects. Each object in the array must conform to the MKAnnotation protocol.
      */
     open func remove(_ annotations: [MKAnnotation]) {
         operationQueue.cancelAllOperations()
@@ -219,8 +219,8 @@ open class ClusterManager {
      Reload the annotations on the map view.
      
      - Parameters:
-        - mapView: The map view object to reload.
-        - visibleMapRect: The area currently displayed by the map view.
+     - mapView: The map view object to reload.
+     - visibleMapRect: The area currently displayed by the map view.
      */
     @available(swift, obsoleted: 5.0, message: "Use reload(mapView:)")
     open func reload(_ mapView: MKMapView, visibleMapRect: MKMapRect) {
@@ -231,8 +231,8 @@ open class ClusterManager {
      Reload the annotations on the map view.
      
      - Parameters:
-        - mapView: The map view object to reload.
-        - completion: A closure to be executed when the reload finishes. The closure has no return value and takes a single Boolean argument that indicates whether or not the reload actually finished before the completion handler was called.
+     - mapView: The map view object to reload.
+     - completion: A closure to be executed when the reload finishes. The closure has no return value and takes a single Boolean argument that indicates whether or not the reload actually finished before the completion handler was called.
      */
     open func reload(mapView: MKMapView, completion: @escaping (Bool) -> Void = { finished in }) {
         let mapBounds = mapView.bounds
@@ -341,18 +341,18 @@ open class ClusterManager {
     
     func coordinate(annotations: [MKAnnotation], position: ClusterPosition, mapRect: MKMapRect) -> CLLocationCoordinate2D {
         switch position {
-        case .center:
-            return MKMapPoint(x: mapRect.midX, y: mapRect.midY).coordinate
-        case .nearCenter:
-            let coordinate = MKMapPoint(x: mapRect.midX, y: mapRect.midY).coordinate
-            let annotation = annotations.min { coordinate.distance(from: $0.coordinate) < coordinate.distance(from: $1.coordinate) }
-            return annotation!.coordinate
-        case .average:
-            let coordinates = annotations.map { $0.coordinate }
-            let totals = coordinates.reduce((latitude: 0.0, longitude: 0.0)) { ($0.latitude + $1.latitude, $0.longitude + $1.longitude) }
-            return CLLocationCoordinate2D(latitude: totals.latitude / Double(coordinates.count), longitude: totals.longitude / Double(coordinates.count))
-        case .first:
-            return annotations.first!.coordinate
+            case .center:
+                return MKMapPoint(x: mapRect.midX, y: mapRect.midY).coordinate
+            case .nearCenter:
+                let coordinate = MKMapPoint(x: mapRect.midX, y: mapRect.midY).coordinate
+                let annotation = annotations.min { coordinate.distance(from: $0.coordinate) < coordinate.distance(from: $1.coordinate) }
+                return annotation!.coordinate
+            case .average:
+                let coordinates = annotations.map { $0.coordinate }
+                let totals = coordinates.reduce((latitude: 0.0, longitude: 0.0)) { ($0.latitude + $1.latitude, $0.longitude + $1.longitude) }
+                return CLLocationCoordinate2D(latitude: totals.latitude / Double(coordinates.count), longitude: totals.longitude / Double(coordinates.count))
+            case .first:
+                return annotations.first!.coordinate
         }
     }
     
@@ -391,14 +391,14 @@ open class ClusterManager {
             return cellSize
         }
         switch zoomLevel {
-        case 13...15:
-            return 64
-        case 16...18:
-            return 32
-        case 19...:
-            return 16
-        default:
-            return 88
+            case 13...15:
+                return 64
+            case 16...18:
+                return 32
+            case 19...:
+                return 16
+            default:
+                return 88
         }
     }
     
