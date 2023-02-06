@@ -30,4 +30,12 @@ final class CLLocationCoordinate2DTests: XCTestCase {
         XCTAssertNotEqual(coordinate1, coordinate3)
         XCTAssertNotEqual(coordinate3, coordinate4)
     }
+    
+    func test_coordinateOnBearingInRadiansAtDistanceInMeters() {
+        let coordinate = CLLocationCoordinate2D(latitude: 37.3316851, longitude: -122.0300674)
+        let resultCoordinate = coordinate.coordinate(onBearingInRadians: 0.5, atDistanceInMeters: 1000)
+        
+        XCTAssertEqual(resultCoordinate.latitude, 37.33957503970442, accuracy: 0.0000001)
+        XCTAssertEqual(resultCoordinate.longitude, -122.02464593514087, accuracy: 0.0000001)
+    }
 }
