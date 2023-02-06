@@ -221,19 +221,7 @@ open class ClusterManager {
             self?.tree = QuadTree(rect: .world)
         }
     }
-    
-    /**
-     Reload the annotations on the map view.
-     
-     - Parameters:
-     - mapView: The map view object to reload.
-     - visibleMapRect: The area currently displayed by the map view.
-     */
-    @available(swift, obsoleted: 5.0, message: "Use reload(mapView:)")
-    open func reload(_ mapView: MKMapView, visibleMapRect: MKMapRect) {
-        reload(mapView: mapView)
-    }
-    
+        
     /**
      Reload the annotations on the map view.
      
