@@ -137,8 +137,15 @@ open class ClusterManager {
      The list of nested visible annotations associated.
      */
     open var visibleNestedAnnotations: [MKAnnotation] {
-        return dispatchQueue.sync {
-            visibleAnnotations.reduce([MKAnnotation](), { $0 + (($1 as? ClusterAnnotation)?.annotations ?? [$1]) })
+        dispatchQueue.sync {
+            visibleAnnotations.reduce(into: [MKAnnotation]()) { partialResult, annotation in
+                switch annotation {
+                    case let cluster as ClusterAnnotation:
+                        partialResult += cluster.annotations
+                    default:
+                        partialResult.append(annotation)
+                }
+            }
         }
     }
     
@@ -349,7 +356,10 @@ open class ClusterManager {
                 return annotation!.coordinate
             case .average:
                 let coordinates = annotations.map { $0.coordinate }
-                let totals = coordinates.reduce((latitude: 0.0, longitude: 0.0)) { ($0.latitude + $1.latitude, $0.longitude + $1.longitude) }
+                let totals = coordinates.reduce(into: (latitude: 0.0, longitude: 0.0)) { partialResult, location in
+                    partialResult.latitude += location.latitude
+                    partialResult.longitude += location.longitude
+                }
                 return CLLocationCoordinate2D(latitude: totals.latitude / Double(coordinates.count), longitude: totals.longitude / Double(coordinates.count))
             case .first:
                 return annotations.first!.coordinate
