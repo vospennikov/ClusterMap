@@ -151,6 +151,7 @@ final class ClusterManagerTests: XCTestCase {
         XCTAssertTrue(manager.visibleNestedAnnotations.count == 1000)
     }
     
+    // TODO: Flaky
     func testMultipleOperations() {
         let manager = ClusterManager()
         manager.addAnnotations(count: 1000, center: center, delta: delta)
