@@ -25,10 +25,9 @@ open class ClusterAnnotationView: MKAnnotationView {
         return label
     }()
     
-    open override var annotation: MKAnnotation? {
-        didSet {
-            configure()
-        }
+    open override func prepareForDisplay() {
+        super.prepareForDisplay()
+        configure()
     }
     
     open func configure() {
