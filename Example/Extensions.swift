@@ -33,11 +33,6 @@ extension UIImage {
     
 }
 
-extension UIColor {
-    class var green: UIColor { return UIColor(red: 76 / 255, green: 217 / 255, blue: 100 / 255, alpha: 1) }
-    class var blue: UIColor { return UIColor(red: 0, green: 122 / 255, blue: 1, alpha: 1) }
-}
-
 extension MKMapView {
     func annotationView<T: MKAnnotationView>(of type: T.Type, annotation: MKAnnotation?, reuseIdentifier: String) -> T {
         guard let annotationView = dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? T else {
