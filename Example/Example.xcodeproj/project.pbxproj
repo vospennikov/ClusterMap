@@ -10,6 +10,7 @@
 		DD2E58002990F5F5001D5640 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = DD2E57FF2990F5F5001D5640 /* Cluster */; };
 		DD2E58032990F619001D5640 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E58012990F619001D5640 /* Extensions.swift */; };
 		DD2E58042990F619001D5640 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E58022990F619001D5640 /* AnnotationView.swift */; };
+		DDA305262992B96C00984720 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA305252992B96C00984720 /* UIViewController+Preview.swift */; };
 		DDEAF3852990F59800E49D87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3842990F59800E49D87 /* AppDelegate.swift */; };
 		DDEAF3872990F59800E49D87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3862990F59800E49D87 /* SceneDelegate.swift */; };
 		DDEAF3892990F59800E49D87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3882990F59800E49D87 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		DD2E57FD2990F5E6001D5640 /* Cluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Cluster; path = ..; sourceTree = "<group>"; };
 		DD2E58012990F619001D5640 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DD2E58022990F619001D5640 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		DDA305252992B96C00984720 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		DDEAF3812990F59800E49D87 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEAF3842990F59800E49D87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDEAF3862990F59800E49D87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DDA305242992B96000984720 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DDA305252992B96C00984720 /* UIViewController+Preview.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		DDEAF3782990F59800E49D87 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		DDEAF3832990F59800E49D87 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				DDA305242992B96000984720 /* Extensions */,
 				DDEAF3922990F59900E49D87 /* Info.plist */,
 				DD2E58022990F619001D5640 /* AnnotationView.swift */,
 				DDEAF3842990F59800E49D87 /* AppDelegate.swift */,
@@ -170,6 +181,7 @@
 				DDEAF3892990F59800E49D87 /* ViewController.swift in Sources */,
 				DDEAF3852990F59800E49D87 /* AppDelegate.swift in Sources */,
 				DD2E58042990F619001D5640 /* AnnotationView.swift in Sources */,
+				DDA305262992B96C00984720 /* UIViewController+Preview.swift in Sources */,
 				DDEAF3872990F59800E49D87 /* SceneDelegate.swift in Sources */,
 				DD2E58032990F619001D5640 /* Extensions.swift in Sources */,
 			);
