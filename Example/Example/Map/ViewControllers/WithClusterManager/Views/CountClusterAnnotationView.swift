@@ -1,14 +1,13 @@
 //
-//  AnnotationView.swift
+//  CountClusterAnnotationView.swift
 //  Example
 //
-//  Created by Lasha Efremidze on 10/9/18.
-//  Copyright © 2018 efremidze. All rights reserved.
+//  Created by Mikhail Vospennikov on 07.02.2023.
 //
 
-import UIKit
-import MapKit
+import Foundation
 import Cluster
+import MapKit
 
 class CountClusterAnnotationView: ClusterAnnotationView {
     override func configure() {
@@ -32,18 +31,5 @@ class CountClusterAnnotationView: ClusterAnnotationView {
         } else {
             return 20
         }
-    }
-}
-
-class ImageCountClusterAnnotationView: ClusterAnnotationView {
-    lazy var once: Void = { [unowned self] in
-        self.countLabel.frame.size.width -= 6
-        self.countLabel.frame.origin.x += 3
-        self.countLabel.frame.origin.y -= 6
-    }()
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        _ = once
     }
 }

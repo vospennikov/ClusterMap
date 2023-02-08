@@ -7,31 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD2C462E299402820095F923 /* MKCoordinateRegion+Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */; };
+		DD2C4630299404C90095F923 /* DefaultMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */; };
 		DD2E58002990F5F5001D5640 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = DD2E57FF2990F5F5001D5640 /* Cluster */; };
-		DD2E58032990F619001D5640 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E58012990F619001D5640 /* Extensions.swift */; };
-		DD2E58042990F619001D5640 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E58022990F619001D5640 /* AnnotationView.swift */; };
-		DDA305262992B96C00984720 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA305252992B96C00984720 /* UIViewController+Preview.swift */; };
-		DDEAF3852990F59800E49D87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3842990F59800E49D87 /* AppDelegate.swift */; };
-		DDEAF3872990F59800E49D87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3862990F59800E49D87 /* SceneDelegate.swift */; };
-		DDEAF3892990F59800E49D87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3882990F59800E49D87 /* ViewController.swift */; };
-		DDEAF38C2990F59800E49D87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEAF38A2990F59800E49D87 /* Main.storyboard */; };
-		DDEAF38E2990F59900E49D87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEAF38D2990F59900E49D87 /* Assets.xcassets */; };
-		DDEAF3912990F59900E49D87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEAF38F2990F59900E49D87 /* LaunchScreen.storyboard */; };
+		DD883E7D2993C70400E713CF /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E582993C70400E713CF /* Resources.swift */; };
+		DD883E7F2993C70400E713CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD883E5A2993C70400E713CF /* Assets.xcassets */; };
+		DD883E802993C70400E713CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */; };
+		DD883E812993C70400E713CF /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E5F2993C70400E713CF /* UIViewController+Child.swift */; };
+		DD883E822993C70400E713CF /* UIImage+ColorFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E602993C70400E713CF /* UIImage+ColorFilled.swift */; };
+		DD883E832993C70400E713CF /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E612993C70400E713CF /* UIViewController+Preview.swift */; };
+		DD883E842993C70400E713CF /* MKMapView+AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E632993C70400E713CF /* MKMapView+AnnotationView.swift */; };
+		DD883E852993C70400E713CF /* MKAnnotationView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E642993C70400E713CF /* MKAnnotationView+Animations.swift */; };
+		DD883E862993C70400E713CF /* MKCoordinateRegion+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E652993C70400E713CF /* MKCoordinateRegion+Random.swift */; };
+		DD883E872993C70400E713CF /* CLLocationCoordinate2D+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E672993C70400E713CF /* CLLocationCoordinate2D+Random.swift */; };
+		DD883E882993C70400E713CF /* AnnotationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6A2993C70400E713CF /* AnnotationDataSource.swift */; };
+		DD883E892993C70400E713CF /* DefaultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6D2993C70400E713CF /* DefaultMapViewController.swift */; };
+		DD883E8A2993C70400E713CF /* ClusteredMapManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6F2993C70400E713CF /* ClusteredMapManagerDelegate.swift */; };
+		DD883E8B2993C70400E713CF /* ClusteredMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E702993C70400E713CF /* ClusteredMapViewDelegate.swift */; };
+		DD883E8C2993C70400E713CF /* ClusterMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E712993C70400E713CF /* ClusterMapViewController.swift */; };
+		DD883E8D2993C70400E713CF /* MeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E732993C70400E713CF /* MeAnnotation.swift */; };
+		DD883E8E2993C70400E713CF /* MapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E742993C70400E713CF /* MapContainerViewController.swift */; };
+		DD883E8F2993C70400E713CF /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E762993C70400E713CF /* CountClusterAnnotationView.swift */; };
+		DD883E902993C70400E713CF /* ImageCountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E772993C70400E713CF /* ImageCountClusterAnnotationView.swift */; };
+		DD883E912993C70400E713CF /* MapControlsViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E782993C70400E713CF /* MapControlsViewContainer.swift */; };
+		DD883E922993C70400E713CF /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7A2993C70400E713CF /* OutlineViewController.swift */; };
+		DD883E932993C70400E713CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7B2993C70400E713CF /* AppDelegate.swift */; };
+		DD883E942993C70400E713CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7C2993C70400E713CF /* SceneDelegate.swift */; };
+		DDB7C8372993DD800067B67E /* AnnotationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7C8362993DD800067B67E /* AnnotationTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Cities.swift"; sourceTree = "<group>"; };
+		DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMapViewDelegate.swift; sourceTree = "<group>"; };
 		DD2E57FD2990F5E6001D5640 /* Cluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Cluster; path = ..; sourceTree = "<group>"; };
-		DD2E58012990F619001D5640 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		DD2E58022990F619001D5640 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
-		DDA305252992B96C00984720 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
+		DD883E582993C70400E713CF /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		DD883E592993C70400E713CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD883E5A2993C70400E713CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD883E5C2993C70400E713CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD883E5F2993C70400E713CF /* UIViewController+Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		DD883E602993C70400E713CF /* UIImage+ColorFilled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorFilled.swift"; sourceTree = "<group>"; };
+		DD883E612993C70400E713CF /* UIViewController+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
+		DD883E632993C70400E713CF /* MKMapView+AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+AnnotationView.swift"; sourceTree = "<group>"; };
+		DD883E642993C70400E713CF /* MKAnnotationView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKAnnotationView+Animations.swift"; sourceTree = "<group>"; };
+		DD883E652993C70400E713CF /* MKCoordinateRegion+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Random.swift"; sourceTree = "<group>"; };
+		DD883E672993C70400E713CF /* CLLocationCoordinate2D+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Random.swift"; sourceTree = "<group>"; };
+		DD883E6A2993C70400E713CF /* AnnotationDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationDataSource.swift; sourceTree = "<group>"; };
+		DD883E6D2993C70400E713CF /* DefaultMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMapViewController.swift; sourceTree = "<group>"; };
+		DD883E6F2993C70400E713CF /* ClusteredMapManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteredMapManagerDelegate.swift; sourceTree = "<group>"; };
+		DD883E702993C70400E713CF /* ClusteredMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteredMapViewDelegate.swift; sourceTree = "<group>"; };
+		DD883E712993C70400E713CF /* ClusterMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterMapViewController.swift; sourceTree = "<group>"; };
+		DD883E732993C70400E713CF /* MeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeAnnotation.swift; sourceTree = "<group>"; };
+		DD883E742993C70400E713CF /* MapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContainerViewController.swift; sourceTree = "<group>"; };
+		DD883E762993C70400E713CF /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		DD883E772993C70400E713CF /* ImageCountClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		DD883E782993C70400E713CF /* MapControlsViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapControlsViewContainer.swift; sourceTree = "<group>"; };
+		DD883E7A2993C70400E713CF /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
+		DD883E7B2993C70400E713CF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD883E7C2993C70400E713CF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DDB7C8362993DD800067B67E /* AnnotationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationTypes.swift; sourceTree = "<group>"; };
 		DDEAF3812990F59800E49D87 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDEAF3842990F59800E49D87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDEAF3862990F59800E49D87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDEAF3882990F59800E49D87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDEAF38B2990F59800E49D87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DDEAF38D2990F59900E49D87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DDEAF3902990F59900E49D87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DDEAF3922990F59900E49D87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,21 +95,143 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DDA305242992B96000984720 /* Extensions */ = {
+		DD883E562993C70400E713CF /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				DDA305252992B96C00984720 /* UIViewController+Preview.swift */,
+				DD883E7B2993C70400E713CF /* AppDelegate.swift */,
+				DD883E7A2993C70400E713CF /* OutlineViewController.swift */,
+				DD883E7C2993C70400E713CF /* SceneDelegate.swift */,
+				DD883E5D2993C70400E713CF /* Extensions */,
+				DD883E682993C70400E713CF /* Map */,
+				DD883E572993C70400E713CF /* Resources */,
 			);
-			name = Extensions;
+			path = Example;
+			sourceTree = "<group>";
+		};
+		DD883E572993C70400E713CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E592993C70400E713CF /* Info.plist */,
+				DD883E582993C70400E713CF /* Resources.swift */,
+				DD883E5A2993C70400E713CF /* Assets.xcassets */,
+				DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD883E5D2993C70400E713CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E5E2993C70400E713CF /* UIKit */,
+				DD883E622993C70400E713CF /* MapKit */,
+				DD883E662993C70400E713CF /* CoreLocation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD883E5E2993C70400E713CF /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E5F2993C70400E713CF /* UIViewController+Child.swift */,
+				DD883E602993C70400E713CF /* UIImage+ColorFilled.swift */,
+				DD883E612993C70400E713CF /* UIViewController+Preview.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		DD883E622993C70400E713CF /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E632993C70400E713CF /* MKMapView+AnnotationView.swift */,
+				DD883E642993C70400E713CF /* MKAnnotationView+Animations.swift */,
+				DD883E652993C70400E713CF /* MKCoordinateRegion+Random.swift */,
+				DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
+		DD883E662993C70400E713CF /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E672993C70400E713CF /* CLLocationCoordinate2D+Random.swift */,
+			);
+			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		DD883E682993C70400E713CF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E742993C70400E713CF /* MapContainerViewController.swift */,
+				DD883E782993C70400E713CF /* MapControlsViewContainer.swift */,
+				DD883E722993C70400E713CF /* Annotations */,
+				DD883E692993C70400E713CF /* DataSource */,
+				DDB7C8352993DD180067B67E /* ViewControllers */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		DD883E692993C70400E713CF /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E6A2993C70400E713CF /* AnnotationDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		DD883E6C2993C70400E713CF /* DefaultClustering */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E6D2993C70400E713CF /* DefaultMapViewController.swift */,
+				DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */,
+			);
+			path = DefaultClustering;
+			sourceTree = "<group>";
+		};
+		DD883E6E2993C70400E713CF /* WithClusterManager */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E6F2993C70400E713CF /* ClusteredMapManagerDelegate.swift */,
+				DD883E702993C70400E713CF /* ClusteredMapViewDelegate.swift */,
+				DD883E712993C70400E713CF /* ClusterMapViewController.swift */,
+				DD883E752993C70400E713CF /* Views */,
+			);
+			path = WithClusterManager;
+			sourceTree = "<group>";
+		};
+		DD883E722993C70400E713CF /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E732993C70400E713CF /* MeAnnotation.swift */,
+				DDB7C8362993DD800067B67E /* AnnotationTypes.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
+		DD883E752993C70400E713CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E762993C70400E713CF /* CountClusterAnnotationView.swift */,
+				DD883E772993C70400E713CF /* ImageCountClusterAnnotationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDB7C8352993DD180067B67E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E6C2993C70400E713CF /* DefaultClustering */,
+				DD883E6E2993C70400E713CF /* WithClusterManager */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		DDEAF3782990F59800E49D87 = {
 			isa = PBXGroup;
 			children = (
-				DD2E57FC2990F5E6001D5640 /* Packages */,
-				DDEAF3832990F59800E49D87 /* Example */,
-				DDEAF3822990F59800E49D87 /* Products */,
+				DD883E562993C70400E713CF /* Example */,
 				DD2E57FE2990F5F5001D5640 /* Frameworks */,
+				DD2E57FC2990F5E6001D5640 /* Packages */,
+				DDEAF3822990F59800E49D87 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,23 +241,6 @@
 				DDEAF3812990F59800E49D87 /* Example.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DDEAF3832990F59800E49D87 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				DDA305242992B96000984720 /* Extensions */,
-				DDEAF3922990F59900E49D87 /* Info.plist */,
-				DD2E58022990F619001D5640 /* AnnotationView.swift */,
-				DDEAF3842990F59800E49D87 /* AppDelegate.swift */,
-				DD2E58012990F619001D5640 /* Extensions.swift */,
-				DDEAF3862990F59800E49D87 /* SceneDelegate.swift */,
-				DDEAF3882990F59800E49D87 /* ViewController.swift */,
-				DDEAF38D2990F59900E49D87 /* Assets.xcassets */,
-				DDEAF38F2990F59900E49D87 /* LaunchScreen.storyboard */,
-				DDEAF38A2990F59800E49D87 /* Main.storyboard */,
-			);
-			name = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +304,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDEAF3912990F59900E49D87 /* LaunchScreen.storyboard in Resources */,
-				DDEAF38E2990F59900E49D87 /* Assets.xcassets in Resources */,
-				DDEAF38C2990F59800E49D87 /* Main.storyboard in Resources */,
+				DD883E802993C70400E713CF /* LaunchScreen.storyboard in Resources */,
+				DD883E7F2993C70400E713CF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,30 +316,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDEAF3892990F59800E49D87 /* ViewController.swift in Sources */,
-				DDEAF3852990F59800E49D87 /* AppDelegate.swift in Sources */,
-				DD2E58042990F619001D5640 /* AnnotationView.swift in Sources */,
-				DDA305262992B96C00984720 /* UIViewController+Preview.swift in Sources */,
-				DDEAF3872990F59800E49D87 /* SceneDelegate.swift in Sources */,
-				DD2E58032990F619001D5640 /* Extensions.swift in Sources */,
+				DD883E8C2993C70400E713CF /* ClusterMapViewController.swift in Sources */,
+				DD883E872993C70400E713CF /* CLLocationCoordinate2D+Random.swift in Sources */,
+				DD883E892993C70400E713CF /* DefaultMapViewController.swift in Sources */,
+				DD883E822993C70400E713CF /* UIImage+ColorFilled.swift in Sources */,
+				DD883E842993C70400E713CF /* MKMapView+AnnotationView.swift in Sources */,
+				DD2C462E299402820095F923 /* MKCoordinateRegion+Cities.swift in Sources */,
+				DD883E922993C70400E713CF /* OutlineViewController.swift in Sources */,
+				DD883E8E2993C70400E713CF /* MapContainerViewController.swift in Sources */,
+				DD2C4630299404C90095F923 /* DefaultMapViewDelegate.swift in Sources */,
+				DD883E8A2993C70400E713CF /* ClusteredMapManagerDelegate.swift in Sources */,
+				DD883E942993C70400E713CF /* SceneDelegate.swift in Sources */,
+				DD883E932993C70400E713CF /* AppDelegate.swift in Sources */,
+				DD883E912993C70400E713CF /* MapControlsViewContainer.swift in Sources */,
+				DD883E882993C70400E713CF /* AnnotationDataSource.swift in Sources */,
+				DD883E902993C70400E713CF /* ImageCountClusterAnnotationView.swift in Sources */,
+				DD883E8F2993C70400E713CF /* CountClusterAnnotationView.swift in Sources */,
+				DD883E852993C70400E713CF /* MKAnnotationView+Animations.swift in Sources */,
+				DD883E7D2993C70400E713CF /* Resources.swift in Sources */,
+				DD883E8B2993C70400E713CF /* ClusteredMapViewDelegate.swift in Sources */,
+				DD883E862993C70400E713CF /* MKCoordinateRegion+Random.swift in Sources */,
+				DD883E812993C70400E713CF /* UIViewController+Child.swift in Sources */,
+				DD883E8D2993C70400E713CF /* MeAnnotation.swift in Sources */,
+				DDB7C8372993DD800067B67E /* AnnotationTypes.swift in Sources */,
+				DD883E832993C70400E713CF /* UIViewController+Preview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DDEAF38A2990F59800E49D87 /* Main.storyboard */ = {
+		DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DDEAF38B2990F59800E49D87 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DDEAF38F2990F59900E49D87 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDEAF3902990F59900E49D87 /* Base */,
+				DD883E5C2993C70400E713CF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -331,10 +479,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = Example/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -359,10 +506,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = Example/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
