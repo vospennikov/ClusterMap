@@ -5,7 +5,7 @@
 //  Created by Mikhail Vospennikov on 07.02.2023.
 //
 
-import UIKit
+import Foundation
 
 /**
  The style of the cluster annotation view.
@@ -17,10 +17,10 @@ public enum ClusterAnnotationStyle {
      - `color`: The color of the annotation circle
      - `radius`: The radius of the annotation circle
      */
-    case color(UIColor, radius: CGFloat)
+    case color(NativeColor, radius: CGFloat)
     
     /**
      Displays the annotation as an image.
      */
-    case image(UIImage?)
+    case image(NativeImage?)
 }

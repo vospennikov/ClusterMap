@@ -11,16 +11,9 @@ import MapKit
  The view associated with your cluster annotations.
  */
 open class ClusterAnnotationView: MKAnnotationView {
-    open lazy var countLabel: UILabel = {
-        let label = UILabel()
-        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        label.backgroundColor = .clear
-        label.font = .boldSystemFont(ofSize: 13)
-        label.textColor = .white
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-        label.baselineAdjustment = .alignCenters
+    open lazy var countLabel: CountLabel = {
+        let label = CountLabel()
+        label.configure()
         self.addSubview(label)
         return label
     }()

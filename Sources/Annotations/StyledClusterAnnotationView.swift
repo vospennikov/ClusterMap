@@ -6,7 +6,11 @@
 //
 
 import MapKit
-
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(Cocoa)
+import Cocoa
+#endif
 /**
  A cluster annotation view that supports styles.
  */
@@ -60,14 +64,37 @@ open class StyledClusterAnnotationView: ClusterAnnotationView {
         }
     }
     
-    override open func layoutSubviews() {
-        super.layoutSubviews()
-        
+    private func configureLayer() {
         if case .color = style {
-            layer.masksToBounds = true
-            layer.cornerRadius = image == nil ? bounds.width / 2 : 0
+            nativeLayer?.masksToBounds = true
+            nativeLayer?.cornerRadius = image == nil ? bounds.width / 2 : 0
             countLabel.frame = bounds
         }
     }
     
+    #if canImport(UIKit)
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        configureLayer()
+    }
+    #elseif canImport(Cocoa)
+    open override func layout() {
+        super.layout()
+        configureLayer()
+    }
+    
+    var backgroundColor: NSColor? {
+        get {
+            guard let cgColor = layer?.backgroundColor else { return nil }
+            return NSColor(cgColor: cgColor)
+        }
+        set {
+            if let newValue {
+                layer?.backgroundColor = newValue.cgColor
+            } else {
+                layer?.backgroundColor = nil
+            }
+        }
+    }
+    #endif
 }

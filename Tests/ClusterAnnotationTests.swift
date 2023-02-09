@@ -14,6 +14,7 @@ final class ClusterAnnotationTests: XCTestCase {
         let annotation = ClusterAnnotation()
         let text = "\(annotation.annotations.count)"
         let annotationView = ClusterAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        annotationView.prepareForDisplay()
         XCTAssertEqual(annotationView.reuseIdentifier, identifier)
         if let _annotation = annotationView.annotation as? ClusterAnnotation {
             XCTAssertEqual(_annotation, annotation)
