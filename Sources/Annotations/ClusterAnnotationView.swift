@@ -15,6 +15,15 @@ open class ClusterAnnotationView: MKAnnotationView {
         let label = CountLabel()
         label.configure()
         self.addSubview(label)
+        
+        #if canImport(AppKit)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+        ])
+        #endif
+        
         return label
     }()
     
@@ -26,6 +35,19 @@ open class ClusterAnnotationView: MKAnnotationView {
     open func configure() {
         guard let annotation = annotation as? ClusterAnnotation else { return }
         let count = annotation.annotations.count
-        countLabel.text = "\(count)"
+        countLabel.nativeText = "\(count)"
     }
+    
+    #if canImport(AppKit)
+    open var backgroundColor: NativeColor? {
+        get {
+            guard let nativeLayer = self.nativeLayer,
+            let backgroundColor = nativeLayer.backgroundColor else { return nil }
+            return NativeColor(cgColor: backgroundColor)
+        }
+        set {
+            self.nativeLayer?.backgroundColor = newValue?.cgColor
+        }
+    }
+    #endif
 }

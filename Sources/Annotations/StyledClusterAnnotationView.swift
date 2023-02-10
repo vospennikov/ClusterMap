@@ -60,7 +60,7 @@ open class StyledClusterAnnotationView: ClusterAnnotationView {
                     default: break
                 }
                 frame = CGRect(origin: frame.origin, size: CGSize(width: diameter, height: diameter))
-                countLabel.text = "\(count)"
+                countLabel.nativeText = "\(count)"
         }
     }
     
@@ -81,20 +81,6 @@ open class StyledClusterAnnotationView: ClusterAnnotationView {
     open override func layout() {
         super.layout()
         configureLayer()
-    }
-    
-    var backgroundColor: NSColor? {
-        get {
-            guard let cgColor = layer?.backgroundColor else { return nil }
-            return NSColor(cgColor: cgColor)
-        }
-        set {
-            if let newValue {
-                layer?.backgroundColor = newValue.cgColor
-            } else {
-                layer?.backgroundColor = nil
-            }
-        }
     }
     #endif
 }

@@ -7,15 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1B5D6929955EFF0015D91B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B5D6829955EFF0015D91B /* AppDelegate.swift */; };
+		DD1B5D6D29955F000015D91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1B5D6C29955F000015D91B /* Assets.xcassets */; };
+		DD2643C52996622300C93194 /* NativeColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F0342996356300DECC19 /* NativeColor+Colors.swift */; };
 		DD2C462E299402820095F923 /* MKCoordinateRegion+Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */; };
 		DD2C4630299404C90095F923 /* DefaultMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */; };
 		DD2E58002990F5F5001D5640 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = DD2E57FF2990F5F5001D5640 /* Cluster */; };
+		DD7989EA29961F3700B28DC4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7989E929961F3700B28DC4 /* main.swift */; };
+		DD7989ED29961FFC00B28DC4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7989EB29961FFC00B28DC4 /* MapViewController.swift */; };
+		DD7989F0299622FE00B28DC4 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = DD7989EF299622FE00B28DC4 /* Cluster */; };
+		DD798A0B29962C5900B28DC4 /* AnnotationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7C8362993DD800067B67E /* AnnotationTypes.swift */; };
+		DD798A0C29962C6400B28DC4 /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E762993C70400E713CF /* CountClusterAnnotationView.swift */; };
+		DD798A0D29962C6900B28DC4 /* AnnotationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6A2993C70400E713CF /* AnnotationDataSource.swift */; };
+		DD798A0F29962C7300B28DC4 /* MKMapView+AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E632993C70400E713CF /* MKMapView+AnnotationView.swift */; };
+		DD798A1029962C7300B28DC4 /* MKCoordinateRegion+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E652993C70400E713CF /* MKCoordinateRegion+Random.swift */; };
+		DD798A1129962C7300B28DC4 /* CLLocationCoordinate2D+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E672993C70400E713CF /* CLLocationCoordinate2D+Random.swift */; };
+		DD798A1229962C7300B28DC4 /* MKCoordinateRegion+Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */; };
+		DD798A1529962FC900B28DC4 /* ClusteredMapManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6F2993C70400E713CF /* ClusteredMapManagerDelegate.swift */; };
+		DD798A1629962FC900B28DC4 /* ClusteredMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E702993C70400E713CF /* ClusteredMapViewDelegate.swift */; };
+		DD798A172996308900B28DC4 /* MeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E732993C70400E713CF /* MeAnnotation.swift */; };
+		DD798A1A299630F100B28DC4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD798A19299630F100B28DC4 /* Media.xcassets */; };
+		DD798A1B2996323000B28DC4 /* ImageCountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E772993C70400E713CF /* ImageCountClusterAnnotationView.swift */; };
+		DD798A1D2996329500B28DC4 /* Native+TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD798A1C2996329500B28DC4 /* Native+TypeAliases.swift */; };
 		DD883E7D2993C70400E713CF /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E582993C70400E713CF /* Resources.swift */; };
 		DD883E7F2993C70400E713CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD883E5A2993C70400E713CF /* Assets.xcassets */; };
 		DD883E802993C70400E713CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */; };
-		DD883E812993C70400E713CF /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E5F2993C70400E713CF /* UIViewController+Child.swift */; };
-		DD883E822993C70400E713CF /* UIImage+ColorFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E602993C70400E713CF /* UIImage+ColorFilled.swift */; };
-		DD883E832993C70400E713CF /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E612993C70400E713CF /* UIViewController+Preview.swift */; };
+		DD883E812993C70400E713CF /* NativeViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E5F2993C70400E713CF /* NativeViewController+Child.swift */; };
+		DD883E832993C70400E713CF /* NativeViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E612993C70400E713CF /* NativeViewController+Preview.swift */; };
 		DD883E842993C70400E713CF /* MKMapView+AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E632993C70400E713CF /* MKMapView+AnnotationView.swift */; };
 		DD883E852993C70400E713CF /* MKAnnotationView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E642993C70400E713CF /* MKAnnotationView+Animations.swift */; };
 		DD883E862993C70400E713CF /* MKCoordinateRegion+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E652993C70400E713CF /* MKCoordinateRegion+Random.swift */; };
@@ -33,20 +51,58 @@
 		DD883E922993C70400E713CF /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7A2993C70400E713CF /* OutlineViewController.swift */; };
 		DD883E932993C70400E713CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7B2993C70400E713CF /* AppDelegate.swift */; };
 		DD883E942993C70400E713CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7C2993C70400E713CF /* SceneDelegate.swift */; };
+		DD92F030299633B100DECC19 /* Native+TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD798A1C2996329500B28DC4 /* Native+TypeAliases.swift */; };
+		DD92F0312996345E00DECC19 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD798A19299630F100B28DC4 /* Media.xcassets */; };
+		DD92F0322996351C00DECC19 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E582993C70400E713CF /* Resources.swift */; };
+		DD92F0362996356700DECC19 /* NativeColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F0342996356300DECC19 /* NativeColor+Colors.swift */; };
+		DD92F038299635E000DECC19 /* NativeViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E612993C70400E713CF /* NativeViewController+Preview.swift */; };
+		DD92F03B2996369B00DECC19 /* NativeImage+ColorFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F03A2996369B00DECC19 /* NativeImage+ColorFilled.swift */; };
+		DD92F03C2996378800DECC19 /* NativeImage+ColorFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F03A2996369B00DECC19 /* NativeImage+ColorFilled.swift */; };
 		DDB7C8372993DD800067B67E /* AnnotationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7C8362993DD800067B67E /* AnnotationTypes.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DD798A0529962AB100B28DC4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD798A0A29962AB500B28DC4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		DD1B5D6629955EFF0015D91B /* Example-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1B5D6829955EFF0015D91B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD1B5D6C29955F000015D91B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD1B5D7129955F000015D91B /* Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example_macOS.entitlements; sourceTree = "<group>"; };
 		DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Cities.swift"; sourceTree = "<group>"; };
 		DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMapViewDelegate.swift; sourceTree = "<group>"; };
 		DD2E57FD2990F5E6001D5640 /* Cluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Cluster; path = ..; sourceTree = "<group>"; };
+		DD7989E929961F3700B28DC4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DD7989EB29961FFC00B28DC4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DD7989FC29962A9000B28DC4 /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
+		DD798A19299630F100B28DC4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		DD798A1C2996329500B28DC4 /* Native+TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Native+TypeAliases.swift"; sourceTree = "<group>"; };
 		DD883E582993C70400E713CF /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		DD883E592993C70400E713CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD883E5A2993C70400E713CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD883E5C2993C70400E713CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DD883E5F2993C70400E713CF /* UIViewController+Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
-		DD883E602993C70400E713CF /* UIImage+ColorFilled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorFilled.swift"; sourceTree = "<group>"; };
-		DD883E612993C70400E713CF /* UIViewController+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
+		DD883E5F2993C70400E713CF /* NativeViewController+Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NativeViewController+Child.swift"; sourceTree = "<group>"; };
+		DD883E612993C70400E713CF /* NativeViewController+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NativeViewController+Preview.swift"; sourceTree = "<group>"; };
 		DD883E632993C70400E713CF /* MKMapView+AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+AnnotationView.swift"; sourceTree = "<group>"; };
 		DD883E642993C70400E713CF /* MKAnnotationView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKAnnotationView+Animations.swift"; sourceTree = "<group>"; };
 		DD883E652993C70400E713CF /* MKCoordinateRegion+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Random.swift"; sourceTree = "<group>"; };
@@ -64,11 +120,21 @@
 		DD883E7A2993C70400E713CF /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
 		DD883E7B2993C70400E713CF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD883E7C2993C70400E713CF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DD92F0342996356300DECC19 /* NativeColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NativeColor+Colors.swift"; sourceTree = "<group>"; };
+		DD92F03A2996369B00DECC19 /* NativeImage+ColorFilled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NativeImage+ColorFilled.swift"; sourceTree = "<group>"; };
 		DDB7C8362993DD800067B67E /* AnnotationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationTypes.swift; sourceTree = "<group>"; };
-		DDEAF3812990F59800E49D87 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEAF3812990F59800E49D87 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD1B5D6329955EFF0015D91B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD7989F0299622FE00B28DC4 /* Cluster in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDEAF37E2990F59800E49D87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,6 +146,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD1B5D6729955EFF0015D91B /* Example-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				DD1B5D7129955F000015D91B /* Example_macOS.entitlements */,
+				DD1B5D6829955EFF0015D91B /* AppDelegate.swift */,
+				DD7989E929961F3700B28DC4 /* main.swift */,
+				DD7989EB29961FFC00B28DC4 /* MapViewController.swift */,
+				DD1B5D6C29955F000015D91B /* Assets.xcassets */,
+			);
+			path = "Example-macOS";
+			sourceTree = "<group>";
+		};
 		DD2E57FC2990F5E6001D5640 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,24 +173,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DD883E562993C70400E713CF /* Example */ = {
+		DD7989FB29962A9000B28DC4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DD7989FC29962A9000B28DC4 /* Shared.h */,
+				DD883E722993C70400E713CF /* Annotations */,
+				DD883E692993C70400E713CF /* DataSource */,
+				DD883E5D2993C70400E713CF /* Extensions */,
+				DD798A1429962F9000B28DC4 /* Map */,
+				DD798A18299630BA00B28DC4 /* Resources */,
+				DD883E752993C70400E713CF /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DD798A1429962F9000B28DC4 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E6F2993C70400E713CF /* ClusteredMapManagerDelegate.swift */,
+				DD883E702993C70400E713CF /* ClusteredMapViewDelegate.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		DD798A18299630BA00B28DC4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD798A19299630F100B28DC4 /* Media.xcassets */,
+				DD883E582993C70400E713CF /* Resources.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD883E562993C70400E713CF /* Example-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				DD883E7B2993C70400E713CF /* AppDelegate.swift */,
 				DD883E7A2993C70400E713CF /* OutlineViewController.swift */,
 				DD883E7C2993C70400E713CF /* SceneDelegate.swift */,
-				DD883E5D2993C70400E713CF /* Extensions */,
 				DD883E682993C70400E713CF /* Map */,
 				DD883E572993C70400E713CF /* Resources */,
 			);
-			path = Example;
+			path = "Example-iOS";
 			sourceTree = "<group>";
 		};
 		DD883E572993C70400E713CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				DD883E592993C70400E713CF /* Info.plist */,
-				DD883E582993C70400E713CF /* Resources.swift */,
 				DD883E5A2993C70400E713CF /* Assets.xcassets */,
 				DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */,
 			);
@@ -122,21 +230,12 @@
 		DD883E5D2993C70400E713CF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DD883E5E2993C70400E713CF /* UIKit */,
-				DD883E622993C70400E713CF /* MapKit */,
+				DD92F0392996367D00DECC19 /* Native */,
 				DD883E662993C70400E713CF /* CoreLocation */,
+				DD883E622993C70400E713CF /* MapKit */,
+				DD92F0372996359A00DECC19 /* SwiftUI */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DD883E5E2993C70400E713CF /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				DD883E5F2993C70400E713CF /* UIViewController+Child.swift */,
-				DD883E602993C70400E713CF /* UIImage+ColorFilled.swift */,
-				DD883E612993C70400E713CF /* UIViewController+Preview.swift */,
-			);
-			path = UIKit;
 			sourceTree = "<group>";
 		};
 		DD883E622993C70400E713CF /* MapKit */ = {
@@ -163,8 +262,6 @@
 			children = (
 				DD883E742993C70400E713CF /* MapContainerViewController.swift */,
 				DD883E782993C70400E713CF /* MapControlsViewContainer.swift */,
-				DD883E722993C70400E713CF /* Annotations */,
-				DD883E692993C70400E713CF /* DataSource */,
 				DDB7C8352993DD180067B67E /* ViewControllers */,
 			);
 			path = Map;
@@ -190,10 +287,7 @@
 		DD883E6E2993C70400E713CF /* WithClusterManager */ = {
 			isa = PBXGroup;
 			children = (
-				DD883E6F2993C70400E713CF /* ClusteredMapManagerDelegate.swift */,
-				DD883E702993C70400E713CF /* ClusteredMapViewDelegate.swift */,
 				DD883E712993C70400E713CF /* ClusterMapViewController.swift */,
-				DD883E752993C70400E713CF /* Views */,
 			);
 			path = WithClusterManager;
 			sourceTree = "<group>";
@@ -216,6 +310,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DD92F0372996359A00DECC19 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				DD883E612993C70400E713CF /* NativeViewController+Preview.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		DD92F0392996367D00DECC19 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				DD798A1C2996329500B28DC4 /* Native+TypeAliases.swift */,
+				DD92F0342996356300DECC19 /* NativeColor+Colors.swift */,
+				DD92F03A2996369B00DECC19 /* NativeImage+ColorFilled.swift */,
+				DD883E5F2993C70400E713CF /* NativeViewController+Child.swift */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
 		DDB7C8352993DD180067B67E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +341,9 @@
 		DDEAF3782990F59800E49D87 = {
 			isa = PBXGroup;
 			children = (
-				DD883E562993C70400E713CF /* Example */,
+				DD883E562993C70400E713CF /* Example-iOS */,
+				DD1B5D6729955EFF0015D91B /* Example-macOS */,
+				DD7989FB29962A9000B28DC4 /* Shared */,
 				DD2E57FE2990F5F5001D5640 /* Frameworks */,
 				DD2E57FC2990F5E6001D5640 /* Packages */,
 				DDEAF3822990F59800E49D87 /* Products */,
@@ -238,7 +353,8 @@
 		DDEAF3822990F59800E49D87 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DDEAF3812990F59800E49D87 /* Example.app */,
+				DDEAF3812990F59800E49D87 /* Example-iOS.app */,
+				DD1B5D6629955EFF0015D91B /* Example-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,24 +362,46 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DDEAF3802990F59800E49D87 /* Example */ = {
+		DD1B5D6529955EFF0015D91B /* Example-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDEAF3952990F59900E49D87 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = DD1B5D7229955F000015D91B /* Build configuration list for PBXNativeTarget "Example-macOS" */;
 			buildPhases = (
-				DDEAF37D2990F59800E49D87 /* Sources */,
-				DDEAF37E2990F59800E49D87 /* Frameworks */,
-				DDEAF37F2990F59800E49D87 /* Resources */,
+				DD1B5D6229955EFF0015D91B /* Sources */,
+				DD1B5D6329955EFF0015D91B /* Frameworks */,
+				DD1B5D6429955EFF0015D91B /* Resources */,
+				DD798A0A29962AB500B28DC4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = "Example-macOS";
+			packageProductDependencies = (
+				DD7989EF299622FE00B28DC4 /* Cluster */,
+			);
+			productName = "Example-macOS";
+			productReference = DD1B5D6629955EFF0015D91B /* Example-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDEAF3802990F59800E49D87 /* Example-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEAF3952990F59900E49D87 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
+			buildPhases = (
+				DDEAF37D2990F59800E49D87 /* Sources */,
+				DDEAF37E2990F59800E49D87 /* Frameworks */,
+				DDEAF37F2990F59800E49D87 /* Resources */,
+				DD798A0529962AB100B28DC4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Example-iOS";
 			packageProductDependencies = (
 				DD2E57FF2990F5F5001D5640 /* Cluster */,
 			);
 			productName = Example;
-			productReference = DDEAF3812990F59800E49D87 /* Example.app */;
+			productReference = DDEAF3812990F59800E49D87 /* Example-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -276,6 +414,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					DD1B5D6529955EFF0015D91B = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					DDEAF3802990F59800E49D87 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -294,17 +435,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DDEAF3802990F59800E49D87 /* Example */,
+				DDEAF3802990F59800E49D87 /* Example-iOS */,
+				DD1B5D6529955EFF0015D91B /* Example-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD1B5D6429955EFF0015D91B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD798A1A299630F100B28DC4 /* Media.xcassets in Resources */,
+				DD1B5D6D29955F000015D91B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDEAF37F2990F59800E49D87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DD883E802993C70400E713CF /* LaunchScreen.storyboard in Resources */,
+				DD92F0312996345E00DECC19 /* Media.xcassets in Resources */,
 				DD883E7F2993C70400E713CF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,20 +464,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD1B5D6229955EFF0015D91B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD798A1D2996329500B28DC4 /* Native+TypeAliases.swift in Sources */,
+				DD798A0B29962C5900B28DC4 /* AnnotationTypes.swift in Sources */,
+				DD798A0C29962C6400B28DC4 /* CountClusterAnnotationView.swift in Sources */,
+				DD92F03C2996378800DECC19 /* NativeImage+ColorFilled.swift in Sources */,
+				DD798A1129962C7300B28DC4 /* CLLocationCoordinate2D+Random.swift in Sources */,
+				DD92F038299635E000DECC19 /* NativeViewController+Preview.swift in Sources */,
+				DD7989EA29961F3700B28DC4 /* main.swift in Sources */,
+				DD92F0322996351C00DECC19 /* Resources.swift in Sources */,
+				DD798A1529962FC900B28DC4 /* ClusteredMapManagerDelegate.swift in Sources */,
+				DD798A0F29962C7300B28DC4 /* MKMapView+AnnotationView.swift in Sources */,
+				DD798A0D29962C6900B28DC4 /* AnnotationDataSource.swift in Sources */,
+				DD798A1229962C7300B28DC4 /* MKCoordinateRegion+Cities.swift in Sources */,
+				DD798A1629962FC900B28DC4 /* ClusteredMapViewDelegate.swift in Sources */,
+				DD92F0362996356700DECC19 /* NativeColor+Colors.swift in Sources */,
+				DD798A1029962C7300B28DC4 /* MKCoordinateRegion+Random.swift in Sources */,
+				DD7989ED29961FFC00B28DC4 /* MapViewController.swift in Sources */,
+				DD1B5D6929955EFF0015D91B /* AppDelegate.swift in Sources */,
+				DD798A1B2996323000B28DC4 /* ImageCountClusterAnnotationView.swift in Sources */,
+				DD798A172996308900B28DC4 /* MeAnnotation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDEAF37D2990F59800E49D87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2643C52996622300C93194 /* NativeColor+Colors.swift in Sources */,
 				DD883E8C2993C70400E713CF /* ClusterMapViewController.swift in Sources */,
 				DD883E872993C70400E713CF /* CLLocationCoordinate2D+Random.swift in Sources */,
+				DD92F03B2996369B00DECC19 /* NativeImage+ColorFilled.swift in Sources */,
 				DD883E892993C70400E713CF /* DefaultMapViewController.swift in Sources */,
-				DD883E822993C70400E713CF /* UIImage+ColorFilled.swift in Sources */,
 				DD883E842993C70400E713CF /* MKMapView+AnnotationView.swift in Sources */,
 				DD2C462E299402820095F923 /* MKCoordinateRegion+Cities.swift in Sources */,
 				DD883E922993C70400E713CF /* OutlineViewController.swift in Sources */,
 				DD883E8E2993C70400E713CF /* MapContainerViewController.swift in Sources */,
 				DD2C4630299404C90095F923 /* DefaultMapViewDelegate.swift in Sources */,
 				DD883E8A2993C70400E713CF /* ClusteredMapManagerDelegate.swift in Sources */,
+				DD92F030299633B100DECC19 /* Native+TypeAliases.swift in Sources */,
 				DD883E942993C70400E713CF /* SceneDelegate.swift in Sources */,
 				DD883E932993C70400E713CF /* AppDelegate.swift in Sources */,
 				DD883E912993C70400E713CF /* MapControlsViewContainer.swift in Sources */,
@@ -336,10 +516,10 @@
 				DD883E7D2993C70400E713CF /* Resources.swift in Sources */,
 				DD883E8B2993C70400E713CF /* ClusteredMapViewDelegate.swift in Sources */,
 				DD883E862993C70400E713CF /* MKCoordinateRegion+Random.swift in Sources */,
-				DD883E812993C70400E713CF /* UIViewController+Child.swift in Sources */,
+				DD883E812993C70400E713CF /* NativeViewController+Child.swift in Sources */,
 				DD883E8D2993C70400E713CF /* MeAnnotation.swift in Sources */,
 				DDB7C8372993DD800067B67E /* AnnotationTypes.swift in Sources */,
-				DD883E832993C70400E713CF /* UIViewController+Preview.swift in Sources */,
+				DD883E832993C70400E713CF /* NativeViewController+Preview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +537,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DD1B5D7329955F000015D91B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Example-macOS/Example_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cluster.Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DD1B5D7429955F000015D91B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Example-macOS/Example_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Cluster.Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		DDEAF3932990F59900E49D87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,7 +711,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Example/Resources/Info.plist;
+				INFOPLIST_FILE = "Example-iOS/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -506,7 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Example/Resources/Info.plist;
+				INFOPLIST_FILE = "Example-iOS/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -528,6 +760,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD1B5D7229955F000015D91B /* Build configuration list for PBXNativeTarget "Example-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1B5D7329955F000015D91B /* Debug */,
+				DD1B5D7429955F000015D91B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DDEAF37C2990F59800E49D87 /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -537,7 +778,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDEAF3952990F59900E49D87 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		DDEAF3952990F59900E49D87 /* Build configuration list for PBXNativeTarget "Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DDEAF3962990F59900E49D87 /* Debug */,
@@ -550,6 +791,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		DD2E57FF2990F5F5001D5640 /* Cluster */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Cluster;
+		};
+		DD7989EF299622FE00B28DC4 /* Cluster */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Cluster;
 		};
