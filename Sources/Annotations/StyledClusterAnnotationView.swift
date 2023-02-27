@@ -15,11 +15,28 @@ import Cocoa
  A cluster annotation view that supports styles.
  */
 open class StyledClusterAnnotationView: ClusterAnnotationView {
+    /**
+     The style of the cluster annotation view.
+     */
+    public enum Style {
+        /**
+         Displays the annotations as a circle.
+         
+         - `color`: The color of the annotation circle
+         - `radius`: The radius of the annotation circle
+         */
+        case color(NativeColor, radius: CGFloat)
+        
+        /**
+         Displays the annotation as an image.
+         */
+        case image(NativeImage?)
+    }
     
     /**
      The style of the cluster annotation view.
      */
-    public var style: ClusterAnnotationStyle
+    public var style: Style
     
     /**
      Initializes and returns a new cluster annotation view.
@@ -31,23 +48,20 @@ open class StyledClusterAnnotationView: ClusterAnnotationView {
      
      - Returns: The initialized cluster annotation view.
      */
-    public init(annotation: MKAnnotation?, reuseIdentifier: String?, style: ClusterAnnotationStyle) {
+    public init(annotation: MKAnnotation?, reuseIdentifier: String?, style: StyledClusterAnnotationView.Style) {
         self.style = style
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        configure()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    open override func configure() {
-        guard let annotation = annotation as? ClusterAnnotation else { return }
-        
+    open override func configure(_ annotation: ClusterAnnotation) {
         switch style {
-            case let .image(image):
+            case let .image(newImage):
                 backgroundColor = .clear
-                self.image = image
+                image = newImage
             case let .color(color, radius):
                 let count = annotation.annotations.count
                 backgroundColor = color

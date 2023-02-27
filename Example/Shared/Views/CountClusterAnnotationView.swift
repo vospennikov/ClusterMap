@@ -10,14 +10,14 @@ import Cluster
 import MapKit
 
 class CountClusterAnnotationView: ClusterAnnotationView {
-    override func configure() {
-        super.configure()
+    override func configure(_ annotation: ClusterAnnotation) {
+        super.configure(annotation)
         
-        guard let annotation = annotation as? ClusterAnnotation else { return }
         let count = annotation.annotations.count
         let diameter = radius(for: count) * 2
-        self.frame.size = CGSize(width: diameter, height: diameter)
-        nativeLayer?.cornerRadius = self.frame.width / 2
+        frame.size = CGSize(width: diameter, height: diameter)
+        self.countLabel.sizeToFit()
+        nativeLayer?.cornerRadius = frame.width / 2
         nativeLayer?.masksToBounds = true
         nativeLayer?.borderColor = NativeColor.white.cgColor
         nativeLayer?.borderWidth = 1.5

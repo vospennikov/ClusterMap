@@ -5,7 +5,7 @@
 //  Created by Mikhail Vospennikov on 08.02.2023.
 //
 
-import Cluster
+import MapKit
 
-final class MeAnnotation: Annotation {
+final class MeAnnotation: MKPointAnnotation {
 }

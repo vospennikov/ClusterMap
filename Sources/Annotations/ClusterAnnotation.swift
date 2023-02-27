@@ -7,7 +7,7 @@
 
 import MapKit
 
-open class ClusterAnnotation: Annotation {
+open class ClusterAnnotation: MKPointAnnotation {
     open var annotations = [MKAnnotation]()
     
     open override func isEqual(_ object: Any?) -> Bool {

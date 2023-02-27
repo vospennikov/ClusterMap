@@ -14,13 +14,10 @@ import AppKit
 open class CountLabel: NativeLabel {
     func configure() {
         #if canImport(UIKit)
-        autoresizingMask = [.flexibleWidth, .flexibleHeight]
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.5
         baselineAdjustment = .alignCenters
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.5
-        baselineAdjustment = .alignCenters
+        numberOfLines = 1
         
         #elseif canImport(AppKit)
         isBezeled = false
