@@ -13,9 +13,9 @@ import MapKit
 
 final class ArrayMKAnnotationTests: XCTestCase {
     func test_subtracted() {
-        let annotation1 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
-        let annotation2 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
-        let annotation3 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.3, longitude: -122.3))
+        let annotation1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
+        let annotation2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
+        let annotation3 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.3, longitude: -122.3))
         
         let annotations = [annotation1, annotation2, annotation3]
         let otherAnnotations = [annotation1, annotation3]
@@ -27,9 +27,9 @@ final class ArrayMKAnnotationTests: XCTestCase {
     }
     
     func test_subtract() {
-        let annotation1 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
-        let annotation2 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
-        let annotation3 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.3, longitude: -122.3))
+        let annotation1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
+        let annotation2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
+        let annotation3 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.3, longitude: -122.3))
         
         var annotations = [annotation1, annotation2, annotation3]
         let otherAnnotations = [annotation1, annotation3]
@@ -41,10 +41,10 @@ final class ArrayMKAnnotationTests: XCTestCase {
     }
     
     func test_add() {
-        let annotation1 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
-        let annotation2 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
-        let annotation3 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.3, longitude: -122.3))
-        let annotation4 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.4, longitude: -122.4))
+        let annotation1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
+        let annotation2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
+        let annotation3 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.3, longitude: -122.3))
+        let annotation4 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.4, longitude: -122.4))
         
         var annotations = [annotation1, annotation2]
         let otherAnnotations = [annotation3, annotation4]
@@ -57,8 +57,8 @@ final class ArrayMKAnnotationTests: XCTestCase {
     }
     
     func test_remove() throws {
-        let annotation1 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
-        let annotation2 = Annotation(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
+        let annotation1 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.1, longitude: -122.1))
+        let annotation2 = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 37.2, longitude: -122.2))
         
         var annotations = [annotation1, annotation2]
 

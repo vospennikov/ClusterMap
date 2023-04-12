@@ -1,11 +1,8 @@
 ![Cluster](https://raw.githubusercontent.com/efremidze/Cluster/master/Images/logo.png)
 
-[![Build Status](https://travis-ci.org/efremidze/Cluster.svg?branch=master)](https://travis-ci.org/efremidze/Cluster)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Language](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org)
 [![Version](https://img.shields.io/cocoapods/v/Cluster.svg?style=flat)](http://cocoapods.org/pods/Cluster)
 [![License](https://img.shields.io/cocoapods/l/Cluster.svg?style=flat)](http://cocoapods.org/pods/Cluster)
-[![Platform](https://img.shields.io/cocoapods/p/Cluster.svg?style=flat)](http://cocoapods.org/pods/Cluster)
 
 Cluster is an easy map annotation clustering library. This repository uses an efficient method (QuadTree) to aggregate pins into a cluster.
 
@@ -34,9 +31,8 @@ Cluster is an easy map annotation clustering library. This repository uses an ef
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 9.0+
-- Swift 5 (Cluster 3.x), Swift 4 (Cluster 2.x), Swift 3 (Cluster 1.x)
+- iOS 13.0, macOS 11.0
+- Swift 5
 
 ## Demo
 
@@ -52,28 +48,16 @@ The [Example](Example) is a great place to get started. It demonstrates how to:
 
 [Demo Video](https://gfycat.com/BoringUnhealthyAngelwingmussel)
 
-```
-$ pod try Cluster
-```
-
 ## Installation
 
-Cluster is available via CocoaPods and Carthage.
+Cluster is available via Swift Package Manager
 
-### CocoaPods
+### Swift Package Manager
 
-To install Cluster with [CocoaPods](http://cocoapods.org/), add this to your `Podfile`:
+Add the following dependency to your **Package.swift** file:
 
-```
-pod "Cluster"
-```
-
-### Carthage
-
-To install Cluster with [Carthage](https://github.com/Carthage/Carthage), add this to your `Cartfile`:
-
-```
-github "efremidze/Cluster"
+```swift
+.package(url: "https://github.com/vospennikov/Cluster.git", branch: "master")
 ```
 
 ## Usage

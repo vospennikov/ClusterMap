@@ -14,7 +14,7 @@ final class ClusterManagerTests: XCTestCase {
     func testAddAndRemoveAllAnnotations() {
         let manager = ClusterManager()
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         let (toAdd, toRemove) = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -35,7 +35,7 @@ final class ClusterManagerTests: XCTestCase {
     func testAddAndRemoveAnnotations() {
         let manager = ClusterManager()
         
-        let annotations = manager.addAnnotations(count: 1000, center: center, delta: delta)
+        let annotations = manager.addAnnotations(count: 1000, region: mapRegion)
         
         let (toAdd, toRemove) = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -58,7 +58,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.clusterPosition = .center
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -69,7 +69,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.clusterPosition = .nearCenter
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -80,7 +80,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.clusterPosition = .average
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -91,7 +91,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.clusterPosition = .first
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -102,7 +102,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.shouldDistributeAnnotationsOnSameCoordinate = false
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -113,7 +113,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.shouldRemoveInvisibleAnnotations = false
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -124,7 +124,7 @@ final class ClusterManagerTests: XCTestCase {
         let manager = ClusterManager()
         manager.minCountForClustering = 10
         
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         _ = manager.clusteredAnnotations(zoomScale: zoomScale, visibleMapRect: mapRect)
         
@@ -133,7 +133,7 @@ final class ClusterManagerTests: XCTestCase {
     
     func testCancelOperation() {
         let manager = ClusterManager()
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         let expectation = self.expectation(description: "Clustering")
         
@@ -154,21 +154,21 @@ final class ClusterManagerTests: XCTestCase {
     // TODO: Flaky
     func testMultipleOperations() {
         let manager = ClusterManager()
-        manager.addAnnotations(count: 1000, center: center, delta: delta)
+        manager.addAnnotations(count: 1000, region: mapRegion)
         
         let expectation = self.expectation(description: "Clustering")
         expectation.assertForOverFulfill = true
         
         self.measure {
-        for i in 0...100 {
-            DispatchQueue.global().async {
-                manager.clusteredAnnotations(zoomScale: self.zoomScale, visibleMapRect: self.mapRect) { finished in
-                    if i == 100 {
-                        expectation.fulfill()
+            for i in 0...100 {
+                DispatchQueue.global().async {
+                    manager.clusteredAnnotations(zoomScale: self.zoomScale, visibleMapRect: self.mapRect) { finished in
+                        if i == 100 {
+                            expectation.fulfill()
+                        }
                     }
                 }
             }
-        }
         }
         
         let result = XCTWaiter.wait(for: [expectation], timeout: 10)
@@ -181,14 +181,16 @@ final class ClusterManagerTests: XCTestCase {
 
 private extension ClusterManagerTests {
     var mapRect: MKMapRect {
-        MKMapRect(x: 42906844.828649245, y: 103677256.9496724, width: 74565.404444441199, height: 132626.99937182665)
+        MKMapRect(
+            origin: .init(.init(latitude: 52.52, longitude: 13.40)),
+            size: .init(width: 5000, height: 5000)
+        )
     }
-    var center: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: 37.787994, longitude: -122.407437)
+    
+    var mapRegion: MKCoordinateRegion {
+        .init(mapRect)
     }
-    var delta: Double {
-        0.1
-    }
+    
     var zoomScale: Double {
         0.01
     }
@@ -196,13 +198,10 @@ private extension ClusterManagerTests {
 
 private extension ClusterManager {
     @discardableResult
-    func addAnnotations(count: Int, center: CLLocationCoordinate2D, delta: Double) -> [MKAnnotation] {
-        let annotations: [Annotation] = (0..<count).map { i in
-            let annotation = Annotation()
-            annotation.coordinate = CLLocationCoordinate2D(
-                latitude: center.latitude + drand48() * delta - delta / 2,
-                longitude: center.longitude + drand48() * delta - delta / 2
-            )
+    func addAnnotations(count: Int, region: MKCoordinateRegion) -> [MKAnnotation] {
+        let annotations: [ClusterAnnotation] = (0..<count).map { i in
+            let annotation = ClusterAnnotation()
+            annotation.coordinate = region.randomLocationWithinRegion()
             return annotation
         }
         add(annotations)
