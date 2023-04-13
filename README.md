@@ -1,8 +1,9 @@
-![Cluster](https://raw.githubusercontent.com/efremidze/Cluster/master/Images/logo.png)
-
-[![Language](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org)
-[![Version](https://img.shields.io/cocoapods/v/Cluster.svg?style=flat)](http://cocoapods.org/pods/Cluster)
-[![License](https://img.shields.io/cocoapods/l/Cluster.svg?style=flat)](http://cocoapods.org/pods/Cluster)
+## Cluster
+![Swift](https://img.shields.io/badge/Swift-5.8-orange?style=flat)
+![Platform](https://img.shields.io/badge/Platform-iOS%2013%20%7C%20macOS%2011-orange)
+![Framework](https://img.shields.io/badge/Framework-UIKit-orange)
+![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat)
+![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
 
 Cluster is an easy map annotation clustering library. This repository uses an efficient method (QuadTree) to aggregate pins into a cluster.
 
