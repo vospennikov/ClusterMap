@@ -1,21 +1,32 @@
-## Cluster
+# Cluster
 ![Swift](https://img.shields.io/badge/Swift-5.8-orange?style=flat)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2013%20%7C%20macOS%2011-orange)
 ![Framework](https://img.shields.io/badge/Framework-UIKit-orange)
 ![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
 
-Cluster is an easy map annotation clustering library. This repository uses an efficient method (QuadTree) to aggregate pins into a cluster.
+This project is a fork of the [Cluster](https://github.com/efremidze/Cluster) created by [Lasha Efremidze](https://github.com/efremidze).
 
-![Demo Screenshots](https://raw.githubusercontent.com/efremidze/Cluster/master/Images/demo.png)
+### About project
+
+Apple provides a native and nice clustering of MapKit. Apple's solution is preferable if you're working with tens or thousands of annotations. You'll face performance issues if you want to work with tens or hundreds of thousands of annotations. This solution aggregates annotations in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
+
+### What's new
+
+- SPM support
+- macOS support
+- Improve UI perfomance
+- Full test coverage
+- Fix bugs
+
+![Demo Screenshots](Images/demo.png)
 
 - [Features](#features)
-- [Requirements](#requirements)
+- [Roadmap](#roadmap)
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Communication](#communication)
-- [Mentions](#mentions)
 - [Credits](#credits)
 - [License](#license)
 
@@ -28,26 +39,26 @@ Cluster is an easy map annotation clustering library. This repository uses an ef
 - [x] Custom Cell Size
 - [x] Custom Annotation Views
 - [x] Animation Support
-- [x] [Documentation](https://efremidze.github.io/Cluster)
 
-## Requirements
+## Roadmap
 
-- iOS 13.0, macOS 11.0
-- Swift 5
+- SwiftUI support
+- Clustering animation
+- Map providers (Google maps, MapKit)
+- Swift concurrency
 
 ## Demo
 
 The [Example](Example) is a great place to get started. It demonstrates how to:
 
-- integrate the library
-- add/remove annotations
-- reload annotations
-- configure the annotation view
-- configure the manager
+- Integrate the library
+- Add/remove annotations
+- Reload annotations
+- Configure the annotation view
+- Configure the manager
+- Compare Apple's native implementation with to library
 
 ![Demo GIF](https://thumbs.gfycat.com/BoringUnhealthyAngelwingmussel-size_restricted.gif)
-
-[Demo Video](https://gfycat.com/BoringUnhealthyAngelwingmussel)
 
 ## Installation
 
@@ -198,17 +209,9 @@ func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool { ... }
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
 
-## Mentions
-
-- [Natasha The Robot's Newsleter 128](https://swiftnews.curated.co/issues/128#start)
-- [Top 5 iOS Libraries May 2017](https://medium.cobeisfresh.com/top-5-ios-libraries-may-2017-6e3ac5077473)
-
 ## Credits
 
-* https://github.com/ribl/FBAnnotationClusteringSwift
-* https://github.com/choefele/CCHMapClusterController
-* https://github.com/googlemaps/google-maps-ios-utils
-* https://github.com/hulab/ClusterKit
+This project is based on the work of [Lasha Efremidze](https://github.com/efremidze), who created the [Cluster](https://github.com/efremidze/Cluster). I would like to thank him for his contributions and for providing me with a solid foundation to build upon.
 
 ## License
 
