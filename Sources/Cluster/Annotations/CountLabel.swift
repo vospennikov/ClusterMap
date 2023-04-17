@@ -13,6 +13,7 @@ import AppKit
 
 open class CountLabel: NativeLabel {
     func configure() {
+    open func configure() {
         #if canImport(UIKit)
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.5
