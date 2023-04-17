@@ -11,6 +11,9 @@ let package = Package(
     products: [
         .library(name: "Cluster", targets: ["Cluster"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0")
+    ],
     targets: [
         .target(name: "Cluster", dependencies: []),
         .testTarget(name: "ClusterTests", dependencies: ["Cluster"])
