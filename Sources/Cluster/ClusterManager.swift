@@ -1,5 +1,5 @@
 //
-//  Cluster.swift
+//  ClusterManager.swift
 //  Cluster
 //
 //  Created by Lasha Efremidze on 4/13/17.
@@ -9,40 +9,8 @@
 import CoreLocation
 import MapKit
 
-public protocol ClusterManagerDelegate: AnyObject {
-    /**
-     The size of each cell on the grid (The larger the size, the better the performance) at a given zoom level.
-     
-     - Parameters:
-     - zoomLevel: The zoom level of the visible map region.
-     
-     - Returns: The cell size at the given zoom level. If you return nil, the cell size will automatically adjust to the zoom level.
-     */
-    func cellSize(for zoomLevel: Double) -> Double?
-    
-    /**
-     Whether to cluster the given annotation.
-     
-     - Parameters:
-     - annotation: An annotation object. The object must conform to the MKAnnotation protocol.
-     
-     - Returns: `true` to clusterize the given annotation.
-     */
-    func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool
-}
-
-public extension ClusterManagerDelegate {
-    func cellSize(for zoomLevel: Double) -> Double? {
-        return nil
-    }
-    
-    func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool {
-        return true
-    }
-}
-
+/// `ClusterManager` is responsible for clustering annotations and providing updates to the map view.
 open class ClusterManager {
-    
     var tree = QuadTree(rect: .world)
     
     /**
@@ -248,6 +216,15 @@ open class ClusterManager {
         }
     }
     
+    /// Returns the annotations to add and remove from the map view based on the given `zoomScale` and `visibleMapRect`.
+    /// This method calculates the annotations to display on the map view using a QuadTree data structure.
+    /// It splits the visible map rect into smaller subrects and looks for clusters and visible annotations within those subrects.
+    /// If the `shouldDistributeAnnotationsOnSameCoordinate` property is set to `true`, it will also handle annotations that have the same coordinate but are not clustered together.
+    /// - Parameters:
+    ///   - zoomScale: The current zoom scale of the map view.
+    ///   - visibleMapRect: The current visible map rect of the map view.
+    ///   - operation: An optional `Operation` object that can be used to cancel the operation.
+    /// - Returns: A tuple containing the annotations to add and remove from the map view.
     open func clusteredAnnotations(zoomScale: Double, visibleMapRect: MKMapRect, operation: Operation? = nil) -> (toAdd: [MKAnnotation], toRemove: [MKAnnotation]) {
         var isCancelled: Bool { return operation?.isCancelled ?? false }
         
@@ -377,6 +354,11 @@ open class ClusterManager {
         return mapRects
     }
     
+    /// Displays clustered annotations on an `MKMapView`.
+    /// - Parameters:
+    ///   - mapView: The `MKMapView` to display the annotations on.
+    ///   - toAdd: An array of `MKAnnotation` objects to add to the map view.
+    ///   - toRemove: An array of `MKAnnotation` objects to remove from the map view.
     open func display(mapView: MKMapView, toAdd: [MKAnnotation], toRemove: [MKAnnotation]) {
         assert(Thread.isMainThread, "This function must be called from the main thread.")
         mapView.removeAnnotations(toRemove)
