@@ -61,7 +61,7 @@ final class DefaultMapViewController: UIViewController, MapController {
     }
 }
 
-private struct DefaultMapViewController_PreviewProvider: PreviewProvider {
+struct DefaultMapViewController_PreviewProvider: PreviewProvider {
     static var previews: some View {
         DefaultMapViewController(initialRegion: .sanFrancisco)
             .preview

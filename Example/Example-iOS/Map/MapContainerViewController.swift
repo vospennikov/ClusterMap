@@ -77,7 +77,7 @@ final class MapContainerViewController: UIViewController {
 }
 
 @available(iOS 14.0, *)
-private struct ViewController_PreviewProvider: PreviewProvider {
+struct ViewController_PreviewProvider: PreviewProvider {
     static var previews: some View {
         MapContainerViewController(mapController: ClusterMapViewController(initialRegion: .sanFrancisco))
                 .preview

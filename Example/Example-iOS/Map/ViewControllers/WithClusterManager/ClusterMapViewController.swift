@@ -68,7 +68,7 @@ final class ClusterMapViewController: UIViewController, MapController {
     }
 }
 
-private struct ClusteredMapViewController_PreviewProvider: PreviewProvider {
+struct ClusteredMapViewController_PreviewProvider: PreviewProvider {
     static var previews: some View {
         ClusterMapViewController(initialRegion: .sanFrancisco)
             .preview
