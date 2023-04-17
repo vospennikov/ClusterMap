@@ -52,12 +52,12 @@ open class ClusterAnnotationView: MKAnnotationView {
     }
     #endif
     
-    func updateLayout() {
+    private func updateLayout() {
         updateFrameSize()
         placeLabelToCenter()
     }
     
-    func updateFrameSize() {
+    private func updateFrameSize() {
         countLabel.sizeToFit()
         
         let frameSize = CGSize(
@@ -67,7 +67,7 @@ open class ClusterAnnotationView: MKAnnotationView {
         frame.size = frameSize
     }
     
-    func placeLabelToCenter() {
+    private func placeLabelToCenter() {
         #if canImport(UIKit)
         countLabel.center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         #elseif canImport(AppKit)
