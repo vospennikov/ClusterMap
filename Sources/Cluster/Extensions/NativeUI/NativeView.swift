@@ -8,6 +8,7 @@
 import QuartzCore
 
 extension NativeView {
+    /// Returns the `layer` property of the view as a `CALayer` object.
     var nativeLayer: CALayer? {
         layer
     }

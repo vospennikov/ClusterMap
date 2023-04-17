@@ -12,6 +12,8 @@ import AppKit
 #endif
 
 extension NativeLabel {
+    /// Returns the text alignment of the label using the `NSTextAlignment` enum on macOS and the `UITextAlignment` enum on iOS.
+    /// It can also be set to change the text alignment of the label to a specified value.
     var nativeTextAlignment: NSTextAlignment {
         get {
             #if canImport(UIKit)
@@ -29,6 +31,7 @@ extension NativeLabel {
         }
     }
     
+    /// Returns the text of the label as a `String` on both macOS and iOS. It can also be set to change the text of the label to a specified value.
     var nativeText: String? {
         get {
             #if canImport(UIKit)

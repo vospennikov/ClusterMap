@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// This preprocessor macro provides type aliases for different platform-specific classes depending on whether UIKit or AppKit is available.
 #if canImport(UIKit)
 import UIKit
 

@@ -146,24 +146,36 @@ extension QuadTreeNode: AnnotationsContainer {
     
 }
 
+/// A container for annotations that uses a QuadTree data structure for efficient spatial indexing.
 public class QuadTree: AnnotationsContainer {
-    
+    /// The root node of the quadtree data structure.
     let root: QuadTreeNode
     
+    /// Initializes a new `QuadTree` instance with the specified map rectangle.
+    /// - Parameter rect: The map rectangle to use as the boundary of the QuadTree.
     public init(rect: MKMapRect) {
         self.root = QuadTreeNode(rect: rect)
     }
     
+    /// Adds the specified annotation to the QuadTree.
+    /// - Parameter annotation: The annotation to add.
+    /// - Returns: `true` if the annotation was added successfully, `false` otherwise.
     @discardableResult
     public func add(_ annotation: MKAnnotation) -> Bool {
         return root.add(annotation)
     }
     
+    /// Removes the specified annotation from the QuadTree.
+    /// - Parameter annotation: The annotation to remove.
+    /// - Returns: `true` if the annotation was removed successfully, `false` otherwise.
     @discardableResult
     public func remove(_ annotation: MKAnnotation) -> Bool {
         return root.remove(annotation)
     }
-    
+
+    /// Returns an array of annotations that are contained within the specified map rectangle.
+    /// - Parameter rect: The map rectangle to search for annotations.
+    /// - Returns: An array of `MKAnnotation` objects that are contained within the specified map rectangle.
     public func annotations(in rect: MKMapRect) -> [MKAnnotation] {
         return root.annotations(in: rect)
     }

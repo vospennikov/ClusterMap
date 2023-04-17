@@ -11,12 +11,14 @@ import MapKit
  The view associated with your cluster annotations.
  */
 open class ClusterAnnotationView: MKAnnotationView {
+    /// The offset for the count label.
     open var countLabelOffset: NativeEdgeInsets = .init(top: 4, left: 8, bottom: 4, right: 8) {
         didSet {
             updateLayout()
         }
     }
     
+    /// The label used to display the count of annotations in the cluster.
     open lazy var countLabel: CountLabel = {
         let label = CountLabel()
         label.configure()
@@ -24,6 +26,7 @@ open class ClusterAnnotationView: MKAnnotationView {
         return label
     }()
     
+    /// Prepares the annotation view for display by configuring it with the appropriate `ClusterAnnotation`.
     open override func prepareForDisplay() {
         super.prepareForDisplay()
         
@@ -32,12 +35,17 @@ open class ClusterAnnotationView: MKAnnotationView {
         }
     }
     
+    /// Configures the view with the provided ClusterAnnotation.
+    /// This method sets the text of the `countLabel` to the count of annotations in the provided `ClusterAnnotation`, and updates the view's layout to accommodate the label.
+    /// - Parameter annotation: The `ClusterAnnotation` to configure the view with.
     open func configure(_ annotation: ClusterAnnotation) {
         countLabel.nativeText = "\(annotation.annotations.count)"
         updateLayout()
     }
     
     #if canImport(AppKit)
+    /// The background color of the view.
+    /// This property sets the background color of the view by updating its underlying layer's backgroundColor property.
     open var backgroundColor: NativeColor? {
         get {
             guard let nativeLayer,

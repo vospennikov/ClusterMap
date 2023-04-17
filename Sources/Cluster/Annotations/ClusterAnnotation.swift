@@ -7,9 +7,14 @@
 
 import MapKit
 
+/// `ClusterAnnotation` is a subclass of `MKPointAnnotation` which is used to represent a cluster annotation on a map view.
 open class ClusterAnnotation: MKPointAnnotation {
+    /// An array of `MKAnnotation` objects which represent the points to be clustered.
     open var annotations = [MKAnnotation]()
-    
+
+    /// Compares two `ClusterAnnotation` objects for equality.
+    /// - Parameter object: The object to compare against.
+    /// - Returns: `true` if the two objects are equal, `false` otherwise.
     open override func isEqual(_ object: Any?) -> Bool {
         guard let object = object as? ClusterAnnotation else { return false }
         

@@ -20,12 +20,18 @@ extension CLLocationCoordinate2D: Hashable {
     }
 }
 
+/// Compare two CLLocationCoordinate2D values for equality.
 public func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
     lhs.latitude.isNearlyEqual(to: rhs.latitude) &&
     lhs.longitude.isNearlyEqual(to: rhs.longitude)
 }
 
 extension CLLocationCoordinate2D {
+    /// Calculates a new coordinate that is a certain distance away (in meters) on a given bearing (in radians) from the current coordinate.
+    /// - Parameters:
+    ///   - bearing: The bearing (in radians) from the current coordinate to the new coordinate.
+    ///   - distance: The distance (in meters) between the current coordinate and the new coordinate.
+    /// - Returns: A new `CLLocationCoordinate2D` object representing the new coordinate.
     func coordinate(onBearingInRadians bearing: Double, atDistanceInMeters distance: Double) -> CLLocationCoordinate2D {
         let distRadians = distance / radiusOfEarth // earth radius in meters
         
@@ -38,10 +44,14 @@ extension CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: lat2 * 180 / .pi, longitude: lon2 * 180 / .pi)
     }
     
+    /// Returns a `CLLocation` object representing the current coordinate.
     var location: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
+    /// Calculates the distance (in meters) between the current coordinate and another coordinate passed as an argument.
+    /// - Parameter coordinate: The other coordinate to calculate the distance to.
+    /// - Returns: The distance (in meters) between the current coordinate and the other coordinate.
     func distance(from coordinate: CLLocationCoordinate2D) -> CLLocationDistance {
         return location.distance(from: coordinate.location)
     }

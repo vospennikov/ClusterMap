@@ -11,8 +11,9 @@ import UIKit
 import AppKit
 #endif
 
+/// A label used to display the count of annotations in a `ClusterAnnotationView`.
 open class CountLabel: NativeLabel {
-    func configure() {
+    ///  Configures the label with the appropriate font, color, and alignment settings.
     open func configure() {
         #if canImport(UIKit)
         adjustsFontSizeToFitWidth = true
