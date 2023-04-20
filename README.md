@@ -5,19 +5,7 @@
 ![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
 
-This project is a fork of the [Cluster](https://github.com/efremidze/Cluster) created by [Lasha Efremidze](https://github.com/efremidze).
-
-### About project
-
-Apple provides a native and nice clustering of MapKit. Apple's solution is preferable if you're working with tens or thousands of annotations. You'll face performance issues if you want to work with tens or hundreds of thousands of annotations. This solution aggregates annotations in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
-
-### What's new
-
-- SPM support
-- macOS support
-- Improve UI perfomance
-- Full test coverage
-- Fix bugs
+Apple provides a native and nice clustering of MKMapKit. Apple's solution is preferable if you're working with tens or thousands of annotations. You'll face performance issues if you want to work with tens or hundreds of thousands of annotations. This solution aggregates annotations in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
 
 ![Demo Screenshots](Images/demo.png)
 
@@ -26,7 +14,6 @@ Apple provides a native and nice clustering of MapKit. Apple's solution is prefe
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Communication](#communication)
 - [Credits](#credits)
 - [License](#license)
 
@@ -40,13 +27,6 @@ Apple provides a native and nice clustering of MapKit. Apple's solution is prefe
 - [x] Custom Annotation Views
 - [x] Animation Support
 
-## Roadmap
-
-- SwiftUI support
-- Clustering animation
-- Map providers (Google maps, MapKit)
-- Swift concurrency
-
 ## Demo
 
 The [Example](Example) is a great place to get started. It demonstrates how to:
@@ -57,8 +37,6 @@ The [Example](Example) is a great place to get started. It demonstrates how to:
 - Configure the annotation view
 - Configure the manager
 - Compare Apple's native implementation with to library
-
-![Demo GIF](https://thumbs.gfycat.com/BoringUnhealthyAngelwingmussel-size_restricted.gif)
 
 ## Installation
 
@@ -83,10 +61,11 @@ let clusterManager = ClusterManager()
 
 ### Adding an Annotation
 
-Create an object that conforms to the `MKAnnotation` protocol, or extend an existing one. Next, add the annotation object to an instance of `ClusterManager` with `add(annotation:)`.
+Create an object that conforms to the `MKAnnotation` protocol. Next, add the annotation object to an instance of `ClusterManager` with `add(annotation:)`.
 
 ```swift
-let annotation = Annotation(coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
+let annotation = MKPointAnnotation()
+annotation.coordinate = CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661)
 manager.add(annotation)
 ```
 
@@ -116,42 +95,15 @@ The `ClusterAnnotationView` class exposes a `countLabel` property. You can subcl
 
 ```swift
 class CountClusterAnnotationView: ClusterAnnotationView {
-    override func configure() {
-        super.configure()
-
-        self.layer.cornerRadius = self.frame.width / 2
-        self.layer.masksToBounds = true
-        self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 1.5
+    override func configure(_ annotation: ClusterAnnotation) {
+        super.configure(annotation)
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 1.5
     }
 }
 ```
 
-See the [AnnotationView](Example/AnnotationView.swift) to learn more.
-
-#### Annotation Styling
-
-You can customize the appearance of the `StyledClusterAnnotationView` by setting the `style` property of the annotation.
-
-```swift
-let annotation = Annotation(coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-annotation.style = .color(color, radius: 25)
-manager.add(annotation)
-```
-
-Several styles are available in the `ClusterAnnotationStyle` enum:
-- `color(UIColor, radius: CGFloat)` - Displays the annotations as a circle. 
-- `image(UIImage?)` - Displays the annotation as an image.
-
-Once you have added the annotation, you need to return an instance of the `StyledClusterAnnotationView` to display the styled annotation.
-
-```swift
-func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    if let annotation = annotation as? ClusterAnnotation {
-        return StyledClusterAnnotationView(annotation: annotation, reuseIdentifier: identifier, style: style)
-    }
-}
-```
+See the [AnnotationView](Example/Shared/Views/CountClusterAnnotationView.swift) to learn more.
 
 ### Removing Annotations
 
@@ -203,15 +155,9 @@ func cellSize(for zoomLevel: Double) -> Double? { ... }
 func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool { ... }
 ```
 
-## Communication
-
-- If you **found a bug**, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
-
 ## Credits
 
-This project is based on the work of [Lasha Efremidze](https://github.com/efremidze), who created the [Cluster](https://github.com/efremidze/Cluster). I would like to thank him for his contributions and for providing me with a solid foundation to build upon.
+This project is based on the work of [Lasha Efremidze](https://github.com/efremidze), who created the [Cluster](https://github.com/efremidze/Cluster).
 
 ## License
 
