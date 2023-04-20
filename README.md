@@ -7,10 +7,11 @@
 
 Apple provides a native and nice clustering of MKMapKit. Apple's solution is preferable if you're working with tens or thousands of annotations. You'll face performance issues if you want to work with tens or hundreds of thousands of annotations. This solution aggregates annotations in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
 
-![Demo Screenshots](Images/demo.png)
+Comparison with 20,000 annotations. For a detailed comprasion use [Example](Example).
+
+![Demo Cluster](Images/demo_cluster.gif) ![Demo MKMapKit](Images/demo_mapkit.gif)
 
 - [Features](#features)
-- [Roadmap](#roadmap)
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
