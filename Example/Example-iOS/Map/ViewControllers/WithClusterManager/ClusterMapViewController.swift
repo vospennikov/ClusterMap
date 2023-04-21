@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 import MapKit
-import Cluster
+import ClusterMap
 
 final class ClusterMapViewController: UIViewController, MapController {
     private let initialRegion: MKCoordinateRegion

@@ -1,4 +1,4 @@
-# Cluster
+# ClusterMap
 ![Swift](https://img.shields.io/badge/Swift-5.8-orange?style=flat)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2013%20%7C%20macOS%2011-orange)
 ![Framework](https://img.shields.io/badge/Framework-UIKit-orange)
@@ -41,14 +41,14 @@ The [Example](Example) is a great place to get started. It demonstrates how to:
 
 ## Installation
 
-Cluster is available via Swift Package Manager
+ClusterMap is available via Swift Package Manager
 
 ### Swift Package Manager
 
 Add the following dependency to your **Package.swift** file:
 
 ```swift
-.package(url: "https://github.com/vospennikov/Cluster.git", branch: "master")
+.package(url: "https://github.com/vospennikov/ClusterMap.git", branch: "main")
 ```
 
 ## Usage
@@ -162,4 +162,4 @@ This project is based on the work of [Lasha Efremidze](https://github.com/efremi
 
 ## License
 
-Cluster is available under the MIT license. See the LICENSE file for more info.
+ClusterMap is available under the MIT license. See the LICENSE file for more info.

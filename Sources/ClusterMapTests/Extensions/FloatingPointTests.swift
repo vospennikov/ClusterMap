@@ -7,7 +7,7 @@
 
 import XCTest
 import Foundation
-@testable import Cluster
+@testable import ClusterMap
 
 final class FloatingPointTests: XCTestCase {
     func test_isNearlyEqual() {

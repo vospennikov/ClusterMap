@@ -46,7 +46,7 @@ final class OutlineViewController: UIViewController {
     
     private lazy var items: [Item] = {[
         Item(title: "MKMapView with default clustering", viewController: DefaultMapViewController.self),
-        Item(title: "MKMapView with Cluster", viewController: ClusterMapViewController.self),
+        Item(title: "MKMapView with ClusterMap", viewController: ClusterMapViewController.self),
     ]}()
     
     private func configureCollectionView() {

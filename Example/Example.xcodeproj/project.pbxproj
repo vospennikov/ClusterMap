@@ -12,10 +12,10 @@
 		DD2643C52996622300C93194 /* NativeColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F0342996356300DECC19 /* NativeColor+Colors.swift */; };
 		DD2C462E299402820095F923 /* MKCoordinateRegion+Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462D299402820095F923 /* MKCoordinateRegion+Cities.swift */; };
 		DD2C4630299404C90095F923 /* DefaultMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */; };
-		DD2E58002990F5F5001D5640 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = DD2E57FF2990F5F5001D5640 /* Cluster */; };
+		DD5939FB29F2674F0088861F /* ClusterMap in Frameworks */ = {isa = PBXBuildFile; productRef = DD5939FA29F2674F0088861F /* ClusterMap */; };
+		DD5939FD29F267A40088861F /* ClusterMap in Frameworks */ = {isa = PBXBuildFile; productRef = DD5939FC29F267A40088861F /* ClusterMap */; };
 		DD7989EA29961F3700B28DC4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7989E929961F3700B28DC4 /* main.swift */; };
 		DD7989ED29961FFC00B28DC4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7989EB29961FFC00B28DC4 /* MapViewController.swift */; };
-		DD7989F0299622FE00B28DC4 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = DD7989EF299622FE00B28DC4 /* Cluster */; };
 		DD798A0B29962C5900B28DC4 /* AnnotationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7C8362993DD800067B67E /* AnnotationTypes.swift */; };
 		DD798A0C29962C6400B28DC4 /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E762993C70400E713CF /* CountClusterAnnotationView.swift */; };
 		DD798A0D29962C6900B28DC4 /* AnnotationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6A2993C70400E713CF /* AnnotationDataSource.swift */; };
@@ -131,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD7989F0299622FE00B28DC4 /* Cluster in Frameworks */,
+				DD5939FD29F267A40088861F /* ClusterMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2E58002990F5F5001D5640 /* Cluster in Frameworks */,
+				DD5939FB29F2674F0088861F /* ClusterMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +377,7 @@
 			);
 			name = "Example-macOS";
 			packageProductDependencies = (
-				DD7989EF299622FE00B28DC4 /* Cluster */,
+				DD5939FC29F267A40088861F /* ClusterMap */,
 			);
 			productName = "Example-macOS";
 			productReference = DD1B5D6629955EFF0015D91B /* Example-macOS.app */;
@@ -398,7 +398,7 @@
 			);
 			name = "Example-iOS";
 			packageProductDependencies = (
-				DD2E57FF2990F5F5001D5640 /* Cluster */,
+				DD5939FA29F2674F0088861F /* ClusterMap */,
 			);
 			productName = Example;
 			productReference = DDEAF3812990F59800E49D87 /* Example-iOS.app */;
@@ -412,7 +412,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					DD1B5D6529955EFF0015D91B = {
 						CreatedOnToolsVersion = 14.2;
@@ -546,6 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -572,6 +573,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -790,13 +792,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DD2E57FF2990F5F5001D5640 /* Cluster */ = {
+		DD5939FA29F2674F0088861F /* ClusterMap */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Cluster;
+			productName = ClusterMap;
 		};
-		DD7989EF299622FE00B28DC4 /* Cluster */ = {
+		DD5939FC29F267A40088861F /* ClusterMap */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Cluster;
+			productName = ClusterMap;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,7 +7,7 @@
 
 import Cocoa
 import MapKit
-import Cluster
+import ClusterMap
 
 final class MapViewController: NSViewController {
     private lazy var mapView = MKMapView(frame: .zero)

@@ -7,7 +7,7 @@
 
 import Foundation
 import MapKit
-import Cluster
+import ClusterMap
 
 final class ClusteredMapViewDelegate: NSObject, MKMapViewDelegate {
     private let manager: ClusterManager

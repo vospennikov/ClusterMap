@@ -8,7 +8,7 @@
 
 import XCTest
 import MapKit
-@testable import Cluster
+@testable import ClusterMap
 
 final class ClusterManagerTests: XCTestCase {
     func testAddAndRemoveAllAnnotations() {

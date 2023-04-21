@@ -7,7 +7,7 @@
 
 import Foundation
 import MapKit
-import Cluster
+import ClusterMap
 
 final class ImageCountClusterAnnotationView: ClusterAnnotationView {
     private let labelOffsetY: CGFloat = -6

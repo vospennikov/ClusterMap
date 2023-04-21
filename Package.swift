@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "Cluster",
+    name: "ClusterMap",
     platforms: [
         .iOS(.v13), .macOS(.v11)
     ],
     products: [
-        .library(name: "Cluster", targets: ["Cluster"]),
+        .library(name: "ClusterMap", targets: ["ClusterMap"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0")
     ],
     targets: [
-        .target(name: "Cluster", dependencies: []),
-        .testTarget(name: "ClusterTests", dependencies: ["Cluster"])
+        .target(name: "ClusterMap", dependencies: []),
+        .testTarget(name: "ClusterMapTests", dependencies: ["ClusterMap"])
     ]
 )

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Cluster
+import ClusterMap
 import MapKit
 
 final class CountClusterAnnotationView: ClusterAnnotationView {

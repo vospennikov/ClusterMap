@@ -8,7 +8,7 @@
 import XCTest
 import Foundation
 import CoreLocation
-@testable import Cluster
+@testable import ClusterMap
 
 final class CLLocationCoordinate2DTests: XCTestCase {
     func test_hashable() {

@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Cluster
+//  ClusterMap
 //
 //  Created by Mikhail Vospennikov on 06.02.2023.
 //

@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 import CoreLocation
 import MapKit
-@testable import Cluster
+@testable import ClusterMap
 
 final class ArrayMKAnnotationTests: XCTestCase {
     func test_subtracted() {

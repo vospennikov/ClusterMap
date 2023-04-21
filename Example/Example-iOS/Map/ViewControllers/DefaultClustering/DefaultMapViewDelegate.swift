@@ -7,7 +7,7 @@
 
 import Foundation
 import MapKit
-import Cluster
+import ClusterMap
 
 final class DefaultMapViewDelegate: NSObject, MKMapViewDelegate {
     var annotationType: AnnotationTypes = .count

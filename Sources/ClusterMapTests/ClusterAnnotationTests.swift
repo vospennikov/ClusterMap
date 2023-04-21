@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Cluster
+@testable import ClusterMap
 
 final class ClusterAnnotationTests: XCTestCase {
     func testAnnotations() {

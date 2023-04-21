@@ -1,6 +1,6 @@
 //
 //  Resources.swift
-//  Cluster
+//  ClusterMap
 //
 //  Created by Lasha Efremidze on 7/8/17.
 //  Copyright © 2017 efremidze. All rights reserved.
