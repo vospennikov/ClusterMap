@@ -48,7 +48,7 @@ ClusterMap is available via Swift Package Manager
 Add the following dependency to your **Package.swift** file:
 
 ```swift
-.package(url: "https://github.com/vospennikov/ClusterMap.git", branch: "main")
+.package(url: "https://github.com/vospennikov/ClusterMap.git", from: "1.0.0")
 ```
 
 ## Usage
