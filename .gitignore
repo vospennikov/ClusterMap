@@ -1,9 +1,28 @@
+# macOS
 .DS_Store
-/.build
-/Packages
-/*.xcodeproj
-xcuserdata/
-DerivedData/
+
+# Xcode
+!default.mode1v3
+!default.mode2v3
+!default.pbxuser
+!default.perspectivev3
+*.hmap
+*.ipa
+*.mode1v3
+*.mode2v3
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+*.xccheckout
+.netrc
 .swiftpm/config/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-.netrc
+/*.xcodeproj
+/.build
+/Packages
+build/
+DerivedData/
+xcuserdata/
+
+# Bundler
+.bundle
