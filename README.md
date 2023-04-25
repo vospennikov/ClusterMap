@@ -15,6 +15,7 @@ Comparison with 20,000 annotations. For a detailed comprasion use [Example](Exam
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Documentation](#documentation)
 - [Credits](#credits)
 - [License](#license)
 
@@ -155,6 +156,13 @@ func cellSize(for zoomLevel: Double) -> Double? { ... }
 // Whether to cluster the given annotation.
 func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool { ... }
 ```
+
+## Documentation
+
+The documentation for releases and `main` are available here:
+
+* [`main`](https://vospennikov.github.io/ClusterMap/main/documentation/clustermap)
+* [1.0.0](https://vospennikov.github.io/ClusterMap/1.0.0/documentation/clustermap)
 
 ## Credits
 
