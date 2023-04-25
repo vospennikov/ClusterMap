@@ -2,7 +2,7 @@
 ![Swift](https://img.shields.io/badge/Swift-5.8-orange?style=flat)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2013%20%7C%20macOS%2011-orange)
 ![Framework](https://img.shields.io/badge/Framework-UIKit-orange)
-![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat)
+![Package Manager](https://img.shields.io/badge/Package%20Manager-SPM%20%7C%20Cocoapods-orange)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
 
 Apple provides a native and nice clustering of MKMapKit. Apple's solution is preferable if you're working with tens or thousands of annotations. You'll face performance issues if you want to work with tens or hundreds of thousands of annotations. This solution aggregates annotations in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
