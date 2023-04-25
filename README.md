@@ -1,5 +1,5 @@
 # ClusterMap
-![Swift](https://img.shields.io/badge/Swift-5.8-orange?style=flat)
+![Swift](https://img.shields.io/badge/Swift-5.7.1-orange?style=flat)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2013%20%7C%20macOS%2011-orange)
 ![Framework](https://img.shields.io/badge/Framework-UIKit-orange)
 ![Package Manager](https://img.shields.io/badge/Package%20Manager-SPM%20%7C%20Cocoapods-orange)
