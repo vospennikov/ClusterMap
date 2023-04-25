@@ -52,6 +52,15 @@ Add the following dependency to your **Package.swift** file:
 .package(url: "https://github.com/vospennikov/ClusterMap.git", from: "1.0.0")
 ```
 
+### Cocoapods
+
+ClusterMap is available through CocoaPods. To install it, simply add the following line to your Podfile:
+
+```ruby
+pod 'ClusterMap', '1.0.0'
+```
+
+
 ## Usage
 
 ### The Basics
