@@ -5,7 +5,7 @@
 ![Package Manager](https://img.shields.io/badge/Package%20Manager-SPM%20%7C%20Cocoapods-orange)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
 
-Apple provides a native and excellent clustering of MKMapKit. If you work with many annotations, Apple's solution is better for up to tens of thousands. But if you have even more, it may have performance problems. This open-source library aggregates annotation in a background thread using an efficient method (QuadTree).. Use demo project to compare performance and choose better solution for your task. 
+Apple provides a native and excellent clustering of MKMapKit. If you work with many annotations, Apple's solution is better for up to tens of thousands. But if you have even more, it may have performance problems. This open-source library aggregates annotation in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
 
 Comparison with 20,000 annotations. For a detailed comprasion use [Example](Example).
 
