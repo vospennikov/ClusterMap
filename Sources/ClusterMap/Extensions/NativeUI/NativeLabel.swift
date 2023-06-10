@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  NativeLabel.swift
 //  
 //
 //  Created by Mikhail Vospennikov on 10.02.2023.

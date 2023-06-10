@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  OperationQueue+Extensions.swift
+//
 //
 //  Created by Mikhail Vospennikov on 06.02.2023.
 //
