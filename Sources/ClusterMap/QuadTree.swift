@@ -97,22 +97,45 @@ extension QuadTreeNode: AnnotationsContainer {
     }
     
     @discardableResult
-    func remove(_ annotation: MKAnnotation) -> Bool {
-        guard rect.contains(annotation.coordinate) else { return false }
+    func remove(_ targetAnnotation: MKAnnotation) -> Bool {
+        if !isAnnotationWithinRect(targetAnnotation) {
+            return false
+        }
         
-        _ = annotations.map { $0.coordinate }.firstIndex(of: annotation.coordinate).map { annotations.remove(at: $0) }
+        if removeAnnotationFromCurrentNode(targetAnnotation) {
+            return true
+        }
         
-        switch type {
-            case .leaf: break
-            case .internal(let children):
-                // pass the point to one of the children
-                for child in children where child.remove(annotation) {
+        if removeAnnotationFromChildren(targetAnnotation) {
+            return true
+        }
+        
+        return false
+    }
+    
+    private func isAnnotationWithinRect(_ targetAnnotation: MKAnnotation) -> Bool {
+        rect.contains(targetAnnotation.coordinate)
+    }
+
+    private func removeAnnotationFromCurrentNode(_ targetAnnotation: MKAnnotation) -> Bool {
+        if let indexOfTarget = annotations.firstIndex(where: { $0.coordinate == targetAnnotation.coordinate }) {
+            annotations.remove(at: indexOfTarget)
+            return true
+        }
+        
+        return false
+    }
+
+    private func removeAnnotationFromChildren(_ targetAnnotation: MKAnnotation) -> Bool {
+        if case .internal(let children) = type {
+            for child in children {
+                if child.remove(targetAnnotation) {
                     return true
                 }
-                
-                assertionFailure("rect.contains evaluted to true, but none of the children removed the annotation")
+            }
         }
-        return true
+        
+        return false
     }
     
     private func subdivide() {
