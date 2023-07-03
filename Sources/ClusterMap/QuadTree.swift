@@ -146,38 +146,40 @@ extension QuadTreeNode: AnnotationsContainer {
     
 }
 
-/// A container for annotations that uses a QuadTree data structure for efficient spatial indexing.
+/// A class representing a QuadTree data structure. This structure is specifically designed to handle annotations for spatial indexing,
+/// offering improved efficiency when dealing with large amounts of data spread across a geographical area.
 public class QuadTree: AnnotationsContainer {
-    /// The root node of the quadtree data structure.
-    let root: QuadTreeNode
+    /// The root node of the QuadTree. This represents the topmost level of the QuadTree structure.
+    private let root: QuadTreeNode
     
-    /// Initializes a new `QuadTree` instance with the specified map rectangle.
-    /// - Parameter rect: The map rectangle to use as the boundary of the QuadTree.
-    public init(rect: MKMapRect) {
+    /// Creates a new `QuadTree` instance, initializing it with a specified map rectangle that represents the boundary of the QuadTree.
+    /// - Parameter rect: The map rectangle defines the boundary of the QuadTree. The default value is `.world`
+    /// - Note: All annotations added to this QuadTree must reside within this boundary.
+    public init(rect: MKMapRect = .world) {
         self.root = QuadTreeNode(rect: rect)
     }
     
-    /// Adds the specified annotation to the QuadTree.
-    /// - Parameter annotation: The annotation to add.
-    /// - Returns: `true` if the annotation was added successfully, `false` otherwise.
+    /// Adds a specified annotation to the QuadTree.
+    /// - Parameter annotation: The annotation will be added to the QuadTree.
+    /// - Returns: A Boolean value indicating whether the addition of the annotation was successful (`true`) or not (`false`).
     @discardableResult
     public func add(_ annotation: MKAnnotation) -> Bool {
-        return root.add(annotation)
+        root.add(annotation)
     }
     
-    /// Removes the specified annotation from the QuadTree.
-    /// - Parameter annotation: The annotation to remove.
-    /// - Returns: `true` if the annotation was removed successfully, `false` otherwise.
+    /// Removes a specified annotation from the QuadTree.
+    /// - Parameter annotation: The annotation will be removed from the QuadTree.
+    /// - Returns: A Boolean value indicating whether the annotation removal was successful (`true`) or not (`false`).
     @discardableResult
     public func remove(_ annotation: MKAnnotation) -> Bool {
-        return root.remove(annotation)
+        root.remove(annotation)
     }
 
-    /// Returns an array of annotations that are contained within the specified map rectangle.
+    /// Retrieves all annotations within a specified map rectangle.
+    /// This method searches the QuadTree for any annotations within the specified boundary and returns them in an array.
     /// - Parameter rect: The map rectangle to search for annotations.
-    /// - Returns: An array of `MKAnnotation` objects that are contained within the specified map rectangle.
+    /// - Returns: An array of `MKAnnotation` objects within the specified map rectangle. If no annotations are found, an empty array is returned.
     public func annotations(in rect: MKMapRect) -> [MKAnnotation] {
-        return root.annotations(in: rect)
+        root.annotations(in: rect)
     }
-    
 }
