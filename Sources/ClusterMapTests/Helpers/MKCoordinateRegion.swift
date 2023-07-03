@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  MKCoordinateRegion.Random.swift
+//
 //
 //  Created by Mikhail Vospennikov on 12.04.2023.
 //
