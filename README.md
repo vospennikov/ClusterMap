@@ -5,11 +5,15 @@
 ![Package Manager](https://img.shields.io/badge/Package%20Manager-SPM%20%7C%20Cocoapods-orange)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
 
-Apple provides a native and excellent clustering of MKMapKit. If you work with many annotations, Apple's solution is better for up to tens of thousands. But if you have even more, it may have performance problems. This open-source library aggregates annotation in a background thread using an efficient method (QuadTree). Use demo project to compare performance and choose better solution for your task. 
+ClusterMap is an open-source library for high-performance map clustering. 
+When you want to present many points over the map for better user experience and performance, you can make clusters from many points. A good starting point is using a native clustering mechanism. It's simple to implement, simple to use, and has nice animations with zero lines of code. The core problem of the native implementation is adding all points to the map in MainThread. You can't avoid this bottleneck, and it's a problem if you want to operate with thousand points. 
+ClusterMap uses efficient QuadTree storage and performs all computations in the background thread. 
 
 Comparison with 20,000 annotations. For a detailed comprasion use [Example](Example).
 
 ![Demo Cluster](Images/demo_cluster.gif) ![Demo MKMapKit](Images/demo_mapkit.gif)
+
+Version 2.0 would support structured swift concurrency and support any map providers (including SwiftUI). This version is coming soon.
 
 - [Features](#features)
 - [Demo](#demo)
