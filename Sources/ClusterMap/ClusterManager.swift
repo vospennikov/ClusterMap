@@ -55,35 +55,33 @@ open class ClusterManager {
      */
     open var distanceFromContestedLocation: Double = 3
     
-    /**
-     The position of the cluster annotation.
-     */
-    public enum ClusterPosition {
-        /**
-         Placed in the center of the grid.
-         */
-        case center
-        
-        /**
-         Placed on the coordinate of the annotation closest to center of the grid.
-         */
-        case nearCenter
-        
-        /**
-         Placed on the computed average of the coordinates of all annotations in a cluster.
-         */
-        case average
-        
-        /**
-         Placed on the coordinate of first annotation in a cluster.
-         */
-        case first
-    }
-    
-    /**
-     The position of the cluster annotation. The default is `.nearCenter`.
-     */
-    open var clusterPosition: ClusterPosition = .nearCenter
+    /// Controls the positioning strategy of a cluster. The default is `.nearCenter`.
+    ///
+    /// The following clustering strategies are available for use:
+    ///
+    /// - `.center`: Represents the center position for a cluster of `MKAnnotation` instances.
+    ///
+    /// - `.nearCenter`: Represents the position of the `MKAnnotation` nearest to the center. Defaults to the center if no annotations are available.
+    ///
+    /// - `.average`: Represents the average position for a cluster of `MKAnnotation` instances.
+    ///
+    /// - `.first`: Represents the position of the first `MKAnnotation` within a cluster. Defaults to the center if no annotations are available.
+    ///
+    /// You can develop your own alignment strategy by implementing the `ClusterAlignmentStrategy` protocol on a `ClusterAlignment` struct.
+    ///
+    /// Here's an example:
+    /// ```swift
+    /// var clusterAlignment = ClusterAlignment(
+    ///   alignmentStrategy: NewStrategy()
+    /// )
+    ///
+    /// struct NewStrategy: ClusterAlignmentStrategy {
+    ///   func calculatePosition(for annotations: [MKAnnotation], within mapRect: MKMapRect) -> CLLocationCoordinate2D {
+    ///     // Place your custom alignment logic here.
+    ///   }
+    /// }
+    /// ```
+    open var clusterPosition: ClusterAlignment = .nearCenter
     
     /**
      The list of annotations associated.
@@ -282,7 +280,7 @@ open class ClusterManager {
             let count = annotations.count
             if count >= minCountForClustering, zoomLevel <= maxZoomLevel {
                 let cluster = ClusterAnnotation()
-                cluster.coordinate = coordinate(annotations: annotations, position: clusterPosition, mapRect: mapRect)
+                cluster.coordinate = clusterPosition.calculatePosition(for: annotations, within: mapRect)
                 cluster.annotations = annotations
                 allAnnotations += [cluster]
             } else {
@@ -307,26 +305,6 @@ open class ClusterManager {
                     tree.add(annotation)
                 }
             }
-        }
-    }
-    
-    func coordinate(annotations: [MKAnnotation], position: ClusterPosition, mapRect: MKMapRect) -> CLLocationCoordinate2D {
-        switch position {
-            case .center:
-                return MKMapPoint(x: mapRect.midX, y: mapRect.midY).coordinate
-            case .nearCenter:
-                let coordinate = MKMapPoint(x: mapRect.midX, y: mapRect.midY).coordinate
-                let annotation = annotations.min { coordinate.distance(from: $0.coordinate) < coordinate.distance(from: $1.coordinate) }
-                return annotation!.coordinate
-            case .average:
-                let coordinates = annotations.map { $0.coordinate }
-                let totals = coordinates.reduce(into: (latitude: 0.0, longitude: 0.0)) { partialResult, location in
-                    partialResult.latitude += location.latitude
-                    partialResult.longitude += location.longitude
-                }
-                return CLLocationCoordinate2D(latitude: totals.latitude / Double(coordinates.count), longitude: totals.longitude / Double(coordinates.count))
-            case .first:
-                return annotations.first!.coordinate
         }
     }
     
