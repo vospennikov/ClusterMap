@@ -9,11 +9,9 @@ ClusterMap is an open-source library for high-performance map clustering.
 When you want to present many points over the map for better user experience and performance, you can make clusters from many points. A good starting point is using a native clustering mechanism. It's simple to implement, simple to use, and has nice animations with zero lines of code. The core problem of the native implementation is adding all points to the map in MainThread. You can't avoid this bottleneck, and it's a problem if you want to operate with thousand points. 
 ClusterMap uses efficient QuadTree storage and performs all computations in the background thread. 
 
-Comparison with 20,000 annotations. For a detailed comprasion use [Example](Example).
+Comparison with 20,000 annotations. For a detailed comparison, use [Example-UIKit](Example).
 
 ![Demo Cluster](Images/demo_cluster.gif) ![Demo MKMapKit](Images/demo_mapkit.gif)
-
-Version 2.0 would support structured swift concurrency and support any map providers (including SwiftUI). This version is coming soon.
 
 - [Features](#features)
 - [Demo](#demo)
@@ -25,17 +23,19 @@ Version 2.0 would support structured swift concurrency and support any map provi
 
 ## Features
 
+- [x] UIKit
+- [ ] SwiftUI
+- [ ] Swift concurrency
 - [x] Adding/Removing Annotations
 - [x] Clustering Annotations
 - [x] Multiple Managers
 - [x] Dynamic Cluster Disabling
 - [x] Custom Cell Size
 - [x] Custom Annotation Views
-- [x] Animation Support
 
 ## Demo
 
-The [Example](Example) is a great place to get started. It demonstrates how to:
+The [Example](Example) is a great place to start. It demonstrates how to:
 
 - Integrate the library
 - Add/remove annotations
@@ -46,29 +46,29 @@ The [Example](Example) is a great place to get started. It demonstrates how to:
 
 ## Installation
 
-ClusterMap is available via Swift Package Manager
+ClusterMap is available via Swift Package Manager.
 
 ### Swift Package Manager
 
 Add the following dependency to your **Package.swift** file:
 
 ```swift
-.package(url: "https://github.com/vospennikov/ClusterMap.git", from: "1.0.0")
+.package(url: "https://github.com/vospennikov/ClusterMap.git", from: "1.1.0")
 ```
 
 ### Cocoapods
 
-ClusterMap is available through CocoaPods. To install it, simply add the following line to your Podfile:
+ClusterMap is available through CocoaPods. To install it, add the following line to your Podfile:
 
 ```ruby
-pod 'ClusterMap', '1.0.0'
+pod 'ClusterMap', '1.1.0'
 ```
 
 
 ## Usage
 
 ### The Basics
-The `ClusterManager` class generates, manages and displays annotation clusters.
+The `ClusterManager` class generates, manages, and displays annotation clusters.
 
 ```swift
 let clusterManager = ClusterManager()
@@ -86,7 +86,7 @@ manager.add(annotation)
 
 ### Configuring the Annotation View
 
-Implement the map view’s `mapView(_:viewFor:)` delegate method to configure the annotation view. Return an instance of `MKAnnotationView` to display as a visual representation of the annotations.
+Implement the map view's `mapView(_:viewFor:)` delegate method to configure the annotation view. Return an instance of `MKAnnotationView` to visually represent the annotations.
 
 To display clusters, return an instance of `ClusterAnnotationView`.
 
@@ -106,7 +106,7 @@ For performance reasons, you should generally reuse `MKAnnotationView` objects i
 
 #### Customizing the Appearance
 
-The `ClusterAnnotationView` class exposes a `countLabel` property. You can subclass `ClusterAnnotationView` to provide custom behavior as needed. Here's an example of subclassing the  `ClusterAnnotationView` and customizing the layer `borderColor`.
+The `ClusterAnnotationView` class exposes a `countLabel` property. You can subclass `ClusterAnnotationView` to provide custom behavior as needed. Here's an example of subclassing the `ClusterAnnotationView` and customizing the layer `borderColor`.
 
 ```swift
 class CountClusterAnnotationView: ClusterAnnotationView {
@@ -122,17 +122,17 @@ See the [AnnotationView](Example/Shared/Views/CountClusterAnnotationView.swift) 
 
 ### Removing Annotations
 
-To remove annotations, you can call `remove(annotation:)`. However the annotations will still display until you call `reload()`.
+To remove annotations, you can call `remove(annotation:)`. However, the annotations will still display until you call `reload()`.
 
 ```swift
 manager.remove(annotation)
 ```
 
-In the case that `shouldRemoveInvisibleAnnotations` is set to `false`, annotations that have been removed may still appear on map until calling `reload()` on visible region.
+If `shouldRemoveInvisibleAnnotations` is set to `false`, annotations that have been removed may still appear on the map until calling `reload()` on the visible region.
 
 ### Reloading Annotations
 
-Implement the map view’s `mapView(_:regionDidChangeAnimated:)` delegate method to reload the `ClusterManager` when the region changes.
+Implement the map view's `mapView(_:regionDidChangeAnimated:)` delegate method to reload the `ClusterManager` when the region changes.
 
 ```swift
 func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -155,12 +155,12 @@ var minCountForClustering: Int // The minimum number of annotations for a cluste
 var shouldRemoveInvisibleAnnotations: Bool // Whether to remove invisible annotations. The default is `true`.
 var shouldDistributeAnnotationsOnSameCoordinate: Bool // Whether to arrange annotations in a circle if they have the same coordinate. The default is `true`.
 var distanceFromContestedLocation: Double // The distance in meters from contested location when the annotations have the same coordinate. The default is `3`.
-var clusterPosition: ClusterPosition // The position of the cluster annotation. The default is `.nearCenter`.
+var clusterPosition: ClusterAlignment // The position of the cluster annotation. The default is `.nearCenter`.
 ```
 
 ### ClusterManagerDelegate
 
-The  `ClusterManagerDelegate` protocol provides a number of functions to manage clustering and configure cells.
+The `ClusterManagerDelegate` protocol provides many functions to manage clustering and configure cells.
 
 ```swift
 // The size of each cell on the grid at a given zoom level.
@@ -175,6 +175,7 @@ func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool { ... }
 The documentation for releases and `main` are available here:
 
 * [`main`](https://vospennikov.github.io/ClusterMap/main/documentation/clustermap)
+* [1.1.0](https://vospennikov.github.io/ClusterMap/1.1.0/documentation/clustermap)
 * [1.0.0](https://vospennikov.github.io/ClusterMap/1.0.0/documentation/clustermap)
 
 ## Credits
