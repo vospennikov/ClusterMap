@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import ClusterMap
 import XCTest
 import MapKit
+@testable import ClusterMap
 
 final class QuadTreeTests: XCTestCase {
     func test_add_whenAnnotationInside_shouldReturnTrue() {
@@ -56,7 +56,7 @@ final class QuadTreeTests: XCTestCase {
         let addAnnotation1Result = quadTree.add(annotation1)
         let addAnnotation2Result = quadTree.add(annotation2)
         
-        let annotations = quadTree.annotations(in: .appleAndMicrosoftHeadquarters)
+        let annotations = quadTree.findAnnotations(in: .appleAndMicrosoftHeadquarters)
         
         XCTAssertEqual(annotations.count, 2)
     }

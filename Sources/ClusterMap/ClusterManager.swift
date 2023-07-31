@@ -92,7 +92,7 @@ open class ClusterManager {
      */
     open var annotations: [MKAnnotation] {
         return dispatchQueue.sync {
-            tree.annotations(in: .world)
+            tree.findAnnotations(in: .world)
         }
     }
     
@@ -270,7 +270,7 @@ open class ClusterManager {
             var annotations = [MKAnnotation]()
             
             // add annotations
-            for node in tree.annotations(in: mapRect) {
+            for node in tree.findAnnotations(in: mapRect) {
                 if delegate?.shouldClusterAnnotation(node) ?? true {
                     annotations.append(node)
                 } else {
@@ -294,7 +294,7 @@ open class ClusterManager {
     
     func distributeAnnotations(tree: QuadTree, mapRect: MKMapRect) {
         let annotations = dispatchQueue.sync {
-            tree.annotations(in: mapRect)
+            tree.findAnnotations(in: mapRect)
         }
         let hash = Dictionary(grouping: annotations) { $0.coordinate }
         dispatchQueue.async(flags: .barrier) {
