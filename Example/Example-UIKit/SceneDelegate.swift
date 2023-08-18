@@ -17,18 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let newScene = (scene as? UIWindowScene) else { return }
         let newWindow = UIWindow(windowScene: newScene)
-        
+
         let outlineViewController = OutlineViewController()
         let navigationController = UINavigationController(rootViewController: outlineViewController)
-        
+
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithDefaultBackground()
         navigationController.navigationBar.tintColor = .label
         navigationController.navigationItem.standardAppearance = navigationBarAppearance
         navigationController.setNeedsStatusBarAppearanceUpdate()
-        
+
         newWindow.rootViewController = navigationController
-        
+
         window = newWindow
         window?.makeKeyAndVisible()
     }

@@ -11,20 +11,20 @@ extension QuadTree {
     final class Node {
         let rect: MKMapRect
         let maxPointCapacity = 8
-        
+
         var annotations = [MKAnnotation]()
         var type: NodeType = .leaf
-        
+
         init(rect: MKMapRect) {
             self.rect = rect
         }
-        
+
         @discardableResult
         func add(_ targetAnnotation: MKAnnotation) -> Bool {
             guard isAnnotationWithinRect(targetAnnotation) else {
                 return false
             }
-            
+
             switch type {
             case .leaf:
                 annotations.append(targetAnnotation)
@@ -40,38 +40,38 @@ extension QuadTree {
             }
             return true
         }
-        
+
         @discardableResult
         func remove(_ targetAnnotation: MKAnnotation) -> Bool {
             guard isAnnotationWithinRect(targetAnnotation) else {
                 return false
             }
-            
+
             if removeAnnotationFromCurrentNode(targetAnnotation) {
                 return true
             }
-            
+
             if removeAnnotationFromChildren(targetAnnotation) {
                 return true
             }
-            
+
             return false
         }
-        
+
         func findAnnotations(in targetRect: MKMapRect) -> [MKAnnotation] {
             guard rect.intersects(targetRect) else {
                 return []
             }
-            
+
             // Initialize array with a reasonable capacity to prevent unnecessary reallocations
             var foundAnnotations = [MKAnnotation]()
             foundAnnotations.reserveCapacity(annotations.count)
-            
+
             // Add only the annotations that are contained within the target rectangle
             for annotation in annotations where targetRect.contains(annotation.coordinate) {
                 foundAnnotations.append(annotation)
             }
-            
+
             switch type {
             case .leaf:
                 break
@@ -81,7 +81,7 @@ extension QuadTree {
                     foundAnnotations.append(contentsOf: childNode.findAnnotations(in: targetRect))
                 }
             }
-            
+
             return foundAnnotations
         }
     }
@@ -91,16 +91,16 @@ extension QuadTree.Node {
     private func isAnnotationWithinRect(_ targetAnnotation: MKAnnotation) -> Bool {
         rect.contains(targetAnnotation.coordinate)
     }
-    
+
     private func removeAnnotationFromCurrentNode(_ targetAnnotation: MKAnnotation) -> Bool {
         if let indexOfTarget = annotations.firstIndex(where: { $0.coordinate == targetAnnotation.coordinate }) {
             annotations.remove(at: indexOfTarget)
             return true
         }
-        
+
         return false
     }
-    
+
     private func removeAnnotationFromChildren(_ targetAnnotation: MKAnnotation) -> Bool {
         switch type {
         case .internal(let children):
@@ -112,7 +112,7 @@ extension QuadTree.Node {
         }
         return false
     }
-    
+
     private func subdivide() {
         switch type {
         case .leaf:

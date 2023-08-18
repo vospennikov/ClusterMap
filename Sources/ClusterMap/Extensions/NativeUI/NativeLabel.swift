@@ -1,50 +1,52 @@
 //
 //  NativeLabel.swift
-//  
+//
 //
 //  Created by Mikhail Vospennikov on 10.02.2023.
 //
 
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #elseif canImport(AppKit)
-import AppKit
+    import AppKit
 #endif
 
 extension NativeLabel {
-    /// Returns the text alignment of the label using the `NSTextAlignment` enum on macOS and the `UITextAlignment` enum on iOS.
+    /// Returns the text alignment of the label using the `NSTextAlignment` enum on macOS and the `UITextAlignment` enum
+    /// on iOS.
     /// It can also be set to change the text alignment of the label to a specified value.
     var nativeTextAlignment: NSTextAlignment {
         get {
             #if canImport(UIKit)
-            return textAlignment
+                return textAlignment
             #elseif canImport(AppKit)
-            return alignment
+                return alignment
             #endif
         }
         set {
             #if canImport(UIKit)
-            textAlignment = newValue
+                textAlignment = newValue
             #elseif canImport(AppKit)
-            alignment = newValue
+                alignment = newValue
             #endif
         }
     }
-    
-    /// Returns the text of the label as a `String` on both macOS and iOS. It can also be set to change the text of the label to a specified value.
+
+    /// Returns the text of the label as a `String` on both macOS and iOS. It can also be set to change the text of the
+    /// label to a specified value.
     var nativeText: String? {
         get {
             #if canImport(UIKit)
-            return text
+                return text
             #elseif canImport(AppKit)
-            return stringValue
+                return stringValue
             #endif
         }
         set {
             #if canImport(UIKit)
-            text = newValue
+                text = newValue
             #elseif canImport(AppKit)
-            stringValue = newValue ?? ""
+                stringValue = newValue ?? ""
             #endif
         }
     }

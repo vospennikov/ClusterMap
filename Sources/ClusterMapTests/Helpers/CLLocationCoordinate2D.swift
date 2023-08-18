@@ -1,12 +1,12 @@
 //
-//  CLLocationCoordinate2D.Random.swift
+//  CLLocationCoordinate2D.swift
 //
 //
 //  Created by Mikhail Vospennikov on 12.04.2023.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 
 extension CLLocationCoordinate2D {
     static func random(
@@ -15,13 +15,12 @@ extension CLLocationCoordinate2D {
         minLongitude: Double,
         maxLongitude: Double
     ) -> CLLocationCoordinate2D {
-        
         let latitudeDelta = maxLatitude - minLatitude
         let longitudeDelta = maxLongitude - minLongitude
-        
-        let latitude = minLatitude + latitudeDelta * Double.random(in: 0...1)
-        let longitude = minLongitude + longitudeDelta * Double.random(in: 0...1)
-        
+
+        let latitude = minLatitude + latitudeDelta * Double.random(in: 0 ... 1)
+        let longitude = minLongitude + longitudeDelta * Double.random(in: 0 ... 1)
+
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }

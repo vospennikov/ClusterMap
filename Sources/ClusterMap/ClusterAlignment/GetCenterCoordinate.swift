@@ -1,6 +1,6 @@
 //
 //  GetCenterCoordinate.swift
-//  
+//
 //
 //  Created by Mikhail Vospennikov on 06.07.2023.
 //

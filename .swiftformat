@@ -1,0 +1,21 @@
+--elseposition same-line
+--emptybraces spaced
+--exponentgrouping disabled
+--exponentgrouping enabled
+--fractiongrouping disabled
+--fractiongrouping enabled
+--importgrouping testable-bottom
+--lineaftermarks false
+--maxwidth 120
+--self remove
+--wraparguments before-first
+--wrapcollections before-first
+--wrapenumcases always
+--wrapparameters before-first
+
+--disable enumNamespaces
+--disable hoistPatternLet
+--disable unusedArguments
+--enable blankLineAfterImports
+--enable blockComments
+--enable isEmpty

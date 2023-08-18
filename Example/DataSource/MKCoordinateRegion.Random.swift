@@ -1,5 +1,5 @@
 //
-//  MKCoordinateRegion+Random.swift
+//  MKCoordinateRegion.Random.swift
 //  DataSource
 //
 //  Created by Mikhail Vospennikov on 08.02.2023.

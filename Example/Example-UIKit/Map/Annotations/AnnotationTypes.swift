@@ -9,12 +9,12 @@ import Foundation
 
 enum AnnotationTypes: Int, CaseIterable {
     case count, imageCount, image
-    
+
     var description: String {
         switch self {
-            case .count: return "Count"
-            case .imageCount: return "Image count"
-            case .image: return "Image"
+        case .count: return "Count"
+        case .imageCount: return "Image count"
+        case .image: return "Image"
         }
     }
 }

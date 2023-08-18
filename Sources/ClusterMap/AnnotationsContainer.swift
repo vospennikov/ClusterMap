@@ -14,5 +14,4 @@ protocol AnnotationsContainer {
     func findAnnotations(in targetRect: MKMapRect) async -> [MKAnnotation]
 }
 
-extension QuadTree: AnnotationsContainer {
-}
+extension QuadTree: AnnotationsContainer { }

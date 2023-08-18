@@ -21,7 +21,7 @@ extension MKMapRect {
         )
         return mapRect(topLeft: topLeft, bottomRight: bottomRight)
     }
-    
+
     static var appleAndMicrosoftHeadquarters: MKMapRect {
         let topLeft = CLLocationCoordinate2D(
             latitude: max(Locations.ApplePark.latitude, Locations.MicrosoftHeadquarters.latitude),
@@ -33,16 +33,16 @@ extension MKMapRect {
         )
         return mapRect(topLeft: topLeft, bottomRight: bottomRight)
     }
-    
+
     private static func mapRect(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D) -> MKMapRect {
         let topLeftPoint = MKMapPoint(topLeft)
         let bottomRightPoint = MKMapPoint(bottomRight)
-        
+
         let originX = min(topLeftPoint.x, bottomRightPoint.x)
         let originY = min(topLeftPoint.y, bottomRightPoint.y)
         let width = abs(topLeftPoint.x - bottomRightPoint.x)
         let height = abs(topLeftPoint.y - bottomRightPoint.y)
-        
+
         return MKMapRect(x: originX, y: originY, width: width, height: height)
     }
 }

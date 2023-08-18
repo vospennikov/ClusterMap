@@ -1,6 +1,6 @@
 //
 //  ClusterManagerDelegate.swift
-//  
+//
 //
 //  Created by Mikhail Vospennikov on 14.04.2023.
 //
@@ -12,10 +12,11 @@ import MapKit
 public protocol ClusterManagerDelegate: AnyObject {
     /// The size of each cell on the grid (The larger the size, the better the performance) at a given zoom level.
     /// - Parameter zoomLevel: The zoom level of the visible map region.
-    /// - Returns: The cell size at the given zoom level. If you return nil, the cell size will automatically adjust to the zoom level.
+    /// - Returns: The cell size at the given zoom level. If you return nil, the cell size will automatically adjust to
+    /// the zoom level.
     func cellSize(for zoomLevel: Double) async -> Double?
     func cellSize(for zoomLevel: Double) -> Double?
-    
+
     /// Whether to cluster the given annotation.
     /// - Parameter annotation: An annotation object. The object must conform to the MKAnnotation protocol.
     /// - Returns: `true` to clusterize the given annotation.
@@ -26,18 +27,18 @@ public protocol ClusterManagerDelegate: AnyObject {
 /// The `ClusterManagerDelegate extension` provides default implementations for delegate methods.
 public extension ClusterManagerDelegate {
     func cellSize(for zoomLevel: Double) async -> Double? {
-        return nil
+        nil
     }
-    
+
     func cellSize(for zoomLevel: Double) -> Double? {
-        return nil
+        nil
     }
-    
+
     func shouldClusterAnnotation(_ annotation: MKAnnotation) async -> Bool {
-        return true
+        true
     }
-    
+
     func shouldClusterAnnotation(_ annotation: MKAnnotation) -> Bool {
-        return true
+        true
     }
 }

@@ -5,8 +5,8 @@
 //  Created by Mikhail Vospennikov on 03.07.2023.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 import MapKit
 
 class MockAnnotation: NSObject, MKAnnotation {

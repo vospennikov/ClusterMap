@@ -6,21 +6,21 @@ import PackageDescription
 let package = Package(
     name: "ClusterMap",
     platforms: [
-        .iOS(.v13), .macOS(.v11)
+        .iOS(.v13), .macOS(.v11),
     ],
     products: [
         .library(name: "ClusterMap", targets: ["ClusterMap"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0")
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0"),
     ],
     targets: [
         .target(name: "ClusterMap"),
-        .testTarget(name: "ClusterMapTests", dependencies: ["ClusterMap"])
+        .testTarget(name: "ClusterMapTests", dependencies: ["ClusterMap"]),
     ]
 )
 
-//for target in package.targets {
+// for target in package.targets {
 //    target.swiftSettings = target.swiftSettings ?? []
 //    target.swiftSettings?.append(
 //        .unsafeFlags([
@@ -30,4 +30,4 @@ let package = Package(
 //            "-enable-testing"
 //        ])
 //    )
-//}
+// }

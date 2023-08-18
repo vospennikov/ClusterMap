@@ -14,13 +14,13 @@ extension OperationQueue {
         queue.maxConcurrentOperationCount = 1
         return queue
     }
-    
+
     func addBlockOperation(_ block: @escaping (BlockOperation) -> Void) {
         let operation = BlockOperation()
         operation.addExecutionBlock { [weak operation] in
-            guard let operation = operation else { return }
+            guard let operation else { return }
             block(operation)
         }
-        self.addOperation(operation)
+        addOperation(operation)
     }
 }

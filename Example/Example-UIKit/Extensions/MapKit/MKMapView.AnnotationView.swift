@@ -1,5 +1,5 @@
 //
-//  MKMapView+AnnotationView.swift
+//  MKMapView.AnnotationView.swift
 //  Example-UIKit
 //
 //  Created by Mikhail Vospennikov on 07.02.2023.

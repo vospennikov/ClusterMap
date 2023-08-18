@@ -10,7 +10,7 @@ import MapKit
 
 struct GetNearCenterCoordinate: ClusterAlignmentStrategy {
     let clusterCenterPosition: GetCenterCoordinate
-    
+
     func calculatePosition(for annotations: [MKAnnotation], within mapRect: MKMapRect) -> CLLocationCoordinate2D {
         let centerCoordinate = clusterCenterPosition.calculatePosition(for: [], within: mapRect)
         let nearestAnnotation = annotations.min {

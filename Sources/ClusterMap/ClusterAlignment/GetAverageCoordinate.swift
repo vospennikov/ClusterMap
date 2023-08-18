@@ -1,6 +1,6 @@
 //
 //  GetAverageCoordinate.swift
-//  
+//
 //
 //  Created by Mikhail Vospennikov on 06.07.2023.
 //
@@ -10,7 +10,7 @@ import MapKit
 
 struct GetAverageCoordinate: ClusterAlignmentStrategy {
     func calculatePosition(for annotations: [MKAnnotation], within mapRect: MKMapRect) -> CLLocationCoordinate2D {
-        let coordinates = annotations.map { $0.coordinate }
+        let coordinates = annotations.map(\.coordinate)
         let totals = coordinates.reduce(into: (latitude: 0.0, longitude: 0.0)) {
             total, location in
             total.latitude += location.latitude
