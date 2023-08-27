@@ -16,16 +16,19 @@ open class ClusterManager {
     /// The current zoom level of the visible map region.
     ///
     /// Min value is 0 (max zoom out), max is 20 (max zoom in).
+    @Clamping(to: 0 ... 20)
     open internal(set) var zoomLevel: Double = 0
 
     /// The maximum zoom level before disabling clustering.
     ///
     /// Min value is 0 (max zoom out), max is 20 (max zoom in). The default is 20.
+    @Clamping(to: 0 ... 20)
     open var maxZoomLevel: Double = 20
 
     /// The minimum number of annotations for a cluster.
     ///
-    /// The default is 2.
+    /// Min value is 0. The default is 2.
+    @Clamping(to: 0...)
     open var minCountForClustering: Int = 2
 
     /// Whether to remove invisible annotations.
@@ -40,7 +43,8 @@ open class ClusterManager {
 
     /// The distance in meters from contested location when the annotations have the same coordinate.
     ///
-    /// The default is 3.
+    /// Min value is 0. The default is 3.
+    @Clamping(to: 0...)
     open var distanceFromContestedLocation: Double = 3
 
     /// Controls the positioning strategy of a cluster. The default is `.nearCenter`.
