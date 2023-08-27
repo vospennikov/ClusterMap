@@ -23,41 +23,41 @@ public struct Clamping<Value: Comparable> {
     }
 
     public init(wrappedValue defaultValue: Value, to range: Range<Value>) {
-        let closedRange = range.lowerBound ... range.upperBound
+        let closedRange = range.lowerBound...range.upperBound
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 }
 
 public extension Clamping where Value: FloatingPoint {
     init(wrappedValue defaultValue: Value, to range: PartialRangeFrom<Value>) {
-        let closedRange = range.lowerBound ... Value.infinity
+        let closedRange = range.lowerBound...Value.infinity
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 
     init(wrappedValue defaultValue: Value, to range: PartialRangeUpTo<Value>) {
-        let closedRange = -Value.infinity ... range.upperBound.nextDown
+        let closedRange = -Value.infinity...range.upperBound.nextDown
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 
     init(wrappedValue defaultValue: Value, to range: PartialRangeThrough<Value>) {
-        let closedRange = -Value.infinity ... range.upperBound
+        let closedRange = -Value.infinity...range.upperBound
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 }
 
 public extension Clamping where Value: FixedWidthInteger {
     init(wrappedValue defaultValue: Value, to range: PartialRangeFrom<Value>) {
-        let closedRange = range.lowerBound ... Value.max
+        let closedRange = range.lowerBound...Value.max
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 
     init(wrappedValue defaultValue: Value, to range: PartialRangeUpTo<Value>) {
-        let closedRange = (Value.min) ... (range.upperBound - 1)
+        let closedRange = (Value.min)...(range.upperBound - 1)
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 
     init(wrappedValue defaultValue: Value, to range: PartialRangeThrough<Value>) {
-        let closedRange = Value.min ... range.upperBound
+        let closedRange = Value.min...range.upperBound
         self.init(wrappedValue: defaultValue, to: closedRange)
     }
 }

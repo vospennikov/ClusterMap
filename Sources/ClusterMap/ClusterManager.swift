@@ -16,13 +16,13 @@ open class ClusterManager {
     /// The current zoom level of the visible map region.
     ///
     /// Min value is 0 (max zoom out), max is 20 (max zoom in).
-    @Clamping(to: 0 ... 20)
+    @Clamping(to: 0...20)
     open internal(set) var zoomLevel: Double = 0
 
     /// The maximum zoom level before disabling clustering.
     ///
     /// Min value is 0 (max zoom out), max is 20 (max zoom in). The default is 20.
-    @Clamping(to: 0 ... 20)
+    @Clamping(to: 0...20)
     open var maxZoomLevel: Double = 20
 
     /// The minimum number of annotations for a cluster.
@@ -315,8 +315,8 @@ open class ClusterManager {
         let maxY = Int(floor(visibleMapRect.maxY * scaleFactor))
 
         var mapRects = [MKMapRect]()
-        for x in minX ... maxX {
-            for y in minY ... maxY {
+        for x in minX...maxX {
+            for y in minY...maxY {
                 var mapRect = MKMapRect(
                     x: Double(x) / scaleFactor,
                     y: Double(y) / scaleFactor,
@@ -348,9 +348,9 @@ open class ClusterManager {
             return cellSize
         }
         switch zoomLevel {
-        case 13 ... 15:
+        case 13...15:
             return 64
-        case 16 ... 18:
+        case 16...18:
             return 32
         case 19...:
             return 16

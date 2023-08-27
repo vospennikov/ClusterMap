@@ -159,7 +159,7 @@ final class ClusterManagerTests: XCTestCase {
         expectation.assertForOverFulfill = true
 
         measure {
-            for i in 0 ... 100 {
+            for i in 0...100 {
                 DispatchQueue.global().async {
                     manager.clusteredAnnotations(zoomScale: self.zoomScale, visibleMapRect: self.mapRect) { finished in
                         if i == 100 {
@@ -197,7 +197,7 @@ private extension ClusterManagerTests {
 private extension ClusterManager {
     @discardableResult
     func addAnnotations(count: Int, region: MKCoordinateRegion) -> [MKAnnotation] {
-        let annotations: [ClusterAnnotation] = (0 ..< count).map { i in
+        let annotations: [ClusterAnnotation] = (0..<count).map { i in
             let annotation = ClusterAnnotation()
             annotation.coordinate = region.randomLocationWithinRegion()
             return annotation

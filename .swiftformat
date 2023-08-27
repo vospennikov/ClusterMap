@@ -19,3 +19,4 @@
 --enable blankLineAfterImports
 --enable blockComments
 --enable isEmpty
+--ranges no-space
