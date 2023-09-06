@@ -8,7 +8,9 @@
 import Foundation
 
 enum AnnotationTypes: Int, CaseIterable {
-    case count, imageCount, image
+    case count
+    case imageCount
+    case image
 
     var description: String {
         switch self {
