@@ -24,8 +24,8 @@ let package = Package(
 //    target.swiftSettings = target.swiftSettings ?? []
 //    target.swiftSettings?.append(
 //        .unsafeFlags([
-//            "-Xfrontend", "-warn-long-expression-type-checking=100",
-//            "-Xfrontend", "-warn-long-function-bodies=100",
+//            "-Xfrontend", "-warn-long-expression-type-checking=50",
+//            "-Xfrontend", "-warn-long-function-bodies=50",
 //            "-enable-library-evolution",
 //            "-enable-testing"
 //        ])
