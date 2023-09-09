@@ -90,7 +90,7 @@ final class ClusterMapViewController: UIViewController, MapController {
     }
 
     func reloadMap() async {
-        async let changes = clusterManager.reload(mapSize: mapView.bounds.size, coordinateRegion: mapView.region)
+        async let changes = clusterManager.reload(mapViewSize: mapView.bounds.size, coordinateRegion: mapView.region)
         await applyChanges(changes)
     }
 
