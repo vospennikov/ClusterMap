@@ -153,7 +153,7 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
             }
         }
     }
-    
+
     /// Reloads the annotations on the map based on the current zoom level and visible map region.
     /// This is an async-await variant of the `reload(mapViewSize:coordinateRegion:completion:)` method.
     ///
@@ -169,7 +169,7 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
             }
         }
     }
-    
+
     /// Reloads the annotations on the map based on the current zoom level and visible map region.
     ///
     /// - Parameters:
