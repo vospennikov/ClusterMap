@@ -6,6 +6,7 @@
 //
 
 import ClusterMap
+import ClusterMapSwiftUI
 import MapKit
 import SwiftUI
 

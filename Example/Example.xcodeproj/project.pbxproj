@@ -39,6 +39,7 @@
 		DD752E7F2AA8EB3200D6AFC4 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD752E7E2AA8EB3200D6AFC4 /* MapController.swift */; };
 		DD7989EA29961F3700B28DC4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7989E929961F3700B28DC4 /* main.swift */; };
 		DD7989ED29961FFC00B28DC4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7989EB29961FFC00B28DC4 /* MapViewController.swift */; };
+		DD7D619F2AACD222005C2AAE /* ClusterMapSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DD7D619E2AACD222005C2AAE /* ClusterMapSwiftUI */; };
 		DD883E7F2993C70400E713CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD883E5A2993C70400E713CF /* Assets.xcassets */; };
 		DD883E802993C70400E713CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */; };
 		DD883E892993C70400E713CF /* DefaultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6D2993C70400E713CF /* DefaultMapViewController.swift */; };
@@ -197,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD34115B2A77956B007A74AB /* ClusterMap in Frameworks */,
+				DD7D619F2AACD222005C2AAE /* ClusterMapSwiftUI in Frameworks */,
 				DD3411552A779567007A74AB /* DataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +591,7 @@
 			name = "Example-SwiftUI";
 			packageProductDependencies = (
 				DD34115A2A77956B007A74AB /* ClusterMap */,
+				DD7D619E2AACD222005C2AAE /* ClusterMapSwiftUI */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = DD3410E62A777686007A74AB /* Example-SwiftUI.app */;
@@ -880,7 +883,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 35J7AXFYQT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -910,7 +912,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 35J7AXFYQT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1243,6 +1244,10 @@
 		DD5939FC29F267A40088861F /* ClusterMap */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ClusterMap;
+		};
+		DD7D619E2AACD222005C2AAE /* ClusterMapSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ClusterMapSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

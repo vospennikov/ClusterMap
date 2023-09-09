@@ -10,6 +10,7 @@ let package = Package(
     ],
     products: [
         .library(name: "ClusterMap", targets: ["ClusterMap"]),
+        .library(name: "ClusterMapSwiftUI", targets: ["ClusterMapSwiftUI"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0"),
@@ -17,6 +18,7 @@ let package = Package(
     targets: [
         .target(name: "ClusterMap"),
         .testTarget(name: "ClusterMapTests", dependencies: ["ClusterMap"]),
+        .target(name: "ClusterMapSwiftUI"),
     ]
 )
 
