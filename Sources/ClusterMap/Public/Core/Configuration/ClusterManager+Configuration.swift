@@ -28,10 +28,8 @@ public extension ClusterManager {
         ///
         /// Beyond this zoom level, annotations will be displayed individually.
         ///
-        /// - Note: The minimum value is `0` (max zoom out) and the maximum value is `20` (max zoom in). The default is
-        /// `20`.
-        @Clamping(to: 0...20)
-        public var maxZoomLevel: Double = 20
+        /// - Note: The minimum value is `0` (max zoom out). The default is `20`.
+        public let maxZoomLevel: Double
 
         /// Threshold number for clustering within a region.
         ///
@@ -39,8 +37,7 @@ public extension ClusterManager {
         /// fewer than this count will not be clustered.
         ///
         /// - Note: The default is `2`.
-        @Clamping(to: 0...)
-        public var minCountForClustering: Int = 2
+        public let minCountForClustering: Int
 
         /// Removal of non-visible annotations.
         ///
@@ -49,7 +46,7 @@ public extension ClusterManager {
         /// When set to `true`, annotations outside the current map view will not be processed.
         ///
         /// - Note: The default is `true`.
-        public var shouldRemoveInvisibleAnnotations: Bool
+        public let shouldRemoveInvisibleAnnotations: Bool
 
         /// Distribution of annotations with identical coordinates.
         ///
@@ -59,7 +56,7 @@ public extension ClusterManager {
         /// overlapping.
         ///
         /// - Note: The default is `true`.
-        public var shouldDistributeAnnotationsOnSameCoordinate: Bool
+        public let shouldDistributeAnnotationsOnSameCoordinate: Bool
 
         /// Distance (in meters) for distributing overlapping annotations.
         ///
@@ -67,8 +64,7 @@ public extension ClusterManager {
         /// by which annotations should be shifted apart from a contested location.
         ///
         /// - Note: The default is `3`.
-        @Clamping(to: 0...)
-        public var distanceFromContestedLocation: Double = 3
+        public let distanceFromContestedLocation: Double
 
         /// Controls the positioning strategy of a cluster.
         ///
@@ -101,7 +97,7 @@ public extension ClusterManager {
         /// ```
         ///
         /// - Note: The default value is `.nearCenter`
-        public var clusterPosition: ClusterAlignment = .nearCenter
+        public let clusterPosition: ClusterAlignment
 
         /// Dynamic size adjustment of the grid cell for a given zoom level.
         ///
@@ -131,7 +127,7 @@ public extension ClusterManager {
         ///         }
         ///     }
         /// )
-        public var cellSizeForZoomLevel: (Int) -> CGSize
+        public let cellSizeForZoomLevel: (Int) -> CGSize
 
         public init(
             maxZoomLevel: Double = 20,
@@ -149,11 +145,11 @@ public extension ClusterManager {
                 }
             }
         ) {
-            self.maxZoomLevel = maxZoomLevel
-            self.minCountForClustering = minCountForClustering
+            self.maxZoomLevel = max(0, maxZoomLevel)
+            self.minCountForClustering = max(0, minCountForClustering)
             self.shouldRemoveInvisibleAnnotations = shouldRemoveInvisibleAnnotations
             self.shouldDistributeAnnotationsOnSameCoordinate = shouldDistributeAnnotationsOnSameCoordinate
-            self.distanceFromContestedLocation = distanceFromContestedLocation
+            self.distanceFromContestedLocation = max(0, distanceFromContestedLocation)
             self.clusterPosition = clusterPosition
             self.cellSizeForZoomLevel = cellSizeForZoomLevel
         }
