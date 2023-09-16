@@ -29,18 +29,23 @@ extension ContentView {
     final class DataSource: ObservableObject {
         private let coordinateRandomizer = CoordinateRandomizer()
         private let clusterManager = ClusterManager<MapAnnotation>()
-        private var store = Set<AnyCancellable>()
-
-        private var _region: MKCoordinateRegion = .sanFrancisco
-        private var regionSubject = PassthroughSubject<MKCoordinateRegion, Never>()
+        private var cancellables = Set<AnyCancellable>()
+        private var _region: MKCoordinateRegion
 
         @Published var annotations: [MapAnnotation] = []
+
         var mapSize: CGSize = .zero
+        let initialPosition: MKCoordinateRegion = .sanFrancisco
+        var regionSubject = PassthroughSubject<MKCoordinateRegion, Never>()
         var region: Binding<MKCoordinateRegion> {
             Binding(
                 get: { self._region },
-                set: { self.regionSubject.send($0) }
+                set: { newValue in self.regionSubject.send(newValue) }
             )
+        }
+
+        init() {
+            _region = initialPosition
         }
 
         func bind() {
@@ -50,14 +55,14 @@ extension ContentView {
                     self._region = newRegion
                     Task { await self.reloadAnnotations() }
                 }
-                .store(in: &store)
+                .store(in: &cancellables)
         }
 
         func addAnnotations() async {
             let points = coordinateRandomizer.generateRandomCoordinates(count: 10000, within: _region)
-            let annotations = points.map { MapAnnotation(coordinate: $0) }
+            let newAnnotations = points.map { MapAnnotation(coordinate: $0) }
 
-            clusterManager.add(annotations)
+            clusterManager.add(newAnnotations)
             await reloadAnnotations()
         }
 
@@ -73,23 +78,24 @@ extension ContentView {
 
         @MainActor
         private func applyChanges(_ difference: ClusterManager<MapAnnotation>.Difference) {
-            for annotationType in difference.removals {
-                switch annotationType {
+            for removal in difference.removals {
+                switch removal {
                 case .annotation(let annotation):
-                    annotations.removeAll(where: { $0 == annotation })
+                    annotations.removeAll { $0 == annotation }
                 case .cluster(let clusterAnnotation):
-                    annotations.removeAll(where: { $0.id == clusterAnnotation.id })
+                    annotations.removeAll { $0.id == clusterAnnotation.id }
                 }
             }
-            for annotationType in difference.insertions {
-                switch annotationType {
-                case .annotation(let annotation):
-                    annotations.append(annotation)
-                case .cluster(let clusterAnnotation):
+
+            for insertion in difference.insertions {
+                switch insertion {
+                case .annotation(let newItem):
+                    annotations.append(newItem)
+                case .cluster(let newItem):
                     annotations.append(MapAnnotation(
-                        id: clusterAnnotation.id,
-                        coordinate: clusterAnnotation.coordinate,
-                        style: .cluster(count: clusterAnnotation.memberAnnotations.count)
+                        id: newItem.id,
+                        coordinate: newItem.coordinate,
+                        style: .cluster(count: newItem.memberAnnotations.count)
                     ))
                 }
             }
