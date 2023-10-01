@@ -49,32 +49,9 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
         self.configuration = configuration
     }
 
-    /// A collection of all annotations.
-    public var annotations: [Annotation] {
-        dispatchQueue.sync {
-            tree.findAnnotations(in: .world)
-        }
-    }
-
     /// A collection of currently visible annotations on the map.
     public var visibleAnnotations: [AnnotationType] = []
-
-    /// A collection of currently visible nested annotations on the map.
-    ///
-    /// This includes individual annotations as well as annotations within visible clusters.
-    public var visibleNestedAnnotations: [Annotation] {
-        dispatchQueue.sync {
-            visibleAnnotations.reduce(into: [Annotation]()) { partialResult, annotationType in
-                switch annotationType {
-                case .annotation(let annotation):
-                    partialResult.append(annotation)
-                case .cluster(let clusterAnnotation):
-                    partialResult += clusterAnnotation.memberAnnotations
-                }
-            }
-        }
-    }
-
+    
     /// Adds a single annotation to the cluster manager.
     ///
     /// - Parameter annotation: The annotation to be added.
@@ -120,6 +97,29 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
         operationQueue.cancelAllOperations()
         dispatchQueue.async(flags: .barrier) { [weak self] in
             self?.tree = QuadTree<Annotation>(rect: .world)
+        }
+    }
+    
+    /// A collection of all annotations.
+    public func fetchAllAnnotations() -> [Annotation] {
+        dispatchQueue.sync {
+            tree.findAnnotations(in: .world)
+        }
+    }
+
+    /// A collection of currently visible nested annotations on the map.
+    ///
+    /// This includes individual annotations as well as annotations within visible clusters.
+    public func fetchVisibleNestedAnnotations() -> [Annotation] {
+        dispatchQueue.sync {
+            visibleAnnotations.reduce(into: [Annotation]()) { partialResult, annotationType in
+                switch annotationType {
+                case .annotation(let annotation):
+                    partialResult.append(annotation)
+                case .cluster(let clusterAnnotation):
+                    partialResult += clusterAnnotation.memberAnnotations
+                }
+            }
         }
     }
 

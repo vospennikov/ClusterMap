@@ -58,7 +58,7 @@ final class ClusterManagerTests: XCTestCase {
         clusterManager.add(annotations)
         await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
-        XCTAssertTrue(clusterManager.visibleNestedAnnotations.count == 1000)
+        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
     }
 
     func testRemoveInvisibleAnnotations() async {
@@ -68,7 +68,7 @@ final class ClusterManagerTests: XCTestCase {
         clusterManager.add(annotations)
         await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
-        XCTAssertTrue(clusterManager.visibleNestedAnnotations.count == 1000)
+        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
     }
 
     func testMinCountForClustering() async {
@@ -78,7 +78,7 @@ final class ClusterManagerTests: XCTestCase {
         clusterManager.add(annotations)
         await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
-        XCTAssertTrue(clusterManager.visibleNestedAnnotations.count == 1000)
+        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
     }
 
     func testCancelOperation() {
@@ -101,7 +101,7 @@ final class ClusterManagerTests: XCTestCase {
         let result = XCTWaiter.wait(for: [expectation], timeout: 10)
 
         XCTAssertTrue(result == .completed)
-        XCTAssertTrue(clusterManager.visibleNestedAnnotations.count == 1000)
+        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
     }
 
     func testMultipleOperations() {
@@ -123,7 +123,7 @@ final class ClusterManagerTests: XCTestCase {
         let result = XCTWaiter.wait(for: [expectation], timeout: 10)
 
         XCTAssertTrue(result == .completed)
-        XCTAssertTrue(clusterManager.visibleNestedAnnotations.count == 1000)
+        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
     }
 }
 
