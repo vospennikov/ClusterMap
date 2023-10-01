@@ -144,7 +144,7 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
                 return completion(Difference())
             }
             autoreleasepool {
-                let changes = self.clusteredAnnotations(
+                let changes = self.performAnnotationClustering(
                     zoomScale: zoomScale,
                     visibleMapRect: visibleMapRect,
                     operation: operation
@@ -181,25 +181,42 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
 }
 
 private extension ClusterManager {
-    func clusteredAnnotations(zoomScale: Double, visibleMapRect: MKMapRect, operation: Operation? = nil) -> Difference {
+    func performAnnotationClustering(
+        zoomScale: Double,
+        visibleMapRect: MKMapRect,
+        operation: Operation? = nil
+    ) -> Difference {
         var isCancelled: Bool { operation?.isCancelled ?? false }
 
         guard !isCancelled else { return Difference() }
 
-        let mapRects = mapRects(zoomScale: zoomScale, visibleMapRect: visibleMapRect)
+        let mapRects = divideMapIntoGridCells(for: zoomScale, visibleMapRect: visibleMapRect)
 
         guard !isCancelled else { return Difference() }
 
         if configuration.shouldDistributeAnnotationsOnSameCoordinate {
-            distributeAnnotations(mapRect: visibleMapRect)
+            adjustOverlappingAnnotations(within: visibleMapRect)
         }
 
         let allAnnotations = dispatchQueue.sync {
-            clusteredAnnotations(mapRects: mapRects, zoomLevel: zoomLevel)
+            clusterAnnotations(within: mapRects, zoomLevel: zoomLevel)
         }
 
         guard !isCancelled else { return Difference() }
 
+        let (toAdd, toRemove) = determineAnnotationChanges(
+            allAnnotations: allAnnotations,
+            visibleMapRect: visibleMapRect
+        )
+        applyVisibleAnnotationChanges(toAdd: toAdd, toRemove: toRemove)
+
+        return Difference(insertions: toAdd, removals: toRemove)
+    }
+
+    func determineAnnotationChanges(
+        allAnnotations: [AnnotationType],
+        visibleMapRect: MKMapRect
+    ) -> (toAdd: [AnnotationType], toRemove: [AnnotationType]) {
         let before = visibleAnnotations
         let after = allAnnotations
 
@@ -207,8 +224,8 @@ private extension ClusterManager {
         let toAdd = after.subtracted(before)
 
         if !configuration.shouldRemoveInvisibleAnnotations {
-            let toKeep = toRemove.filter { kindOf in
-                switch kindOf {
+            let toKeep = toRemove.filter { annotationType in
+                switch annotationType {
                 case .annotation(let annotation):
                     return !visibleMapRect.contains(annotation.coordinate)
                 case .cluster(let clusterAnnotation):
@@ -218,15 +235,17 @@ private extension ClusterManager {
             toRemove.subtract(toKeep)
         }
 
+        return (toAdd, toRemove)
+    }
+
+    func applyVisibleAnnotationChanges(toAdd: [AnnotationType], toRemove: [AnnotationType]) {
         dispatchQueue.async(flags: .barrier) { [weak self] in
             self?.visibleAnnotations.subtract(toRemove)
             self?.visibleAnnotations.add(toAdd)
         }
-
-        return Difference(insertions: toAdd, removals: toRemove)
     }
 
-    func clusteredAnnotations(mapRects: [MKMapRect], zoomLevel: Double) -> [AnnotationType] {
+    func clusterAnnotations(within mapRects: [MKMapRect], zoomLevel: Double) -> [AnnotationType] {
         var allAnnotations: [AnnotationType] = []
         for mapRect in mapRects {
             var annotations: [Annotation] = []
@@ -256,7 +275,7 @@ private extension ClusterManager {
         return allAnnotations
     }
 
-    func distributeAnnotations(mapRect: MKMapRect) {
+    func adjustOverlappingAnnotations(within mapRect: MKMapRect) {
         let annotations = dispatchQueue.sync {
             tree.findAnnotations(in: mapRect)
         }
@@ -278,7 +297,7 @@ private extension ClusterManager {
         }
     }
 
-    func mapRects(zoomScale: Double, visibleMapRect: MKMapRect) -> [MKMapRect] {
+    func divideMapIntoGridCells(for zoomScale: Double, visibleMapRect: MKMapRect) -> [MKMapRect] {
         guard !zoomScale.isInfinite, !zoomScale.isNaN else { return [] }
 
         zoomLevel = zoomScale.zoomLevel

@@ -104,7 +104,7 @@ public extension ClusterManager {
         /// This closure takes an `Int` value representing the zoom level and returns a `CGSize` that sets the
         /// dimensions of the cell size at that zoom level.
         ///
-        /// Use this to control how cells should be sized at different zoom levels to optimize clustering and 
+        /// Use this to control how cells should be sized at different zoom levels to optimize clustering and
         /// performance.
         ///
         /// - Parameter zoom: The zoom level as an `Int`.
