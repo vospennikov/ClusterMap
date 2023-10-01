@@ -263,9 +263,9 @@ private extension ClusterManager {
         let hash = Dictionary(grouping: annotations) { $0.coordinate }
         dispatchQueue.async(flags: .barrier) {
             for value in hash.values where value.count > 1 {
+                let radiansBetweenAnnotations = (.pi * 2) / Double(value.count)
                 for (index, annotation) in value.enumerated() {
                     if var element = self.tree.remove(annotation) {
-                        let radiansBetweenAnnotations = (.pi * 2) / Double(value.count)
                         let bearing = radiansBetweenAnnotations * Double(index)
                         element.coordinate = annotation.coordinate.coordinate(
                             onBearingInRadians: bearing,
