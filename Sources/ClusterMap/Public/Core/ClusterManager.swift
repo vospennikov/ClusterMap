@@ -239,7 +239,7 @@ private extension ClusterManager {
     }
 
     func applyVisibleAnnotationChanges(toAdd: [AnnotationType], toRemove: [AnnotationType]) {
-        dispatchQueue.async(flags: .barrier) { [weak self] in
+        dispatchQueue.sync(flags: .barrier) { [weak self] in
             self?.visibleAnnotations.subtract(toRemove)
             self?.visibleAnnotations.add(toAdd)
         }
@@ -280,7 +280,7 @@ private extension ClusterManager {
             tree.findAnnotations(in: mapRect)
         }
         let hash = Dictionary(grouping: annotations) { $0.coordinate }
-        dispatchQueue.async(flags: .barrier) {
+        dispatchQueue.sync(flags: .barrier) {
             for value in hash.values where value.count > 1 {
                 let radiansBetweenAnnotations = (.pi * 2) / Double(value.count)
                 for (index, annotation) in value.enumerated() {
