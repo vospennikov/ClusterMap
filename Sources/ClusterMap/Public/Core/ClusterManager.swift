@@ -50,7 +50,7 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
     }
 
     /// A collection of currently visible annotations on the map.
-    public var visibleAnnotations: [AnnotationType] = []
+    public private(set) var visibleAnnotations: [AnnotationType] = []
     
     /// Adds a single annotation to the cluster manager.
     ///
