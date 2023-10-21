@@ -31,7 +31,7 @@ import MapKit
 ///     // Handle the difference here
 /// }
 /// ```
-public final class ClusterManager<Annotation: CoordinateIdentifiable>
+public actor ClusterManager<Annotation: CoordinateIdentifiable>
     where
     Annotation: Identifiable,
     Annotation: Hashable
@@ -39,8 +39,6 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
     private var tree = QuadTree<Annotation>(rect: .world)
     private let configuration: Configuration
     private var zoomLevel: Double = 0
-    private let operationQueue = OperationQueue.serial
-    private let dispatchQueue = DispatchQueue(label: "com.cluster.concurrentQueue", attributes: .concurrent)
 
     /// Initializes a new ClusterManager instance.
     ///
@@ -51,105 +49,55 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
 
     /// A collection of currently visible annotations on the map.
     public private(set) var visibleAnnotations: [AnnotationType] = []
-    
+
     /// Adds a single annotation to the cluster manager.
     ///
     /// - Parameter annotation: The annotation to be added.
     public func add(_ annotation: Annotation) {
-        operationQueue.cancelAllOperations()
-        dispatchQueue.async(flags: .barrier) { [weak tree] in
-            tree?.add(annotation)
-        }
+        tree.add(annotation)
     }
 
     /// Adds multiple annotations to the cluster manager.
     ///
     /// - Parameter annotations: An array of annotations to be added.
     public func add(_ annotations: [Annotation]) {
-        operationQueue.cancelAllOperations()
-        dispatchQueue.async(flags: .barrier) { [weak tree] in
-            annotations.forEach { tree?.add($0) }
-        }
+        annotations.forEach { tree.add($0) }
     }
 
     /// Removes a single annotation from the cluster manager.
     ///
     /// - Parameter annotation: The annotation to be removed.
     public func remove(_ annotation: Annotation) {
-        operationQueue.cancelAllOperations()
-        dispatchQueue.async(flags: .barrier) { [weak tree] in
-            tree?.remove(annotation)
-        }
+        tree.remove(annotation)
     }
 
     /// Removes multiple annotations from the cluster manager.
     ///
     /// - Parameter annotations: An array of annotations to be removed.
     public func remove(_ annotations: [Annotation]) {
-        operationQueue.cancelAllOperations()
-        dispatchQueue.async(flags: .barrier) { [weak tree] in
-            annotations.forEach { tree?.remove($0) }
-        }
+        annotations.forEach { tree.remove($0) }
     }
 
     /// Removes all annotations from the cluster manager.
     public func removeAll() {
-        operationQueue.cancelAllOperations()
-        dispatchQueue.async(flags: .barrier) { [weak self] in
-            self?.tree = QuadTree<Annotation>(rect: .world)
-        }
+        tree = QuadTree<Annotation>(rect: .world)
     }
-    
+
     /// A collection of all annotations.
     public func fetchAllAnnotations() -> [Annotation] {
-        dispatchQueue.sync {
-            tree.findAnnotations(in: .world)
-        }
+        tree.findAnnotations(in: .world)
     }
 
     /// A collection of currently visible nested annotations on the map.
     ///
     /// This includes individual annotations as well as annotations within visible clusters.
     public func fetchVisibleNestedAnnotations() -> [Annotation] {
-        dispatchQueue.sync {
-            visibleAnnotations.reduce(into: [Annotation]()) { partialResult, annotationType in
-                switch annotationType {
-                case .annotation(let annotation):
-                    partialResult.append(annotation)
-                case .cluster(let clusterAnnotation):
-                    partialResult += clusterAnnotation.memberAnnotations
-                }
-            }
-        }
-    }
-
-    /// Reloads the annotations on the map based on the current zoom level and visible map region.
-    ///
-    /// - Parameters:
-    ///   - mapViewSize: The size of the map view.
-    ///   - coordinateRegion: The visible coordinate region on the map.
-    ///   - completion: Closure to handle the `Difference` object which contains the changes made during the reload.
-    public func reload(
-        mapViewSize: CGSize,
-        coordinateRegion: MKCoordinateRegion,
-        completion: @escaping (Difference) -> Void
-    ) {
-        let visibleMapRect = MKMapRect(region: coordinateRegion)
-        let visibleMapRectWidth = visibleMapRect.size.width
-        let zoomScale = Double(mapViewSize.width) / visibleMapRectWidth
-
-        operationQueue.cancelAllOperations()
-        operationQueue.addBlockOperation { [weak self] operation in
-            guard let self else {
-                return completion(Difference())
-            }
-            autoreleasepool {
-                let changes = self.performAnnotationClustering(
-                    zoomScale: zoomScale,
-                    visibleMapRect: visibleMapRect,
-                    operation: operation
-                )
-                completion(changes)
+        visibleAnnotations.reduce(into: [Annotation]()) { partialResult, annotationType in
+            switch annotationType {
+            case .annotation(let annotation):
+                partialResult.append(annotation)
+            case .cluster(let clusterAnnotation):
+                partialResult += clusterAnnotation.memberAnnotations
             }
         }
     }
@@ -163,11 +111,11 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
     /// - Returns: A `Difference` object which contains the changes made during the reload.
     @discardableResult
     public func reload(mapViewSize: CGSize, coordinateRegion: MKCoordinateRegion) async -> Difference {
-        await withUnsafeContinuation { continuation in
-            reload(mapViewSize: mapViewSize, coordinateRegion: coordinateRegion) { difference in
-                continuation.resume(returning: difference)
-            }
-        }
+        let visibleMapRect = MKMapRect(region: coordinateRegion)
+        let visibleMapRectWidth = visibleMapRect.size.width
+        let zoomScale = Double(mapViewSize.width) / visibleMapRectWidth
+        let changes = performAnnotationClustering(zoomScale: zoomScale, visibleMapRect: visibleMapRect)
+        return changes
     }
 
     /// Reloads the annotations on the map based on the current zoom level and visible map region.
@@ -175,39 +123,25 @@ public final class ClusterManager<Annotation: CoordinateIdentifiable>
     /// - Parameters:
     ///   - mkMapView: The map view.
     /// - Returns: A `Difference` object which contains the changes made during the reload.
-    public func reload(mkMapView: MKMapView, completion: @escaping (Difference) -> Void) {
-        reload(mapViewSize: mkMapView.bounds.size, coordinateRegion: mkMapView.region, completion: completion)
+    public func reload(mkMapView: MKMapView) async {
+        await reload(mapViewSize: mkMapView.bounds.size, coordinateRegion: mkMapView.region)
     }
 }
 
 private extension ClusterManager {
-    func performAnnotationClustering(
-        zoomScale: Double,
-        visibleMapRect: MKMapRect,
-        operation: Operation? = nil
-    ) -> Difference {
-        var isCancelled: Bool { operation?.isCancelled ?? false }
-
-        guard !isCancelled else { return Difference() }
-
+    func performAnnotationClustering(zoomScale: Double, visibleMapRect: MKMapRect) -> Difference {
         let mapRects = divideMapIntoGridCells(for: zoomScale, visibleMapRect: visibleMapRect)
-
-        guard !isCancelled else { return Difference() }
 
         if configuration.shouldDistributeAnnotationsOnSameCoordinate {
             adjustOverlappingAnnotations(within: visibleMapRect)
         }
 
-        let allAnnotations = dispatchQueue.sync {
-            clusterAnnotations(within: mapRects, zoomLevel: zoomLevel)
-        }
-
-        guard !isCancelled else { return Difference() }
-
+        let allAnnotations = clusterAnnotations(within: mapRects, zoomLevel: zoomLevel)
         let (toAdd, toRemove) = determineAnnotationChanges(
             allAnnotations: allAnnotations,
             visibleMapRect: visibleMapRect
         )
+
         applyVisibleAnnotationChanges(toAdd: toAdd, toRemove: toRemove)
 
         return Difference(insertions: toAdd, removals: toRemove)
@@ -227,9 +161,9 @@ private extension ClusterManager {
             let toKeep = toRemove.filter { annotationType in
                 switch annotationType {
                 case .annotation(let annotation):
-                    return !visibleMapRect.contains(annotation.coordinate)
+                    !visibleMapRect.contains(annotation.coordinate)
                 case .cluster(let clusterAnnotation):
-                    return !visibleMapRect.contains(clusterAnnotation.coordinate)
+                    !visibleMapRect.contains(clusterAnnotation.coordinate)
                 }
             }
             toRemove.subtract(toKeep)
@@ -239,10 +173,8 @@ private extension ClusterManager {
     }
 
     func applyVisibleAnnotationChanges(toAdd: [AnnotationType], toRemove: [AnnotationType]) {
-        dispatchQueue.sync(flags: .barrier) { [weak self] in
-            self?.visibleAnnotations.subtract(toRemove)
-            self?.visibleAnnotations.add(toAdd)
-        }
+        visibleAnnotations.subtract(toRemove)
+        visibleAnnotations.add(toAdd)
     }
 
     func clusterAnnotations(within mapRects: [MKMapRect], zoomLevel: Double) -> [AnnotationType] {
@@ -276,22 +208,18 @@ private extension ClusterManager {
     }
 
     func adjustOverlappingAnnotations(within mapRect: MKMapRect) {
-        let annotations = dispatchQueue.sync {
-            tree.findAnnotations(in: mapRect)
-        }
+        let annotations = tree.findAnnotations(in: mapRect)
         let hash = Dictionary(grouping: annotations) { $0.coordinate }
-        dispatchQueue.sync(flags: .barrier) {
-            for value in hash.values where value.count > 1 {
-                let radiansBetweenAnnotations = (.pi * 2) / Double(value.count)
-                for (index, annotation) in value.enumerated() {
-                    if var element = self.tree.remove(annotation) {
-                        let bearing = radiansBetweenAnnotations * Double(index)
-                        element.coordinate = annotation.coordinate.coordinate(
-                            onBearingInRadians: bearing,
-                            atDistanceInMeters: self.configuration.distanceFromContestedLocation
-                        )
-                        self.tree.add(element)
-                    }
+        for value in hash.values where value.count > 1 {
+            let radiansBetweenAnnotations = (.pi * 2) / Double(value.count)
+            for (index, annotation) in value.enumerated() {
+                if var element = tree.remove(annotation) {
+                    let bearing = radiansBetweenAnnotations * Double(index)
+                    element.coordinate = annotation.coordinate.coordinate(
+                        onBearingInRadians: bearing,
+                        atDistanceInMeters: configuration.distanceFromContestedLocation
+                    )
+                    tree.add(element)
                 }
             }
         }

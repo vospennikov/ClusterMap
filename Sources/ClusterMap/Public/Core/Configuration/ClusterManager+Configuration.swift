@@ -138,10 +138,10 @@ public extension ClusterManager {
             clusterPosition: ClusterAlignment = .nearCenter,
             cellSizeForZoomLevel: @escaping (Int) -> CGSize = { zoom in
                 switch zoom {
-                case 13...15: return CGSize(width: 64, height: 64)
-                case 16...18: return CGSize(width: 32, height: 32)
-                case 19...: return CGSize(width: 16, height: 16)
-                default: return CGSize(width: 88, height: 88)
+                case 13...15: CGSize(width: 64, height: 64)
+                case 16...18: CGSize(width: 32, height: 32)
+                case 19...: CGSize(width: 16, height: 16)
+                default: CGSize(width: 88, height: 88)
                 }
             }
         ) {

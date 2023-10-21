@@ -97,14 +97,16 @@ private extension MapViewController {
     }
 
     func removeActionHandler(_ sender: NSButton) {
-        clusterManager.removeAll()
-        Task { await reloadMap() }
+        Task {
+            await clusterManager.removeAll()
+            await reloadMap()
+        }
     }
 }
 
 extension MapViewController {
     func addAnnotations(_ coordinates: [CLLocationCoordinate2D]) async {
-        clusterManager.add(coordinates.map {
+        await clusterManager.add(coordinates.map {
             let point = PointAnnotation()
             point.coordinate = $0
             return point
@@ -130,6 +132,8 @@ extension MapViewController {
                     annotations.remove(at: result.offset)
                     mapView.removeAnnotation(result.element)
                 }
+            @unknown default:
+                fatalError()
             }
         }
         for annotationType in difference.insertions {
@@ -144,6 +148,8 @@ extension MapViewController {
                 cluster.memberAnnotations = clusterAnnotation.memberAnnotations
                 annotations.append(cluster)
                 mapView.addAnnotation(cluster)
+            @unknown default:
+                fatalError()
             }
         }
     }

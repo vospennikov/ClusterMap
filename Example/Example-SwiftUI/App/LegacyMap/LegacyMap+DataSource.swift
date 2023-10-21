@@ -1,8 +1,8 @@
 //
-//  ContentView+DataSource.swift
+//  LegacyMap+DataSource.swift
 //  Example-SwiftUI
 //
-//  Created by Mikhail Vospennikov on 01.08.2023.
+//  Created by Mikhail Vospennikov on 21.10.2023.
 //
 
 import ClusterMap
@@ -12,8 +12,8 @@ import Foundation
 import MapKit
 import SwiftUI
 
-extension ContentView.DataSource {
-    struct MapAnnotation: Identifiable, CoordinateIdentifiable, Hashable {
+extension LegacyMap {
+    struct Annotation: Identifiable, CoordinateIdentifiable, Hashable {
         enum Style: Hashable {
             case single
             case cluster(count: Int)
@@ -23,29 +23,23 @@ extension ContentView.DataSource {
         var coordinate: CLLocationCoordinate2D
         var style: Style = .single
     }
-}
 
-extension ContentView {
     final class DataSource: ObservableObject {
         private let coordinateRandomizer = CoordinateRandomizer()
-        private let clusterManager = ClusterManager<MapAnnotation>()
+        private let clusterManager = ClusterManager<Annotation>()
         private var cancellables = Set<AnyCancellable>()
-        private var _region: MKCoordinateRegion
 
-        @Published var annotations: [MapAnnotation] = []
+        @Published var annotations: [Annotation] = []
 
         var mapSize: CGSize = .zero
-        let initialPosition: MKCoordinateRegion = .sanFrancisco
         var regionSubject = PassthroughSubject<MKCoordinateRegion, Never>()
+
+        private var _region: MKCoordinateRegion = .sanFrancisco
         var region: Binding<MKCoordinateRegion> {
             Binding(
                 get: { self._region },
                 set: { newValue in self.regionSubject.send(newValue) }
             )
-        }
-
-        init() {
-            _region = initialPosition
         }
 
         func bind() {
@@ -60,14 +54,14 @@ extension ContentView {
 
         func addAnnotations() async {
             let points = coordinateRandomizer.generateRandomCoordinates(count: 10000, within: _region)
-            let newAnnotations = points.map { MapAnnotation(coordinate: $0) }
+            let newAnnotations = points.map { Annotation(coordinate: $0) }
 
-            clusterManager.add(newAnnotations)
+            await clusterManager.add(newAnnotations)
             await reloadAnnotations()
         }
 
         func removeAnnotations() async {
-            clusterManager.removeAll()
+            await clusterManager.removeAll()
             await reloadAnnotations()
         }
 
@@ -77,13 +71,15 @@ extension ContentView {
         }
 
         @MainActor
-        private func applyChanges(_ difference: ClusterManager<MapAnnotation>.Difference) {
+        private func applyChanges(_ difference: ClusterManager<Annotation>.Difference) {
             for removal in difference.removals {
                 switch removal {
                 case .annotation(let annotation):
                     annotations.removeAll { $0 == annotation }
                 case .cluster(let clusterAnnotation):
                     annotations.removeAll { $0.id == clusterAnnotation.id }
+                @unknown default:
+                    fatalError()
                 }
             }
 
@@ -92,11 +88,13 @@ extension ContentView {
                 case .annotation(let newItem):
                     annotations.append(newItem)
                 case .cluster(let newItem):
-                    annotations.append(MapAnnotation(
+                    annotations.append(Annotation(
                         id: newItem.id,
                         coordinate: newItem.coordinate,
                         style: .cluster(count: newItem.memberAnnotations.count)
                     ))
+                @unknown default:
+                    fatalError()
                 }
             }
         }

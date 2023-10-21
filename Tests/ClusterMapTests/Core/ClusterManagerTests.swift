@@ -15,13 +15,13 @@ final class ClusterManagerTests: XCTestCase {
         let clusterManager = makeSUT()
         let annotations = makeAnnotations(within: .mediumRect, count: 1000)
 
-        clusterManager.add(annotations)
+        await clusterManager.add(annotations)
         let difference = await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
         XCTAssertFalse(difference.insertions.isEmpty)
         XCTAssertTrue(difference.removals.isEmpty)
 
-        clusterManager.removeAll()
+        await clusterManager.removeAll()
         let difference2 = await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
         XCTAssertTrue(difference2.insertions.isEmpty)
@@ -35,13 +35,13 @@ final class ClusterManagerTests: XCTestCase {
         let clusterManager = makeSUT()
         let annotations = makeAnnotations(within: .mediumRect, count: 1000)
 
-        clusterManager.add(annotations)
+        await clusterManager.add(annotations)
         let difference = await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
         XCTAssertFalse(difference.insertions.isEmpty)
         XCTAssertTrue(difference.removals.isEmpty)
 
-        clusterManager.remove(annotations)
+        await clusterManager.remove(annotations)
         let difference2 = await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
         XCTAssertTrue(difference2.insertions.isEmpty)
@@ -55,75 +55,48 @@ final class ClusterManagerTests: XCTestCase {
         let clusterManager = makeSUT(with: .init(shouldDistributeAnnotationsOnSameCoordinate: false))
         let annotations = makeAnnotations(within: .mediumRect, count: 1000)
 
-        clusterManager.add(annotations)
+        await clusterManager.add(annotations)
         await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
-        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
+        let annotationsCount = await clusterManager.fetchVisibleNestedAnnotations().count
+        XCTAssertTrue(annotationsCount == 1000)
     }
 
     func testRemoveInvisibleAnnotations() async {
         let clusterManager = makeSUT(with: .init(shouldRemoveInvisibleAnnotations: false))
         let annotations = makeAnnotations(within: .mediumRect, count: 1000)
 
-        clusterManager.add(annotations)
+        await clusterManager.add(annotations)
         await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
-        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
+        let annotationsCount = await clusterManager.fetchVisibleNestedAnnotations().count
+        XCTAssertTrue(annotationsCount == 1000)
     }
 
     func testMinCountForClustering() async {
         let clusterManager = makeSUT(with: .init(minCountForClustering: 10))
         let annotations = makeAnnotations(within: .mediumRect, count: 1000)
 
-        clusterManager.add(annotations)
+        await clusterManager.add(annotations)
         await clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion)
 
-        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
+        let annotationsCount = await clusterManager.fetchVisibleNestedAnnotations().count
+        XCTAssertTrue(annotationsCount == 1000)
     }
 
-    func testCancelOperation() {
+    func testMultipleOperations() async {
         let clusterManager = makeSUT()
-        let annotations = makeAnnotations(within: .mediumRect, count: 1000)
-        let expectation = expectation(description: "reload")
+        let annotations = makeAnnotations(within: .mediumRect, count: 10)
 
-        clusterManager.add(annotations)
+        await clusterManager.removeAll()
+        await clusterManager.add(annotations)
 
-        clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion) { difference in
-            XCTAssertTrue(difference.insertions.isEmpty)
-            XCTAssertTrue(difference.removals.isEmpty)
-        }
-        clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion) { difference in
-            XCTAssertFalse(difference.insertions.isEmpty)
-            XCTAssertTrue(difference.removals.isEmpty)
-            expectation.fulfill()
-        }
+        let annotations2 = makeAnnotations(within: .mediumRect, count: 100)
+        await clusterManager.removeAll()
+        await clusterManager.add(annotations2)
 
-        let result = XCTWaiter.wait(for: [expectation], timeout: 10)
-
-        XCTAssertTrue(result == .completed)
-        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
-    }
-
-    func testMultipleOperations() {
-        let clusterManager = makeSUT()
-        let annotations = makeAnnotations(within: .mediumRect, count: 1000)
-        let expectation = expectation(description: "reload")
-        expectation.assertForOverFulfill = true
-
-        clusterManager.add(annotations)
-
-        for i in 0...100 {
-            clusterManager.reload(mapViewSize: .mediumMapSize, coordinateRegion: .mediumRegion) { difference in
-                if i == 100 {
-                    expectation.fulfill()
-                }
-            }
-        }
-
-        let result = XCTWaiter.wait(for: [expectation], timeout: 10)
-
-        XCTAssertTrue(result == .completed)
-        XCTAssertTrue(clusterManager.fetchVisibleNestedAnnotations().count == 1000)
+        let annotationsCount = await clusterManager.fetchAllAnnotations().count
+        XCTAssertTrue(annotationsCount == 100, "\(annotationsCount)")
     }
 }
 
