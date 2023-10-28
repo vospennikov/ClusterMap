@@ -43,10 +43,10 @@ final class ClusteringSelectionViewController: UIViewController {
         applySnapshot(animatingDifferences: false)
     }
 
-    private lazy var items: [Item] = { [
+    private lazy var items: [Item] = [
         Item(title: "MKMapView with default clustering", viewController: DefaultMapViewController.self),
         Item(title: "MKMapView with ClusterMap", viewController: ClusterMapViewController.self),
-    ] }()
+    ]
 
     private func configureCollectionView() {
         view.addSubview(tableView)

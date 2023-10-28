@@ -14,9 +14,9 @@ enum AnnotationTypes: Int, CaseIterable {
 
     var description: String {
         switch self {
-        case .count: return "Count"
-        case .imageCount: return "Image count"
-        case .image: return "Image"
+        case .count: "Count"
+        case .imageCount: "Image count"
+        case .image: "Image"
         }
     }
 }

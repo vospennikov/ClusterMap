@@ -11,7 +11,7 @@
 		DD1B5D6D29955F000015D91B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1B5D6C29955F000015D91B /* Assets.xcassets */; };
 		DD2C4630299404C90095F923 /* DefaultMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2C462F299404C90095F923 /* DefaultMapViewDelegate.swift */; };
 		DD3410E92A777686007A74AB /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3410E82A777686007A74AB /* ExampleApp.swift */; };
-		DD3410EB2A777686007A74AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3410EA2A777686007A74AB /* ContentView.swift */; };
+		DD3410EB2A777686007A74AB /* ModernMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3410EA2A777686007A74AB /* ModernMap.swift */; };
 		DD3410ED2A777687007A74AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3410EC2A777687007A74AB /* Assets.xcassets */; };
 		DD3411142A77777D007A74AB /* DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DD3411132A77777D007A74AB /* DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD34111B2A777DBD007A74AB /* CoordinateRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E6A2993C70400E713CF /* CoordinateRandomizer.swift */; };
@@ -49,17 +49,22 @@
 		DD883E922993C70400E713CF /* ClusteringSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7A2993C70400E713CF /* ClusteringSelectionViewController.swift */; };
 		DD883E932993C70400E713CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7B2993C70400E713CF /* AppDelegate.swift */; };
 		DD883E942993C70400E713CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD883E7C2993C70400E713CF /* SceneDelegate.swift */; };
+		DDC0DD692AE3ABA200D4B636 /* LegacyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC0DD682AE3ABA200D4B636 /* LegacyMap.swift */; };
+		DDC0DD6B2AE3ABAF00D4B636 /* LegacyMap+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC0DD6A2AE3ABAF00D4B636 /* LegacyMap+DataSource.swift */; };
+		DDC0DD6D2AE3AC9000D4B636 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC0DD6C2AE3AC9000D4B636 /* ContentView.swift */; };
+		DDC0DD742AE3C0EB00D4B636 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC0DD732AE3C0EB00D4B636 /* LazyView.swift */; };
+		DDC0DD762AE3DF5E00D4B636 /* LocalSearchCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC0DD752AE3DF5E00D4B636 /* LocalSearchCompleter.swift */; };
 		DDC94AA02AA0755000D73080 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC94A9F2AA0755000D73080 /* AsyncButton.swift */; };
-		DDCA65382AA703F1006C6A2D /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA65372AA703F1006C6A2D /* ClusterAnnotationView.swift */; };
 		DDCA653E2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA653D2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift */; };
 		DDCA65402AA82C92006C6A2D /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA653F2AA82C92006C6A2D /* Background.swift */; };
 		DDCA65422AA82CAB006C6A2D /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA65412AA82CAB006C6A2D /* Overlay.swift */; };
 		DDD292312A78E2B200F8CC9E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD292302A78E2B200F8CC9E /* RoundedButton.swift */; };
-		DDD292332A78E87900F8CC9E /* ContentView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD292322A78E87900F8CC9E /* ContentView+DataSource.swift */; };
+		DDD292332A78E87900F8CC9E /* ModernMap+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD292322A78E87900F8CC9E /* ModernMap+DataSource.swift */; };
 		DDDB3E532A9E478F00745D15 /* ClusterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB3E522A9E478F00745D15 /* ClusterAnnotation.swift */; };
 		DDDB3E552A9E47C900745D15 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB3E542A9E47C900745D15 /* ClusterAnnotationView.swift */; };
 		DDDB3E572A9E480800745D15 /* CountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB3E562A9E480800745D15 /* CountLabel.swift */; };
 		DDDB3E592A9E499700745D15 /* ClusterWithLabelAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB3E582A9E499700745D15 /* ClusterWithLabelAnnotationView.swift */; };
+		DDF05F0F2ADE6AA8004A1191 /* MapKitIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF05F0E2ADE6AA8004A1191 /* MapKitIntegration.swift */; };
 		DDF90B352AA50120001B94E8 /* PointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF90B342AA50120001B94E8 /* PointAnnotation.swift */; };
 		DDF90B372AA50CA9001B94E8 /* ClusterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF90B362AA50CA9001B94E8 /* ClusterAnnotation.swift */; };
 		DDF90B392AA50CC4001B94E8 /* PointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF90B382AA50CC4001B94E8 /* PointAnnotation.swift */; };
@@ -136,7 +141,7 @@
 		DD2E57FD2990F5E6001D5640 /* Cluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Cluster; path = ..; sourceTree = "<group>"; };
 		DD3410E62A777686007A74AB /* Example-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3410E82A777686007A74AB /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
-		DD3410EA2A777686007A74AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD3410EA2A777686007A74AB /* ModernMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernMap.swift; sourceTree = "<group>"; };
 		DD3410EC2A777687007A74AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3411112A77777D007A74AB /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3411132A77777D007A74AB /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
@@ -165,18 +170,23 @@
 		DD883E7A2993C70400E713CF /* ClusteringSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteringSelectionViewController.swift; sourceTree = "<group>"; };
 		DD883E7B2993C70400E713CF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD883E7C2993C70400E713CF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DDC0DD682AE3ABA200D4B636 /* LegacyMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyMap.swift; sourceTree = "<group>"; };
+		DDC0DD6A2AE3ABAF00D4B636 /* LegacyMap+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyMap+DataSource.swift"; sourceTree = "<group>"; };
+		DDC0DD6C2AE3AC9000D4B636 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDC0DD732AE3C0EB00D4B636 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		DDC0DD752AE3DF5E00D4B636 /* LocalSearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchCompleter.swift; sourceTree = "<group>"; };
 		DDC94A9F2AA0755000D73080 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
-		DDCA65372AA703F1006C6A2D /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		DDCA653D2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMapAnnotationProtocol.swift; sourceTree = "<group>"; };
 		DDCA653F2AA82C92006C6A2D /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		DDCA65412AA82CAB006C6A2D /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		DDD292302A78E2B200F8CC9E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		DDD292322A78E87900F8CC9E /* ContentView+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+DataSource.swift"; sourceTree = "<group>"; };
+		DDD292322A78E87900F8CC9E /* ModernMap+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModernMap+DataSource.swift"; sourceTree = "<group>"; };
 		DDDB3E522A9E478F00745D15 /* ClusterAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotation.swift; sourceTree = "<group>"; };
 		DDDB3E542A9E47C900745D15 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		DDDB3E562A9E480800745D15 /* CountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountLabel.swift; sourceTree = "<group>"; };
 		DDDB3E582A9E499700745D15 /* ClusterWithLabelAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterWithLabelAnnotationView.swift; sourceTree = "<group>"; };
 		DDEAF3812990F59800E49D87 /* Example-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDF05F0E2ADE6AA8004A1191 /* MapKitIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitIntegration.swift; sourceTree = "<group>"; };
 		DDF90B342AA50120001B94E8 /* PointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointAnnotation.swift; sourceTree = "<group>"; };
 		DDF90B362AA50CA9001B94E8 /* ClusterAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotation.swift; sourceTree = "<group>"; };
 		DDF90B382AA50CC4001B94E8 /* PointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointAnnotation.swift; sourceTree = "<group>"; };
@@ -248,15 +258,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DD3229C32AA8ED8F0047A0B6 /* Map */ = {
+		DD3229C32AA8ED8F0047A0B6 /* ModernMap */ = {
 			isa = PBXGroup;
 			children = (
-				DD3410EA2A777686007A74AB /* ContentView.swift */,
-				DDD292322A78E87900F8CC9E /* ContentView+DataSource.swift */,
-				DD3229C52AA8EDC80047A0B6 /* Annotations */,
-				DD3229C42AA8EDB30047A0B6 /* Styles */,
+				DD3410EA2A777686007A74AB /* ModernMap.swift */,
+				DDD292322A78E87900F8CC9E /* ModernMap+DataSource.swift */,
 			);
-			path = Map;
+			path = ModernMap;
 			sourceTree = "<group>";
 		};
 		DD3229C42AA8EDB30047A0B6 /* Styles */ = {
@@ -265,14 +273,6 @@
 				DDD292302A78E2B200F8CC9E /* RoundedButton.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		DD3229C52AA8EDC80047A0B6 /* Annotations */ = {
-			isa = PBXGroup;
-			children = (
-				DDCA65372AA703F1006C6A2D /* ClusterAnnotationView.swift */,
-			);
-			path = Annotations;
 			sourceTree = "<group>";
 		};
 		DD3410E72A777686007A74AB /* Example-SwiftUI */ = {
@@ -337,8 +337,12 @@
 		DD752E6F2AA8E17800D6AFC4 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DDC0DD6C2AE3AC9000D4B636 /* ContentView.swift */,
 				DD3410E82A777686007A74AB /* ExampleApp.swift */,
-				DD3229C32AA8ED8F0047A0B6 /* Map */,
+				DDC0DD652AE3AAAE00D4B636 /* LegacyMap */,
+				DDC0DD662AE3AADA00D4B636 /* MapKitIntegration */,
+				DD3229C32AA8ED8F0047A0B6 /* ModernMap */,
+				DD3229C42AA8EDB30047A0B6 /* Styles */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -354,6 +358,7 @@
 		DD752E712AA8E1AB00D6AFC4 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				DDC0DD732AE3C0EB00D4B636 /* LazyView.swift */,
 				DDCA653D2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift */,
 				DDC94A9F2AA0755000D73080 /* AsyncButton.swift */,
 				DDCA653F2AA82C92006C6A2D /* Background.swift */,
@@ -512,6 +517,24 @@
 				DD883E6E2993C70400E713CF /* WithClusterManager */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DDC0DD652AE3AAAE00D4B636 /* LegacyMap */ = {
+			isa = PBXGroup;
+			children = (
+				DDC0DD682AE3ABA200D4B636 /* LegacyMap.swift */,
+				DDC0DD6A2AE3ABAF00D4B636 /* LegacyMap+DataSource.swift */,
+			);
+			path = LegacyMap;
+			sourceTree = "<group>";
+		};
+		DDC0DD662AE3AADA00D4B636 /* MapKitIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				DDF05F0E2ADE6AA8004A1191 /* MapKitIntegration.swift */,
+				DDC0DD752AE3DF5E00D4B636 /* LocalSearchCompleter.swift */,
+			);
+			path = MapKitIntegration;
 			sourceTree = "<group>";
 		};
 		DDEAF3782990F59800E49D87 = {
@@ -739,12 +762,17 @@
 			files = (
 				DDD292312A78E2B200F8CC9E /* RoundedButton.swift in Sources */,
 				DDCA65422AA82CAB006C6A2D /* Overlay.swift in Sources */,
-				DDD292332A78E87900F8CC9E /* ContentView+DataSource.swift in Sources */,
-				DD3410EB2A777686007A74AB /* ContentView.swift in Sources */,
+				DDD292332A78E87900F8CC9E /* ModernMap+DataSource.swift in Sources */,
+				DD3410EB2A777686007A74AB /* ModernMap.swift in Sources */,
+				DDC0DD742AE3C0EB00D4B636 /* LazyView.swift in Sources */,
 				DDCA65402AA82C92006C6A2D /* Background.swift in Sources */,
-				DDCA65382AA703F1006C6A2D /* ClusterAnnotationView.swift in Sources */,
 				DDCA653E2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift in Sources */,
+				DDF05F0F2ADE6AA8004A1191 /* MapKitIntegration.swift in Sources */,
 				DD3410E92A777686007A74AB /* ExampleApp.swift in Sources */,
+				DDC0DD692AE3ABA200D4B636 /* LegacyMap.swift in Sources */,
+				DDC0DD6D2AE3AC9000D4B636 /* ContentView.swift in Sources */,
+				DDC0DD762AE3DF5E00D4B636 /* LocalSearchCompleter.swift in Sources */,
+				DDC0DD6B2AE3ABAF00D4B636 /* LegacyMap+DataSource.swift in Sources */,
 				DDC94AA02AA0755000D73080 /* AsyncButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,7 +859,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 35J7AXFYQT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -862,7 +890,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 35J7AXFYQT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

@@ -38,7 +38,7 @@ final class ClusterMapViewController: UIViewController, MapController {
     }
 
     func addAnnotations(_ annotations: [MKAnnotation]) async {
-        clusterManager.add(annotations.map {
+        await clusterManager.add(annotations.map {
             let point = PointAnnotation()
             point.coordinate = $0.coordinate
             return point
@@ -78,7 +78,7 @@ final class ClusterMapViewController: UIViewController, MapController {
     }
 
     func removeAllAnnotations() async {
-        clusterManager.removeAll()
+        await clusterManager.removeAll()
         await reloadMap()
     }
 

@@ -36,11 +36,11 @@ public extension ClusterManager {
         public static func == (lhs: AnnotationType, rhs: AnnotationType) -> Bool {
             switch (lhs, rhs) {
             case let (.annotation(lhs), .annotation(rhs)):
-                return lhs == rhs
+                lhs == rhs
             case let (.cluster(lhs), .cluster(rhs)):
-                return lhs == rhs
+                lhs == rhs
             default:
-                return false
+                false
             }
         }
     }
