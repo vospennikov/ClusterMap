@@ -178,10 +178,10 @@ The documentation for releases and `main` are available here:
 * [1.1.0](https://vospennikov.github.io/ClusterMap/1.1.0/documentation/clustermap)
 * [1.0.0](https://vospennikov.github.io/ClusterMap/1.0.0/documentation/clustermap)
 
-## Credits
+## Credits and thanks
 
 This project is based on the work of [Lasha Efremidze](https://github.com/efremidze), who created the [Cluster](https://github.com/efremidze/Cluster).
 
 ## License
 
-ClusterMap is available under the MIT license. See the LICENSE file for more info.
+This library is released under the MIT license. See [LICENSE](LICENSE) for details.
