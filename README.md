@@ -38,7 +38,6 @@ Comparison ClusterMap and Native implementation with 20,000 annotations. For a d
 - [ ] Stateless implementation.
 - [ ] Improve difference logic.
 - [ ] Simplify API.
-- [ ] Documentation improvement.
 
 ## Demo projects
 The repository contains three main examples, which is a good starting point for exploring the basic functionality of the library.
@@ -150,7 +149,7 @@ The `ClusterManager` stores and cluster map points. It's an actor and safe threa
    ```swift
    Map()
    .onMapCameraChange(frequency: .onEnd) { context in
-       Task.detached { await clusterManager.reload(mapViewSize: mapSize, coordinateRegion: context.region) }
+     Task.detached { await clusterManager.reload(mapViewSize: mapSize, coordinateRegion: context.region) }
    }
    ```
 
@@ -160,26 +159,26 @@ The `ClusterManager` stores and cluster map points. It's an actor and safe threa
    private var clusters: [ExampleClusterAnnotation] = []
    
    func applyChanges(_ difference: ClusterManager<ExampleAnnotation>.Difference) {
-       for removal in difference.removals {
-           switch removal {
-           case .annotation(let annotation):
-               annotations.removeAll { $0 == annotation }
-           case .cluster(let clusterAnnotation):
-               clusters.removeAll { $0.id == clusterAnnotation.id }
-           }
+     for removal in difference.removals {
+       switch removal {
+       case .annotation(let annotation):
+         annotations.removeAll { $0 == annotation }
+       case .cluster(let clusterAnnotation):
+         clusters.removeAll { $0.id == clusterAnnotation.id }
        }
-       for insertion in difference.insertions {
-           switch insertion {
-           case .annotation(let newItem):
-               annotations.append(newItem)
-           case .cluster(let newItem):
-               clusters.append(ExampleClusterAnnotation(
-                   id: newItem.id,
-                   coordinate: newItem.coordinate,
-                   count: newItem.memberAnnotations.count
-               ))
-           }
+     }
+     for insertion in difference.insertions {
+       switch insertion {
+       case .annotation(let newItem):
+         annotations.append(newItem)
+       case .cluster(let newItem):
+         clusters.append(ExampleClusterAnnotation(
+           id: newItem.id,
+           coordinate: newItem.coordinate,
+           count: newItem.memberAnnotations.count
+         ))
        }
+     }
    }
    ```
 
