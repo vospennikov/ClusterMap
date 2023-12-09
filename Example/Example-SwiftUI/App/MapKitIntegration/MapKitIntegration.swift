@@ -35,13 +35,13 @@ struct MapKitIntegration: View {
                 )
             }
         }
-        .overlay(alignment: .bottom, {
+        .overlay(alignment: .bottom) {
             Button(
                 action: { Task.detached { await searchClient.search() } },
                 label: { Label("Apple store", systemImage: "magnifyingglass") }
             )
             .buttonStyle(RoundedButton(fillColor: .accentColor, padding: 8))
-        })
+        }
         .readSize(onChange: { newValue in
             searchClient.mapSize = newValue
         })

@@ -44,7 +44,7 @@ struct ModernMap: View {
         .onMapCameraChange(frequency: .onEnd) { context in
             Task.detached { await dataSource.reloadAnnotations() }
         }
-        .overlay(alignment: .bottom, {
+        .overlay(alignment: .bottom) {
             HStack {
                 AsyncButton("Add annotations") {
                     await dataSource.addAnnotations()
@@ -56,7 +56,7 @@ struct ModernMap: View {
             }
             .padding()
             .buttonStyle(RoundedButton(fillColor: .accentColor, padding: 8))
-        })
+        }
     }
 }
 
