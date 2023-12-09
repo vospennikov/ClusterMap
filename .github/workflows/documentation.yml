@@ -20,18 +20,18 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Select Xcode 15.0.1
         run: sudo xcode-select -s /Applications/Xcode_15.0.1.app
 
       - name: Checkout Package
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Checkout gh-pages Branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: docs-out
