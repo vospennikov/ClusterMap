@@ -34,7 +34,8 @@ import MapKit
 public actor ClusterManager<Annotation: CoordinateIdentifiable>
     where
     Annotation: Identifiable,
-    Annotation: Hashable
+    Annotation: Hashable,
+    Annotation: Sendable
 {
     private var tree = QuadTree<Annotation>(rect: .world)
     private let configuration: Configuration

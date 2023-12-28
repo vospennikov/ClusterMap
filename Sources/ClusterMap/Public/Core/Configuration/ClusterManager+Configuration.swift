@@ -23,7 +23,7 @@ public extension ClusterManager {
     /// )
     /// let manager = ClusterManager(configuration: customConfig)
     /// ```
-    struct Configuration {
+    struct Configuration: Sendable {
         /// Maximum depth for clustering.
         ///
         /// Beyond this zoom level, annotations will be displayed individually.
@@ -127,7 +127,7 @@ public extension ClusterManager {
         ///         }
         ///     }
         /// )
-        public let cellSizeForZoomLevel: (Int) -> CGSize
+        public let cellSizeForZoomLevel: @Sendable (Int) -> CGSize
 
         public init(
             maxZoomLevel: Double = 20,
@@ -136,7 +136,7 @@ public extension ClusterManager {
             shouldDistributeAnnotationsOnSameCoordinate: Bool = true,
             distanceFromContestedLocation: Double = 3,
             clusterPosition: ClusterAlignment = .nearCenter,
-            cellSizeForZoomLevel: @escaping (Int) -> CGSize = { zoom in
+            cellSizeForZoomLevel: @Sendable @escaping (Int) -> CGSize = { zoom in
                 switch zoom {
                 case 13...15: CGSize(width: 64, height: 64)
                 case 16...18: CGSize(width: 32, height: 32)

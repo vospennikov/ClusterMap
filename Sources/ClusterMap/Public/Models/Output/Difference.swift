@@ -9,7 +9,7 @@ import Foundation
 
 public extension ClusterManager {
     /// Represents the differences between the current and new sets of annotations.
-    struct Difference {
+    struct Difference: Sendable {
         /// An array of  objects that should be inserted.
         public var insertions: [AnnotationType] = []
 

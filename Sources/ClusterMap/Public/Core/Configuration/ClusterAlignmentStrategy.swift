@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 /// Calculate the position for a cluster of `CLLocationCoordinate2D` instances within a specified `MKMapRect`.
-public protocol ClusterAlignmentStrategy {
+public protocol ClusterAlignmentStrategy: Sendable {
     /// Calculates the position for a cluster of `CLLocationCoordinate2D` instances.
     /// - Parameters:
     ///   - annotations: The array of `CLLocationCoordinate2D` instances.

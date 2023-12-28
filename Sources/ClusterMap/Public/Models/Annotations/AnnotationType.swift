@@ -24,7 +24,7 @@ public extension ClusterManager {
     ///     break
     /// }
     /// ```
-    enum AnnotationType: Equatable, Hashable, Identifiable where Annotation: Equatable {
+    enum AnnotationType: Equatable, Hashable, Identifiable, Sendable where Annotation: Equatable {
         public var id: Self { self }
 
         /// Represents an individual annotation.

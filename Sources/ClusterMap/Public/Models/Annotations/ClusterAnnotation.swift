@@ -14,7 +14,7 @@ public extension ClusterManager {
     /// `ClusterAnnotation` is a struct that holds the information for a group of annotations that have been clustered
     /// together. It contains the geographical coordinate for the cluster and an array of `Annotation` objects that
     /// belong to this cluster.
-    struct ClusterAnnotation: Equatable, Hashable, Identifiable {
+    struct ClusterAnnotation: Equatable, Hashable, Identifiable, Sendable {
         /// A unique identifier
         public let id = UUID()
 
