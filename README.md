@@ -56,7 +56,7 @@ Add the ClusterMap dependency to an Xcode project as a package dependency.
 Add the ClusterMap dependency to your `Package.swift` manifest.
 1. Add the following dependency to your `dependencies` argument:
    ```swift
-   .package(url: "https://github.com/vospennikov/ClusterMap.git", from: "2.0.0")
+   .package(url: "https://github.com/vospennikov/ClusterMap.git", from: "2.1.0")
    ```
 2. Add the dependency to any targets you've declared in your manifest:
    ```swift
@@ -71,7 +71,7 @@ Add the ClusterMap dependency to your `Package.swift` manifest.
 ## Usage
 ### The Basics
 The `ClusterManager` stores and cluster map points. It's an actor and safe thread for usage. 
-1. You need to confirm your map points to the protocols `CoordinateIdentifiable, Identifiable, Hashable`:
+1. You need to confirm your map points to the protocols `CoordinateIdentifiable, Identifiable, Hashable, Sendable`:
    ```swift
    // SwiftUI annotation
    struct ExampleAnnotation: CoordinateIdentifiable, Identifiable, Hashable {
@@ -279,9 +279,9 @@ The `ClusterManager` has configuration, that help you improve perfomance and con
 The documentation for releases and `main` are available here:
 
 * [`main`](https://vospennikov.github.io/ClusterMap/main/documentation/clustermap)
+* [2.1.0](https://vospennikov.github.io/ClusterMap/2.1.0/documentation/clustermap)
 * [2.0.0](https://vospennikov.github.io/ClusterMap/2.0.0/documentation/clustermap)
 * [1.1.0](https://vospennikov.github.io/ClusterMap/1.1.0/documentation/clustermap)
-* [1.0.0](https://vospennikov.github.io/ClusterMap/1.0.0/documentation/clustermap)
 
 ## Credits and thanks
 This project is based on the work of [Lasha Efremidze](https://github.com/efremidze), who created the [Cluster](https://github.com/efremidze/Cluster).
