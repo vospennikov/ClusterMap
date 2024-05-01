@@ -93,7 +93,7 @@ final class ClusteredMapViewDelegate: NSObject, MKMapViewDelegate {
         UIView.animate(
             withDuration: 0.35, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [],
             animations: {
-                views.forEach { view in
+                for view in views {
                     view.alpha = 1
                 }
             },

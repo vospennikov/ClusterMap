@@ -67,7 +67,7 @@ final class MapViewDelegate: NSObject, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.3
-            views.forEach { view in
+            for view in views {
                 view.animator().alphaValue = 1.0
             }
         }

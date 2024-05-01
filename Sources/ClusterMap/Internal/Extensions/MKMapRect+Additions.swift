@@ -30,10 +30,10 @@ extension MKMapRect {
             latitude: max(region.center.latitude - (region.span.latitudeDelta / 2), -90),
             longitude: region.center.longitude + (region.span.longitudeDelta / 2)
         )
-        
+
         if topLeft.longitude < -180 || bottomRight.longitude > 180 {
             let world = MKMapRect.world
-            
+
             if topLeft.longitude < -180 {
                 topLeft.longitude += 360
             }
@@ -49,11 +49,11 @@ extension MKMapRect {
                 width: (world.maxX - max(topLeftPoint.x, bottomRightPoint.x)) + min(topLeftPoint.x, bottomRightPoint.x),
                 height: world.height
             )
-            
+
         } else {
             let topLeftPoint = MKMapPoint(topLeft)
             let bottomRightPoint = MKMapPoint(bottomRight)
-            
+
             self.init(
                 x: min(topLeftPoint.x, bottomRightPoint.x),
                 y: min(topLeftPoint.y, bottomRightPoint.y),
