@@ -136,11 +136,9 @@ The `ClusterManager` stores and cluster map points. It's an actor and safe threa
    @State private var mapSize: CGSize = .zero
    
    var body: some View {
-     GeometryReader(content: { geometryProxy in
-       Map()
+     Map()
        .readSize(onChange: { newValue in
          mapSize = newValue
-       })
      })
    }
    ```
