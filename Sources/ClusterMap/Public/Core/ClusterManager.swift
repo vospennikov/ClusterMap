@@ -102,6 +102,20 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
             }
         }
     }
+    
+    /// Reloads the annotations on the map based on the current zoom level and visible map rect.
+    ///
+    /// - Parameters:
+    ///   - mapViewSize: The size of the map view.
+    ///   - mapRect: The visible map rect for the map.
+    /// - Returns: A `Difference` object which contains the changes made during the reload.
+    @discardableResult
+    public func reload(mapViewSize: CGSize, mapRect: MKMapRect) async -> Difference {
+        let mapRectWidth = mapRect.size.width
+        let zoomScale = Double(mapViewSize.width) / mapRectWidth
+        let changes = performAnnotationClustering(zoomScale: zoomScale, visibleMapRect: mapRect)
+        return changes
+    }
 
     /// Reloads the annotations on the map based on the current zoom level and visible map region.
     /// This is an async-await variant of the `reload(mapViewSize:coordinateRegion:completion:)` method.
@@ -112,11 +126,7 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     /// - Returns: A `Difference` object which contains the changes made during the reload.
     @discardableResult
     public func reload(mapViewSize: CGSize, coordinateRegion: MKCoordinateRegion) async -> Difference {
-        let visibleMapRect = MKMapRect(region: coordinateRegion)
-        let visibleMapRectWidth = visibleMapRect.size.width
-        let zoomScale = Double(mapViewSize.width) / visibleMapRectWidth
-        let changes = performAnnotationClustering(zoomScale: zoomScale, visibleMapRect: visibleMapRect)
-        return changes
+        await reload(mapViewSize: mapViewSize, mapRect: MKMapRect(region: coordinateRegion))
     }
 
     /// Reloads the annotations on the map based on the current zoom level and visible map region.
