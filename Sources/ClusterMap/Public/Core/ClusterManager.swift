@@ -61,7 +61,7 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     /// Adds multiple annotations to the cluster manager.
     ///
     /// - Parameter annotations: An array of annotations to be added.
-    public func add(_ annotations: [Annotation]) {
+    public func add<Annotations: Sequence>(_ annotations: Annotations) where Annotations.Element == Annotation {
         annotations.forEach { tree.add($0) }
     }
 
@@ -75,7 +75,7 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     /// Removes multiple annotations from the cluster manager.
     ///
     /// - Parameter annotations: An array of annotations to be removed.
-    public func remove(_ annotations: [Annotation]) {
+    public func remove<Annotations: Sequence>(_ annotations: Annotations) where Annotations.Element == Annotation {
         annotations.forEach { tree.remove($0) }
     }
 
