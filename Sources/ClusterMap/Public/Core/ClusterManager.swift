@@ -121,6 +121,7 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     /// - Parameters:
     ///   - mkMapView: The map view.
     /// - Returns: A `Difference` object which contains the changes made during the reload.
+    @available(watchOS, unavailable)
     @MainActor
     @discardableResult
     public func reload(mkMapView: MKMapView) async -> Difference {
