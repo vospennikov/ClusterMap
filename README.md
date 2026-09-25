@@ -1,7 +1,7 @@
 # ClusterMap
 
-![Swift](https://img.shields.io/badge/Swift-6.2-orange)
-![Platform](https://img.shields.io/badge/Platform-iOS_15%2B_%7C_macOS_12%2B-orange)
+[![Swift](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fvospennikov%2FClusterMap%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/vospennikov/ClusterMap)
+[![Platform](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fvospennikov%2FClusterMap%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/vospennikov/ClusterMap)
 ![Framework](https://img.shields.io/badge/Framework-AppKit_%7C_UIKit_%7C_SwiftUI-orange)
 ![Package Manager](https://img.shields.io/badge/Package_Manager-SPM-orange)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
@@ -279,7 +279,7 @@ The `ClusterManager` has configuration, that help you improve perfomance and con
 ## Documentation
 The documentation for releases and `main` are available here:
 
-* [`main`](https://vospennikov.github.io/ClusterMap/main/documentation/clustermap)
+* [`main`](https://swiftpackageindex.com/vospennikov/ClusterMap/main/documentation/clustermap)
 * [2.1.0](https://vospennikov.github.io/ClusterMap/2.1.0/documentation/clustermap)
 * [2.0.0](https://vospennikov.github.io/ClusterMap/2.0.0/documentation/clustermap)
 * [1.1.0](https://vospennikov.github.io/ClusterMap/1.1.0/documentation/clustermap)
