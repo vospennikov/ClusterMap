@@ -10,6 +10,24 @@ import Testing
 @testable import ClusterMap
 
 struct ClusterManagerReloadTests {
+    @Test @MainActor func mapView_returnsSameDifferenceAsSizeAndRegion() async {
+        let coordinate = CLLocationCoordinate2D(latitude: 55.7558, longitude: 37.6173)
+        let mapView = MKMapView(frame: CGRect(origin: .zero, size: .mediumMapSize))
+        mapView.region = MKCoordinateRegion(center: coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        let annotation = StubAnnotation(coordinate: coordinate)
+        let viaMapView = ClusterManager<StubAnnotation>()
+        let viaSizeAndRegion = ClusterManager<StubAnnotation>()
+        await viaMapView.add(annotation)
+        await viaSizeAndRegion.add(annotation)
+
+        let difference = await viaMapView.reload(mkMapView: mapView)
+        let expected = await viaSizeAndRegion.reload(mapViewSize: mapView.bounds.size, coordinateRegion: mapView.region)
+
+        #expect(difference.insertions == expected.insertions)
+        #expect(difference.removals == expected.removals)
+        #expect(!difference.insertions.isEmpty)
+    }
+
     @Test(arguments: [
         (CGSize.zero, 0.05),
         (CGSize.mediumMapSize, 0.0),
