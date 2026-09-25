@@ -15,6 +15,7 @@ public extension ClusterManager {
     /// together. It contains the geographical coordinate for the cluster and an array of `Annotation` objects that
     /// belong to this cluster.
     struct ClusterAnnotation: Equatable, Hashable, Identifiable, Sendable {
+        // TODO: Make id stable across reloads and use it for == and hash.
         /// A unique identifier
         public let id = UUID()
 
@@ -29,7 +30,7 @@ public extension ClusterManager {
         }
 
         public func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
+            hasher.combine(memberAnnotations)
         }
     }
 }

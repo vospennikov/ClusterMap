@@ -227,7 +227,7 @@ private extension ClusterManager {
     }
 
     func divideMapIntoGridCells(for zoomScale: Double, visibleMapRect: MKMapRect) -> [MKMapRect] {
-        guard !zoomScale.isInfinite, !zoomScale.isNaN else { return [] }
+        guard zoomScale.isFinite, zoomScale > 0 else { return [] }
 
         zoomLevel = zoomScale.zoomLevel
         let scaleFactor = zoomScale / configuration.cellSizeForZoomLevel(Int(zoomLevel)).width
