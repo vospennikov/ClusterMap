@@ -57,4 +57,22 @@ struct ClusterManagerReloadTests {
         #expect(difference.removals == visibleBefore)
         #expect(visibleAfter.isEmpty)
     }
+
+    @Test func worldZoomRegion_showsAllAnnotations() async {
+        let annotations = [-150.0, -60, 0, 60, 150].map {
+            StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: $0))
+        }
+        let worldRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+            span: .init(latitudeDelta: 170, longitudeDelta: 400),
+        )
+        let manager = ClusterManager<StubAnnotation>()
+        await manager.add(annotations)
+
+        await manager.reload(mapViewSize: .mediumMapSize, coordinateRegion: worldRegion)
+        let visible = await manager.fetchVisibleNestedAnnotations()
+
+        #expect(visible.count == annotations.count)
+        #expect(Set(visible) == Set(annotations))
+    }
 }
