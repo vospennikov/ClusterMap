@@ -8,7 +8,8 @@
 import CoreLocation
 import Foundation
 
-extension CLLocationCoordinate2D: Hashable {
+// TODO: Remove this conformance; key clusters by grid cell and annotations by identity instead.
+extension CLLocationCoordinate2D: @retroactive Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(latitude)
         hasher.combine(longitude)

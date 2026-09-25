@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 import MapKit
 
-final class StubAnnotation: NSObject, MKAnnotation, CoordinateIdentifiable, Identifiable {
+final class StubAnnotation: NSObject, MKAnnotation, CoordinateIdentifiable, Identifiable, @unchecked Sendable {
     var coordinate: CLLocationCoordinate2D
 
     init(coordinate: CLLocationCoordinate2D) {
