@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-26
+    steps:
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app
+
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Test
+        run: swift test
+
+      - name: Create draft release from commit subjects
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          previous=$(git describe --tags --abbrev=0 "$GITHUB_REF_NAME^")
+          git log --no-merges --format='- %s' "$previous..$GITHUB_REF_NAME" > notes.md
+          gh release create "$GITHUB_REF_NAME" --draft --verify-tag --notes-file notes.md
