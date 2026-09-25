@@ -39,7 +39,7 @@ final class ClusteredMapViewDelegate: NSObject, MKMapViewDelegate {
                     reuseIdentifier: identifier
                 )
                 annotationView.countLabel.textColor = .systemGreen
-                annotationView.image = .pin2
+                annotationView.image = .pin2.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
                 annotationView.alpha = 0
                 return annotationView
 
@@ -49,7 +49,7 @@ final class ClusteredMapViewDelegate: NSObject, MKMapViewDelegate {
                     annotation: annotation,
                     reuseIdentifier: identifier
                 )
-                annotationView.image = .pin
+                annotationView.image = .pin.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
                 annotationView.alpha = 0
                 return annotationView
             }

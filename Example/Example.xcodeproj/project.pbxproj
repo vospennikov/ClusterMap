@@ -26,9 +26,7 @@
 		DD3411342A778869007A74AB /* ClusteredMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3411332A778869007A74AB /* ClusteredMapViewDelegate.swift */; };
 		DD3411392A77889B007A74AB /* ClusterWithImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3411372A77889B007A74AB /* ClusterWithImageAnnotationView.swift */; };
 		DD3411452A7788B4007A74AB /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34113C2A7788B4007A74AB /* UIViewController+Child.swift */; };
-		DD3411462A7788B4007A74AB /* UIImage+ColorFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34113D2A7788B4007A74AB /* UIImage+ColorFilled.swift */; };
 		DD3411492A7788B4007A74AB /* MKMapView+AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3411412A7788B4007A74AB /* MKMapView+AnnotationView.swift */; };
-		DD34114D2A7788F3007A74AB /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34114C2A7788F3007A74AB /* Resources.swift */; };
 		DD3411502A778BCE007A74AB /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34114F2A778BCE007A74AB /* MapViewDelegate.swift */; };
 		DD3411522A778EB1007A74AB /* MKMapView+ReusableAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3411512A778EB1007A74AB /* MKMapView+ReusableAnnotation.swift */; };
 		DD3411552A779567007A74AB /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3411112A77777D007A74AB /* DataSource.framework */; };
@@ -56,8 +54,6 @@
 		DDC0DD762AE3DF5E00D4B636 /* LocalSearchCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC0DD752AE3DF5E00D4B636 /* LocalSearchCompleter.swift */; };
 		DDC94AA02AA0755000D73080 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC94A9F2AA0755000D73080 /* AsyncButton.swift */; };
 		DDCA653E2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA653D2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift */; };
-		DDCA65402AA82C92006C6A2D /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA653F2AA82C92006C6A2D /* Background.swift */; };
-		DDCA65422AA82CAB006C6A2D /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA65412AA82CAB006C6A2D /* Overlay.swift */; };
 		DDD292312A78E2B200F8CC9E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD292302A78E2B200F8CC9E /* RoundedButton.swift */; };
 		DDD292332A78E87900F8CC9E /* ModernMap+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD292322A78E87900F8CC9E /* ModernMap+DataSource.swift */; };
 		DDDB3E532A9E478F00745D15 /* ClusterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB3E522A9E478F00745D15 /* ClusterAnnotation.swift */; };
@@ -149,9 +145,7 @@
 		DD3411332A778869007A74AB /* ClusteredMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteredMapViewDelegate.swift; sourceTree = "<group>"; };
 		DD3411372A77889B007A74AB /* ClusterWithImageAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterWithImageAnnotationView.swift; sourceTree = "<group>"; };
 		DD34113C2A7788B4007A74AB /* UIViewController+Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
-		DD34113D2A7788B4007A74AB /* UIImage+ColorFilled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorFilled.swift"; sourceTree = "<group>"; };
 		DD3411412A7788B4007A74AB /* MKMapView+AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+AnnotationView.swift"; sourceTree = "<group>"; };
-		DD34114C2A7788F3007A74AB /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		DD34114F2A778BCE007A74AB /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		DD3411512A778EB1007A74AB /* MKMapView+ReusableAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+ReusableAnnotation.swift"; sourceTree = "<group>"; };
 		DD752E7E2AA8EB3200D6AFC4 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
@@ -177,8 +171,6 @@
 		DDC0DD752AE3DF5E00D4B636 /* LocalSearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchCompleter.swift; sourceTree = "<group>"; };
 		DDC94A9F2AA0755000D73080 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		DDCA653D2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMapAnnotationProtocol.swift; sourceTree = "<group>"; };
-		DDCA653F2AA82C92006C6A2D /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		DDCA65412AA82CAB006C6A2D /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		DDD292302A78E2B200F8CC9E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		DDD292322A78E87900F8CC9E /* ModernMap+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModernMap+DataSource.swift"; sourceTree = "<group>"; };
 		DDDB3E522A9E478F00745D15 /* ClusterAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotation.swift; sourceTree = "<group>"; };
@@ -328,7 +320,6 @@
 		DD34114E2A7789AD007A74AB /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				DD34113D2A7788B4007A74AB /* UIImage+ColorFilled.swift */,
 				DD34113C2A7788B4007A74AB /* UIViewController+Child.swift */,
 			);
 			path = UIKit;
@@ -361,8 +352,6 @@
 				DDC0DD732AE3C0EB00D4B636 /* LazyView.swift */,
 				DDCA653D2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift */,
 				DDC94A9F2AA0755000D73080 /* AsyncButton.swift */,
-				DDCA653F2AA82C92006C6A2D /* Background.swift */,
-				DDCA65412AA82CAB006C6A2D /* Overlay.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -475,7 +464,6 @@
 			isa = PBXGroup;
 			children = (
 				DD883E592993C70400E713CF /* Info.plist */,
-				DD34114C2A7788F3007A74AB /* Resources.swift */,
 				DD883E5A2993C70400E713CF /* Assets.xcassets */,
 				DD883E5B2993C70400E713CF /* LaunchScreen.storyboard */,
 			);
@@ -761,11 +749,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD292312A78E2B200F8CC9E /* RoundedButton.swift in Sources */,
-				DDCA65422AA82CAB006C6A2D /* Overlay.swift in Sources */,
 				DDD292332A78E87900F8CC9E /* ModernMap+DataSource.swift in Sources */,
 				DD3410EB2A777686007A74AB /* ModernMap.swift in Sources */,
 				DDC0DD742AE3C0EB00D4B636 /* LazyView.swift in Sources */,
-				DDCA65402AA82C92006C6A2D /* Background.swift in Sources */,
 				DDCA653E2AA707C8006C6A2D /* AnyMapAnnotationProtocol.swift in Sources */,
 				DDF05F0F2ADE6AA8004A1191 /* MapKitIntegration.swift in Sources */,
 				DD3410E92A777686007A74AB /* ExampleApp.swift in Sources */,
@@ -799,7 +785,6 @@
 				DD883E922993C70400E713CF /* ClusteringSelectionViewController.swift in Sources */,
 				DD3411452A7788B4007A74AB /* UIViewController+Child.swift in Sources */,
 				DDDB3E552A9E47C900745D15 /* ClusterAnnotationView.swift in Sources */,
-				DD3411462A7788B4007A74AB /* UIImage+ColorFilled.swift in Sources */,
 				DD883E8E2993C70400E713CF /* MapContainerViewController.swift in Sources */,
 				DDDB3E532A9E478F00745D15 /* ClusterAnnotation.swift in Sources */,
 				DDF90B352AA50120001B94E8 /* PointAnnotation.swift in Sources */,
@@ -807,7 +792,6 @@
 				DD3411492A7788B4007A74AB /* MKMapView+AnnotationView.swift in Sources */,
 				DD3411322A778819007A74AB /* AnnotationTypes.swift in Sources */,
 				DD883E942993C70400E713CF /* SceneDelegate.swift in Sources */,
-				DD34114D2A7788F3007A74AB /* Resources.swift in Sources */,
 				DD883E932993C70400E713CF /* AppDelegate.swift in Sources */,
 				DD3411392A77889B007A74AB /* ClusterWithImageAnnotationView.swift in Sources */,
 				DDDB3E572A9E480800745D15 /* CountLabel.swift in Sources */,
@@ -869,7 +853,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "clustermap.example-appkit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -902,7 +886,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "clustermap.example-appkit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -930,7 +914,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -961,7 +945,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -991,7 +975,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -1000,7 +984,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1033,7 +1017,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -1042,7 +1026,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1193,7 +1177,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1223,7 +1207,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

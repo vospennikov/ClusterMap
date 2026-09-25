@@ -1,7 +1,7 @@
 # ClusterMap
 
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![Platform](https://img.shields.io/badge/Platform-iOS_%7C_macOS-orange)
+![Platform](https://img.shields.io/badge/Platform-iOS_15%2B_%7C_macOS_12%2B-orange)
 ![Framework](https://img.shields.io/badge/Framework-AppKit_%7C_UIKit_%7C_SwiftUI-orange)
 ![Package Manager](https://img.shields.io/badge/Package_Manager-SPM-orange)
 ![GitHub](https://img.shields.io/badge/Licence-MIT-orange)
