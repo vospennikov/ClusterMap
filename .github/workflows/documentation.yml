@@ -26,12 +26,12 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_26.6.app
 
       - name: Checkout Package
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Checkout gh-pages Branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: gh-pages
           path: docs-out
