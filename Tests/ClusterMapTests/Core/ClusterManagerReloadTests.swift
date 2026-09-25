@@ -75,4 +75,65 @@ struct ClusterManagerReloadTests {
         #expect(visible.count == annotations.count)
         #expect(Set(visible) == Set(annotations))
     }
+
+    @Test(arguments: [
+        (180.0, 60.0, [stride(from: 150.5, to: 180, by: 1), stride(from: -179.5, to: -150, by: 1)]),
+        (170.0, 360.0, [stride(from: -179.5, to: 180, by: 1)]),
+    ])
+    func dateLineRegion_showsEachAnnotationOnce(
+        centerLongitude: CLLocationDegrees,
+        longitudeDelta: CLLocationDegrees,
+        longitudes: [StrideTo<CLLocationDegrees>],
+    ) async {
+        let annotations = longitudes.joined().map {
+            StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: $0))
+        }
+        let dateLineRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 0, longitude: centerLongitude),
+            span: .init(latitudeDelta: 60, longitudeDelta: longitudeDelta),
+        )
+        let manager = ClusterManager<StubAnnotation>()
+        await manager.add(annotations)
+
+        await manager.reload(mapViewSize: .mediumMapSize, coordinateRegion: dateLineRegion)
+        let visible = await manager.fetchVisibleNestedAnnotations()
+
+        #expect(visible.count == annotations.count)
+        #expect(Set(visible) == Set(annotations))
+    }
+
+    @Test func dateLineRegion_excludesOtherLatitudes() async {
+        let inside = [
+            StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 179)),
+            StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: -179)),
+        ]
+        let outside = StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 60, longitude: 179))
+        let dateLineRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 0, longitude: 180),
+            span: .init(latitudeDelta: 10, longitudeDelta: 10),
+        )
+        let manager = ClusterManager<StubAnnotation>()
+        await manager.add(inside + [outside])
+
+        await manager.reload(mapViewSize: .mediumMapSize, coordinateRegion: dateLineRegion)
+        let visible = await manager.fetchVisibleNestedAnnotations()
+
+        #expect(Set(visible) == Set(inside))
+    }
+
+    @Test func regionNearDateLine_excludesAnnotationsPastDateLine() async {
+        let inside = StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 179.9))
+        let pastDateLine = StubAnnotation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: -179.9))
+        let regionNearDateLine = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 0, longitude: 169.95),
+            span: .init(latitudeDelta: 20, longitudeDelta: 20),
+        )
+        let manager = ClusterManager<StubAnnotation>()
+        await manager.add([inside, pastDateLine])
+
+        await manager.reload(mapViewSize: .mediumMapSize, coordinateRegion: regionNearDateLine)
+        let visible = await manager.fetchVisibleNestedAnnotations()
+
+        #expect(visible == [inside])
+    }
 }

@@ -231,26 +231,34 @@ private extension ClusterManager {
         zoomLevel = zoomScale.zoomLevel
         let scaleFactor = zoomScale / configuration.cellSizeForZoomLevel(Int(zoomLevel)).width
 
-        let minX = Int(floor(visibleMapRect.minX * scaleFactor))
-        let maxX = Int(floor(visibleMapRect.maxX * scaleFactor))
+        let worldColumns = cellColumns(overlapping: visibleMapRect.intersection(.world), scaleFactor: scaleFactor)
+        let remainderColumns = cellColumns(overlapping: visibleMapRect.remainder, scaleFactor: scaleFactor)
+        let columns = worldColumns + remainderColumns.filter { !worldColumns.contains($0) }
         let minY = Int(floor(visibleMapRect.minY * scaleFactor))
         let maxY = Int(floor(visibleMapRect.maxY * scaleFactor))
 
         var mapRects = [MKMapRect]()
-        for x in minX...maxX {
+        for x in columns {
+            let minX = Double(x) / scaleFactor
+            let width = min(1 / scaleFactor, MKMapRect.world.maxX - minX)
             for y in minY...maxY {
-                var mapRect = MKMapRect(
-                    x: Double(x) / scaleFactor,
+                mapRects.append(MKMapRect(
+                    x: minX,
                     y: Double(y) / scaleFactor,
-                    width: 1 / scaleFactor,
-                    height: 1 / scaleFactor
-                )
-                if mapRect.origin.x > MKMapPointMax.x {
-                    mapRect.origin.x -= MKMapPointMax.x
-                }
-                mapRects.append(mapRect)
+                    width: width,
+                    height: 1 / scaleFactor,
+                ))
             }
         }
         return mapRects
+    }
+
+    func cellColumns(overlapping mapRect: MKMapRect, scaleFactor: Double) -> Range<Int> {
+        guard !mapRect.isNull else {
+            return 0..<0
+        }
+        let firstColumn = Int(floor(mapRect.minX * scaleFactor))
+        let lastColumn = Int(floor(mapRect.maxX * scaleFactor))
+        return firstColumn..<lastColumn + 1
     }
 }

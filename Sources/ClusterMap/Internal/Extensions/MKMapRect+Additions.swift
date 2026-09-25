@@ -46,9 +46,9 @@ extension MKMapRect {
 
             self.init(
                 x: max(topLeftPoint.x, bottomRightPoint.x),
-                y: world.origin.y,
+                y: min(topLeftPoint.y, bottomRightPoint.y),
                 width: (world.maxX - max(topLeftPoint.x, bottomRightPoint.x)) + min(topLeftPoint.x, bottomRightPoint.x),
-                height: world.height
+                height: max(topLeftPoint.y, bottomRightPoint.y) - min(topLeftPoint.y, bottomRightPoint.y),
             )
 
         } else {
