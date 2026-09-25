@@ -22,13 +22,14 @@ extension MKMapRect {
     }
 
     init(region: MKCoordinateRegion) {
+        let longitudeDelta = min(region.span.longitudeDelta, 360)
         var topLeft = CLLocationCoordinate2D(
             latitude: min(region.center.latitude + (region.span.latitudeDelta / 2), 90),
-            longitude: region.center.longitude - (region.span.longitudeDelta / 2)
+            longitude: region.center.longitude - (longitudeDelta / 2),
         )
         var bottomRight = CLLocationCoordinate2D(
             latitude: max(region.center.latitude - (region.span.latitudeDelta / 2), -90),
-            longitude: region.center.longitude + (region.span.longitudeDelta / 2)
+            longitude: region.center.longitude + (longitudeDelta / 2),
         )
 
         if topLeft.longitude < -180 || bottomRight.longitude > 180 {
