@@ -21,15 +21,13 @@ import MapKit
 ///
 /// // Adding an annotation
 /// let annotation = MyAnnotation(coordinate: someCoordinate)
-/// manager.add(annotation)
+/// await manager.add(annotation)
 ///
 /// // Adding multiple annotations
-/// manager.add([annotation1, annotation2, annotation3])
+/// await manager.add([annotation1, annotation2, annotation3])
 ///
 /// // Reloading the clustering for a map region
-/// manager.reload(mapSize: someSize, coordinateRegion: someRegion) { difference in
-///     // Handle the difference here
-/// }
+/// let difference = await manager.reload(mapViewSize: someSize, coordinateRegion: someRegion)
 /// ```
 public actor ClusterManager<Annotation: CoordinateIdentifiable>
     where
@@ -104,7 +102,6 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     }
 
     /// Reloads the annotations on the map based on the current zoom level and visible map region.
-    /// This is an async-await variant of the `reload(mapViewSize:coordinateRegion:completion:)` method.
     ///
     /// - Parameters:
     ///   - mapViewSize: The size of the map view.
@@ -125,7 +122,8 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     ///   - mkMapView: The map view.
     /// - Returns: A `Difference` object which contains the changes made during the reload.
     @MainActor
-    public func reload(mkMapView: MKMapView) async {
+    @discardableResult
+    public func reload(mkMapView: MKMapView) async -> Difference {
         await reload(mapViewSize: mkMapView.bounds.size, coordinateRegion: mkMapView.region)
     }
 }
