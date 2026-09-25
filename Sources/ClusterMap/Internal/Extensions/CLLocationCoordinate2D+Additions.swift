@@ -9,8 +9,6 @@ import CoreLocation
 import Foundation
 import MapKit
 
-let CLLocationCoordinate2DMax = CLLocationCoordinate2D(latitude: 90, longitude: 180)
-let MKMapPointMax = MKMapPoint(CLLocationCoordinate2DMax)
 private let radiusOfEarth: Double = 6_372_797.6
 
 extension CLLocationCoordinate2D {
