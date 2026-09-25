@@ -147,7 +147,10 @@ The `ClusterManager` stores and cluster map points. It's an actor and safe threa
    ```swift
    Map()
    .onMapCameraChange(frequency: .onEnd) { context in
-     Task.detached { await clusterManager.reload(mapViewSize: mapSize, coordinateRegion: context.region) }
+     Task {
+       let difference = await clusterManager.reload(mapViewSize: mapSize, coordinateRegion: context.region)
+       applyChanges(difference)
+     }
    }
    ```
 

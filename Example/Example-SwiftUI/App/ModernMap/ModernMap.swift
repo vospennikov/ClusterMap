@@ -38,11 +38,9 @@ struct ModernMap: View {
         .readSize(onChange: { newValue in
             dataSource.mapSize = newValue
         })
-        .onMapCameraChange { context in
-            dataSource.currentRegion = context.region
-        }
         .onMapCameraChange(frequency: .onEnd) { context in
-            Task.detached { await dataSource.reloadAnnotations() }
+            dataSource.currentRegion = context.region
+            Task { await dataSource.reloadAnnotations() }
         }
         .overlay(alignment: .bottom, content: {
             HStack {

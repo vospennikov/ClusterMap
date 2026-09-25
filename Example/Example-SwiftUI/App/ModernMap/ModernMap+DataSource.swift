@@ -46,9 +46,10 @@ extension ModernMap {
             await reloadAnnotations()
         }
 
+        @MainActor
         func reloadAnnotations() async {
-            async let changes = clusterManager.reload(mapViewSize: mapSize, coordinateRegion: currentRegion)
-            await applyChanges(changes)
+            let difference = await clusterManager.reload(mapViewSize: mapSize, coordinateRegion: currentRegion)
+            applyChanges(difference)
         }
 
         @MainActor
