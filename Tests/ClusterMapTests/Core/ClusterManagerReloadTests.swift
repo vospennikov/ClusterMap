@@ -12,8 +12,8 @@ import Testing
 struct ClusterManagerReloadTests {
     @Test(arguments: [
         (CGSize.zero, 0.05),
-        (CGSize.mediumMapSize, 0),
-        (CGSize.zero, 0),
+        (CGSize.mediumMapSize, 0.0),
+        (CGSize.zero, 0.0),
         (CGSize(width: -428, height: -926), 0.05),
     ])
     func zeroOrNegativeVisibleArea_removesVisibleAnnotations(

@@ -124,6 +124,7 @@ public actor ClusterManager<Annotation: CoordinateIdentifiable>
     /// - Parameters:
     ///   - mkMapView: The map view.
     /// - Returns: A `Difference` object which contains the changes made during the reload.
+    @MainActor
     public func reload(mkMapView: MKMapView) async {
         await reload(mapViewSize: mkMapView.bounds.size, coordinateRegion: mkMapView.region)
     }
