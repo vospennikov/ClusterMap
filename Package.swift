@@ -6,14 +6,14 @@ import PackageDescription
 let package = Package(
     name: "ClusterMap",
     platforms: [
-        .iOS(.v13), .macOS(.v11),
+        .iOS(.v15), .macOS(.v12),
     ],
     products: [
         .library(name: "ClusterMap", targets: ["ClusterMap"]),
         .library(name: "ClusterMapSwiftUI", targets: ["ClusterMapSwiftUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.4.0"),
     ],
     targets: [
         .target(name: "ClusterMap"),
