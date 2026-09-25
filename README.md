@@ -56,7 +56,7 @@ Add the ClusterMap dependency to an Xcode project as a package dependency.
 Add the ClusterMap dependency to your `Package.swift` manifest.
 1. Add the following dependency to your `dependencies` argument:
    ```swift
-   .package(url: "https://github.com/vospennikov/ClusterMap.git", from: "2.1.0")
+   .package(url: "https://github.com/vospennikov/ClusterMap.git", from: "3.0.0")
    ```
 2. Add the dependency to any targets you've declared in your manifest:
    ```swift
@@ -280,6 +280,7 @@ The `ClusterManager` has configuration, that help you improve perfomance and con
 The documentation for releases and `main` are available here:
 
 * [`main`](https://swiftpackageindex.com/vospennikov/ClusterMap/main/documentation/clustermap)
+* [3.0.0](https://swiftpackageindex.com/vospennikov/ClusterMap/3.0.0/documentation/clustermap)
 * [2.1.0](https://vospennikov.github.io/ClusterMap/2.1.0/documentation/clustermap)
 * [2.0.0](https://vospennikov.github.io/ClusterMap/2.0.0/documentation/clustermap)
 * [1.1.0](https://vospennikov.github.io/ClusterMap/1.1.0/documentation/clustermap)
