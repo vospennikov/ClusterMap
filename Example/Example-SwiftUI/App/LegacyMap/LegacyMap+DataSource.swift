@@ -65,9 +65,10 @@ extension LegacyMap {
             await reloadAnnotations()
         }
 
+        @MainActor
         private func reloadAnnotations() async {
-            async let changes = clusterManager.reload(mapViewSize: mapSize, coordinateRegion: _region)
-            await applyChanges(changes)
+            let difference = await clusterManager.reload(mapViewSize: mapSize, coordinateRegion: _region)
+            applyChanges(difference)
         }
 
         @MainActor

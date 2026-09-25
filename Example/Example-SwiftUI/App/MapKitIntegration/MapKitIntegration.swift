@@ -37,7 +37,7 @@ struct MapKitIntegration: View {
         }
         .overlay(alignment: .bottom, content: {
             Button(
-                action: { Task.detached { await searchClient.search() } },
+                action: { Task { await searchClient.search() } },
                 label: { Label("Apple store", systemImage: "magnifyingglass") }
             )
             .buttonStyle(RoundedButton(fillColor: .accentColor, padding: 8))
@@ -45,11 +45,9 @@ struct MapKitIntegration: View {
         .readSize(onChange: { newValue in
             searchClient.mapSize = newValue
         })
-        .onMapCameraChange { context in
-            searchClient.currentRegion = context.region
-        }
         .onMapCameraChange(frequency: .onEnd) { context in
-            Task.detached { await searchClient.reloadAnnotations() }
+            searchClient.currentRegion = context.region
+            Task { await searchClient.reloadAnnotations() }
         }
         .onAppear {
             searchClient.setup()
