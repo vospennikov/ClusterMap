@@ -36,7 +36,7 @@ public extension ClusterManager {
         /// This count is the minimum number of annotations required to form a cluster. Annotations in regions with
         /// fewer than this count will not be clustered.
         ///
-        /// - Note: The default is `2`.
+        /// - Note: The minimum value is `1`. The default is `2`.
         public let minCountForClustering: Int
 
         /// Removal of non-visible annotations.
@@ -146,7 +146,7 @@ public extension ClusterManager {
             }
         ) {
             self.maxZoomLevel = max(0, maxZoomLevel)
-            self.minCountForClustering = max(0, minCountForClustering)
+            self.minCountForClustering = max(1, minCountForClustering)
             self.shouldRemoveInvisibleAnnotations = shouldRemoveInvisibleAnnotations
             self.shouldDistributeAnnotationsOnSameCoordinate = shouldDistributeAnnotationsOnSameCoordinate
             self.distanceFromContestedLocation = max(0, distanceFromContestedLocation)
