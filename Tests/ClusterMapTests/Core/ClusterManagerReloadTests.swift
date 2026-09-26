@@ -10,6 +10,7 @@ import Testing
 @testable import ClusterMap
 
 struct ClusterManagerReloadTests {
+    @available(watchOS, unavailable)
     @Test @MainActor func mapView_returnsSameDifferenceAsSizeAndRegion() async {
         let coordinate = CLLocationCoordinate2D(latitude: 55.7558, longitude: 37.6173)
         let mapView = MKMapView(frame: CGRect(origin: .zero, size: .mediumMapSize))
