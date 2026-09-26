@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    runs-on: macos-26
+    steps:
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app
+
+      - uses: actions/checkout@v7
+
+      - name: Test
+        run: swift test
+
+      - name: Build Example-UIKit
+        run: xcodebuild build -project Example/Example.xcodeproj -scheme Example-UIKit -destination "generic/platform=iOS Simulator" CODE_SIGNING_ALLOWED=NO
+
+      - name: Build Example-SwiftUI
+        run: xcodebuild build -project Example/Example.xcodeproj -scheme Example-SwiftUI -destination "generic/platform=iOS Simulator" CODE_SIGNING_ALLOWED=NO
+
+      - name: Build Example-AppKit
+        run: xcodebuild build -project Example/Example.xcodeproj -scheme Example-AppKit -destination generic/platform=macOS CODE_SIGNING_ALLOWED=NO
+
+  simulator:
+    runs-on: macos-26
+    strategy:
+      fail-fast: false
+      matrix:
+        destination:
+          - platform=iOS Simulator,OS=latest,name=iPhone 17
+          - platform=tvOS Simulator,OS=latest,name=Apple TV 4K (3rd generation)
+          - platform=visionOS Simulator,OS=latest,name=Apple Vision Pro
+          - platform=watchOS Simulator,OS=latest,name=Apple Watch SE 3 (44mm)
+    steps:
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app
+
+      - uses: actions/checkout@v7
+
+      - name: Test
+        run: xcodebuild test -scheme ClusterMap-Package -destination "${{ matrix.destination }}"

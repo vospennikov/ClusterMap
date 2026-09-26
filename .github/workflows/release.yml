@@ -10,17 +10,11 @@ permissions:
 
 jobs:
   release:
-    runs-on: macos-26
+    runs-on: ubuntu-latest
     steps:
-      - name: Select Xcode 26.6
-        run: sudo xcode-select -s /Applications/Xcode_26.6.app
-
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-
-      - name: Test
-        run: swift test
 
       - name: Create draft release from commit subjects
         env:
